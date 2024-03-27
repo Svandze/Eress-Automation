@@ -1,13 +1,14 @@
 package pages;
 
-
+import core.CustomPageFactory;
 import core.DriverManager;
+import org.openqa.selenium.WebDriver;
 
-public class BasePage extends DriverManager {
+public class BasePage {
+    protected WebDriver driver;
 
-    public void runNavigator(String url){
-
-        getDriver().get(url);
+    public BasePage() {
+        this.driver = DriverManager.getDriver();
+        CustomPageFactory.initElements(driver, this);
     }
-
 }

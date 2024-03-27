@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>framework</artifactId>
-            <version>1.1-TestingElementUtils</version>
+            <version>1.1-TestingElementUtilsTest</version>
         </dependency>
     </dependencies>
 

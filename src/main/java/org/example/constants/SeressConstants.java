@@ -1,0 +1,7 @@
+package org.example.constants;
+
+public class SeressConstants {
+    public static final String BASE_URL = "http://170.187.157.103:4200/";
+    public static final String EMAIL = "pruebasqa@enequipo.co";
+    public static final String PASSWORD = "Qa#$*2012";
+}
