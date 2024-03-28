@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ffff6ec-0f40-4a49-9694-c32afbff6f03" name="Changes" comment="update pom">
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/ConfeccionPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/MaestroDeMaquinasPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steps/BaseTestSeress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/MaestroDeMaquinas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/ParametrizacionPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/MaestroDeMaquinasTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SimplePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SimplePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/steps/SimplePageStepsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/SimplePageStepsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/constants/SeressConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/SeressConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/ConfeccionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/ConfeccionPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/MaestroDeMaquinasPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/MaestroDeMaquinasPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/steps/BaseTestSeress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/BaseTestSeress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/MaestroDeMaquinas.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +107,7 @@
       <recent name="C:\Users\matys\OneDrive\Documentos\TDG\Seress-Automation\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MaestroDeMaquinas.addMachineTest">
+  <component name="RunManager" selected="JUnit.MaestroDeMaquinasTest.addMachineTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="Seress" />
@@ -121,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MaestroDeMaquinas.addMachineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MaestroDeMaquinasTest.addMachineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Seress" />
       <extension name="coverage">
         <pattern>
@@ -130,7 +130,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="steps.parametrizacion" />
-      <option name="MAIN_CLASS_NAME" value="steps.parametrizacion.MaestroDeMaquinas" />
+      <option name="MAIN_CLASS_NAME" value="steps.parametrizacion.MaestroDeMaquinasTest" />
       <option name="METHOD_NAME" value="addMachineTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -170,7 +170,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MaestroDeMaquinas.addMachineTest" />
+        <item itemvalue="JUnit.MaestroDeMaquinasTest.addMachineTest" />
         <item itemvalue="JUnit.SimplePageStepsTest" />
         <item itemvalue="JUnit.SimplePageStepsTest.simplePage" />
         <item itemvalue="Application.Main" />
@@ -202,7 +202,7 @@
       <workItem from="1711466929590" duration="9635000" />
       <workItem from="1711503746394" duration="133000" />
       <workItem from="1711565723008" duration="4369000" />
-      <workItem from="1711639303969" duration="4217000" />
+      <workItem from="1711639303969" duration="17183000" />
     </task>
     <task id="LOCAL-00001" summary="update pom">
       <option name="closed" value="true" />

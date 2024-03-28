@@ -18,7 +18,6 @@ public class BaseTestSeress extends BaseTest {
         simplePage = new SimplePage();
         loginPage = new LoginPage();
         homePage = new HomePage();
-
         simplePage.openPage();
         loginPage.doLogin();
         waitAndClick(homePage.confeccionesButton);
