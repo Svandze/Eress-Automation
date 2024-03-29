@@ -1,13 +1,10 @@
-package steps.parametrizacion;
+package steps.parametrizacion.maestrodemaquinas;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import pages.parametrizacion.ConfeccionPage;
-import pages.parametrizacion.MaestroDeMaquinasPage;
+import pages.parametrizacion.maestrodemaquinas.MaestroDeMaquinasPage;
 import pages.parametrizacion.ParametrizacionPage;
 import steps.BaseTestSeress;
 
@@ -46,15 +43,16 @@ public class MaestroDeMaquinasTest extends BaseTestSeress {
         waitAndSendKeys(maestroDeMaquinasPage.addMachineCodeInputForm, machine);
         maestroDeMaquinasPage.setMachineData("PLANA 1 AGU", "5", "6", "23");
         maestroDeMaquinasPage.findMachine(machine);
-        Thread.sleep(4000);
         waitAndClick(maestroDeMaquinasPage.getEditButtonForMachine(machine));
         maestroDeMaquinasPage.setMachineData("PLANA 3 AGU", "8", "12", "45");
         maestroDeMaquinasPage.findMachine(machine);
-        Thread.sleep(5000);
         waitAndClick(maestroDeMaquinasPage.getDetailsButtonForMachine(machine));
-        Thread.sleep(3000);
-        String currentValue = maestroDeMaquinasPage.addMachineCodeInputForm.getAttribute("value");
-        Assert.assertEquals("Expected", machine, currentValue);
+        maestroDeMaquinasPage.validateMachineInfo(machine);
+        waitAndClick(maestroDeMaquinasPage.cancelButton);
+        maestroDeMaquinasPage.findMachine(machine);
+        waitAndClick(maestroDeMaquinasPage.getDeleteButtonForMachine());
+        waitAndClick(maestroDeMaquinasPage.confirmButtonDelete);
+        Thread.sleep(5000);
     }
 
 
