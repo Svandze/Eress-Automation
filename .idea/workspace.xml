@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6ffff6ec-0f40-4a49-9694-c32afbff6f03" name="Changes" comment="update pom">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/steps/SimplePageStepsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/SimplePageStepsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/maestrodemaquinas/MaestroDeMaquinasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/maestrodemaquinas/MaestroDeMaquinasTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,27 +72,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "JUnit.SimplePageSteps.simplePage.executor": "Run",
-    "JUnit.SimplePageStepsTest.simplePage.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/matys/OneDrive/Documentos/TDG/Seress-Automation/src/test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "google-java-format.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SimplePageSteps.simplePage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SimplePageStepsTest.simplePage.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matys/OneDrive/Documentos/TDG/Seress-Automation/src/test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;google-java-format.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\matys\OneDrive\Documentos\TDG\Seress-Automation\src\test" />
@@ -232,7 +231,8 @@
       <workItem from="1711565723008" duration="4369000" />
       <workItem from="1711639303969" duration="17183000" />
       <workItem from="1711818155173" duration="3397000" />
-      <workItem from="1711822447504" duration="1993000" />
+      <workItem from="1711822447504" duration="3617000" />
+      <workItem from="1711839511657" duration="307000" />
     </task>
     <task id="LOCAL-00001" summary="update pom">
       <option name="closed" value="true" />
