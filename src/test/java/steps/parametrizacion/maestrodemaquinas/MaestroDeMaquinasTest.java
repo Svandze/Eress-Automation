@@ -2,22 +2,14 @@ package steps.parametrizacion.maestrodemaquinas;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.parametrizacion.ConfeccionPage;
-import pages.parametrizacion.maestrodemaquinas.MaestroDeMaquinasPage;
 import pages.parametrizacion.ParametrizacionPage;
+import pages.parametrizacion.maestrodemaquinas.MaestroDeMaquinasPage;
 import steps.BaseTestSeress;
-
-
-import java.time.Duration;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
 import static org.example.utils.MachineCodeBuilder.randomMachineCode;
-import static utils.ElementUtils.clickWithJavaScript;
 import static utils.ElementUtils.waitAndClick;
-import static utils.ElementUtils.waitAndSendKeys;
 import static utils.ElementUtils.windowHandler;
 
 public class MaestroDeMaquinasTest extends BaseTestSeress {
@@ -53,6 +45,4 @@ public class MaestroDeMaquinasTest extends BaseTestSeress {
         maestroDeMaquinasPage.validateMachine(machineCode, updatedDistance0To5, updatedDistance6To10, updatedDistanceGreaterThan11);
         maestroDeMaquinasPage.deleteMachine(machineCode);
     }
-
-
 }
