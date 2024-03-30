@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6ffff6ec-0f40-4a49-9694-c32afbff6f03" name="Changes" comment="update pom">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +231,7 @@
       <workItem from="1711639303969" duration="17183000" />
       <workItem from="1711818155173" duration="3397000" />
       <workItem from="1711822447504" duration="3617000" />
-      <workItem from="1711839511657" duration="307000" />
+      <workItem from="1711839511657" duration="1850000" />
     </task>
     <task id="LOCAL-00001" summary="update pom">
       <option name="closed" value="true" />
