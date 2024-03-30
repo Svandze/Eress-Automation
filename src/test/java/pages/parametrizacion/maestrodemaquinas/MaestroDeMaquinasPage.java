@@ -13,6 +13,7 @@ import java.time.Duration;
 
 import static utils.ElementUtils.ScrollToElement;
 import static utils.ElementUtils.clickWithJavaScript;
+import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.waitAndSendKeys;
 
 public class MaestroDeMaquinasPage extends BasePage {
@@ -61,11 +62,12 @@ public class MaestroDeMaquinasPage extends BasePage {
     public void findMachine(String machineCode) {
         waitAndSendKeys(searchInputField, machineCode);
         searchInputField.sendKeys(Keys.ENTER);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='"+machineCode+"']")));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated((By.cssSelector(".toast-title"))));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + machineCode + "']")));
     }
 
-    public void setMachineData(String description, String distance0To5cm, String distance6To10cm, String distanceGreatherThan11Cm) throws InterruptedException {
+    public void setMachineData(String description, String distance0To5cm, String distance6To10cm, String distanceGreatherThan11Cm) {
         waitAndSendKeys(machineTypeInputForm, description);
         waitAndSendKeys(distance0To5InputForm, distance0To5cm);
         waitAndSendKeys(distance6To10InputForm, distance6To10cm);
@@ -74,18 +76,43 @@ public class MaestroDeMaquinasPage extends BasePage {
         clickWithJavaScript(confirmAddMachineButton);
     }
 
-    public void validateMachineInfo(String machine){
+    public void validateMachineInfo(String machineCode, String distance0To5Cms, String distance6To10Cms, String distanceGratherThan11Cms) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        // Asegúrate de que el elemento está presente antes de revisar su valor.
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
-
-        // Espera a que el atributo 'value' del elemento tenga el valor esperado.
-        wait.until(ExpectedConditions.attributeToBe(addMachineCodeInputForm, "value", machine));
-
-        // Obtener el valor actual para asegurarse de que es el correcto.
-        String currentValue = addMachineCodeInputForm.getAttribute("value");
-        Assert.assertEquals("El valor actual no coincide con el esperado", machine, currentValue);
+        wait.until(ExpectedConditions.attributeToBe(addMachineCodeInputForm, "value", machineCode));
+        String currentMachineCode = addMachineCodeInputForm.getAttribute("value");
+        String currentdistance0To5Cms = distance0To5InputForm.getAttribute("value");
+        String currentDistance6To10Cms = distance6To10InputForm.getAttribute("value");
+        String currentdistanceGratherThan11Cms = distanceGreatherThan11InputForm.getAttribute("value");
+        Assert.assertEquals("El valor actual del código de la máquina coincide con el esperado", machineCode, currentMachineCode);
+        Assert.assertEquals("El valor actual de distancia 0-5 cms coincide con el esperado", distance0To5Cms, currentdistance0To5Cms);
+        Assert.assertEquals("El valor actual de distancia 6-10 cms coincide con el esperado", distance6To10Cms, currentDistance6To10Cms);
+        Assert.assertEquals("El valor actual de distancia > 11 cms coincide con el esperado", distanceGratherThan11Cms, currentdistanceGratherThan11Cms);
     }
 
+    public void addMachine(String machineCode, String description, String distance0To5cm, String distance6To10cm, String distanceGreatherThan11Cm) {
+        waitAndClick(addButton);
+        waitAndSendKeys(addMachineCodeInputForm, machineCode);
+        setMachineData(description, distance0To5cm, distance6To10cm, distanceGreatherThan11Cm);
+    }
+
+    public void editMachine(String machineCode, String newDescription, String newDistance0To5cm, String newDistance6To10cm, String newDistanceGreatherThan11Cm) {
+        findMachine(machineCode);
+        waitAndClick(getEditButtonForMachine(machineCode));
+        setMachineData(newDescription, newDistance0To5cm, newDistance6To10cm, newDistanceGreatherThan11Cm);
+    }
+
+    public void validateMachine(String machineCode, String expectedDistance0To5cm, String expectedDistance6To10cm, String expectedDistanceGreatherThan11Cm) {
+        findMachine(machineCode);
+        waitAndClick(getDetailsButtonForMachine(machineCode));
+        validateMachineInfo(machineCode, expectedDistance0To5cm, expectedDistance6To10cm, expectedDistanceGreatherThan11Cm);
+        clickWithJavaScript(cancelButton);
+    }
+
+    public void deleteMachine(String machineCode) {
+        findMachine(machineCode);
+        waitAndClick(getDeleteButtonForMachine());
+        waitAndClick(confirmButtonDelete);
+    }
 
 }

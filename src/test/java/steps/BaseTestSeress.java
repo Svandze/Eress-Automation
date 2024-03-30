@@ -14,13 +14,12 @@ public class BaseTestSeress extends BaseTest {
     private HomePage homePage;
 
     @Before
-    public void setup() throws InterruptedException {
+    public void setup() {
         simplePage = new SimplePage();
         loginPage = new LoginPage();
         homePage = new HomePage();
         simplePage.openPage();
         loginPage.doLogin();
         waitAndClick(homePage.confeccionesButton);
-        Thread.sleep(5000);
     }
 }
