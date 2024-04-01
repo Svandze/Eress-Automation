@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ffff6ec-0f40-4a49-9694-c32afbff6f03" name="Changes" comment="update pom">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/grupomovimientos/GrupoMovimientos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/maestroclientes/MaestroClientes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/maestrogeneros/MaestroGeneros.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/grupomovimientos/GrupoMovimientosTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/maestroclientes/MaestroClientesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/maestrogeneros/MaestroGenerosTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/steps/SimplePageStepsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/SimplePageStepsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/maestrodemaquinas/MaestroDeMaquinasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/parametrizacion/maestrodemaquinas/MaestroDeMaquinasTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/ParametrizacionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/parametrizacion/ParametrizacionPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +82,12 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.Main.executor": "Run",
+    "JUnit.GrupoMovimientosTest.MachineManagementTest.executor": "Run",
+    "JUnit.GrupoMovimientosTest.executor": "Run",
+    "JUnit.MaestroClientesTest.MovementsGruopManagementTest.executor": "Debug",
+    "JUnit.MaestroClientesTest.executor": "Run",
+    "JUnit.MaestroDeMaquinasTest.MachineManagementTest.executor": "Run",
+    "JUnit.MaestroGenerosTest.MasterGenresManagementTest.executor": "Run",
     "JUnit.SimplePageSteps.simplePage.executor": "Run",
     "JUnit.SimplePageStepsTest.simplePage.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -102,16 +113,50 @@
       <recent name="C:\Users\matys\OneDrive\Documentos\TDG\Seress-Automation\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MaestroDeMaquinasTest.MachineManagementTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+  <component name="RunManager" selected="JUnit.MaestroClientesTest.MovementsGruopManagementTest">
+    <configuration name="GrupoMovimientosTest.MachineManagementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Seress" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="steps.parametrizacion.grupomovimientos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="steps.parametrizacion.grupomovimientos" />
+      <option name="MAIN_CLASS_NAME" value="steps.parametrizacion.grupomovimientos.GrupoMovimientosTest" />
+      <option name="METHOD_NAME" value="MachineManagementTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MaestroClientesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Seress" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="steps.parametrizacion.maestroclientes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="steps.parametrizacion.maestroclientes" />
+      <option name="MAIN_CLASS_NAME" value="steps.parametrizacion.maestroclientes.MaestroClientesTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MaestroClientesTest.MovementsGruopManagementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Seress" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="steps.parametrizacion.maestroclientes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="steps.parametrizacion.maestroclientes" />
+      <option name="MAIN_CLASS_NAME" value="steps.parametrizacion.maestroclientes.MaestroClientesTest" />
+      <option name="METHOD_NAME" value="MovementsGruopManagementTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -136,22 +181,6 @@
       <module name="Seress" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="steps.parametrizacion.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="steps.parametrizacion" />
-      <option name="MAIN_CLASS_NAME" value="steps.parametrizacion.MaestroDeMaquinasTest" />
-      <option name="METHOD_NAME" value="addMachineTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MaestroDeMaquinasTest.addMachineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Seress" />
-      <extension name="coverage">
-        <pattern>
           <option name="PATTERN" value="steps.parametrizacion.maestrodemaquinas.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -164,32 +193,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SimplePageStepsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MaestroGenerosTest.MasterGenresManagementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Seress" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="steps.*" />
+          <option name="PATTERN" value="steps.parametrizacion.maestrogeneros.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="steps" />
-      <option name="MAIN_CLASS_NAME" value="steps.SimplePageStepsTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SimplePageStepsTest.simplePage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Seress" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="steps.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="steps" />
-      <option name="MAIN_CLASS_NAME" value="steps.SimplePageStepsTest" />
-      <option name="METHOD_NAME" value="simplePage" />
+      <option name="PACKAGE_NAME" value="steps.parametrizacion.maestrogeneros" />
+      <option name="MAIN_CLASS_NAME" value="steps.parametrizacion.maestrogeneros.MaestroGenerosTest" />
+      <option name="METHOD_NAME" value="MasterGenresManagementTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,11 +211,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MaestroClientesTest.MovementsGruopManagementTest" />
+        <item itemvalue="JUnit.MaestroClientesTest" />
+        <item itemvalue="JUnit.MaestroGenerosTest.MasterGenresManagementTest" />
+        <item itemvalue="JUnit.GrupoMovimientosTest.MachineManagementTest" />
         <item itemvalue="JUnit.MaestroDeMaquinasTest.MachineManagementTest" />
-        <item itemvalue="JUnit.MaestroDeMaquinasTest.addMachineTest" />
-        <item itemvalue="JUnit.MaestroDeMaquinasTest.addMachineTest" />
-        <item itemvalue="JUnit.SimplePageStepsTest" />
-        <item itemvalue="JUnit.SimplePageStepsTest.simplePage" />
       </list>
     </recent_temporary>
   </component>
@@ -233,6 +247,9 @@
       <workItem from="1711639303969" duration="17183000" />
       <workItem from="1711818155173" duration="3397000" />
       <workItem from="1711822447504" duration="1993000" />
+      <workItem from="1711978202916" duration="3357000" />
+      <workItem from="1711981576191" duration="596000" />
+      <workItem from="1711982196380" duration="19887000" />
     </task>
     <task id="LOCAL-00001" summary="update pom">
       <option name="closed" value="true" />
@@ -252,5 +269,26 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="update pom" />
     <option name="LAST_COMMIT_MESSAGE" value="update pom" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/pages/parametrizacion/maestrogeneros/MaestroGeneros.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/pages/parametrizacion/maestrogeneros/MaestroGeneros.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/pages/parametrizacion/maestrogeneros/MaestroGeneros.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
