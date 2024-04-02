@@ -8,14 +8,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
-import utils.ElementUtils;
 
 import java.time.Duration;
 
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
-    public class GrupoMovimientos extends BasePage {
+    public class GrupoMovimientosPage extends BasePage {
         @FindBy(xpath = "//button[@type='submit']")
         public WebElement confirmAddMovementGroup;
 
@@ -74,7 +73,7 @@ import static utils.ElementUtils.waitAndClick;
             Assert.assertEquals("El valor actual de la descripción coincide con el esperado", descriptionMovementGroup, currentDescriptionMovementGroup);
         }
 
-        public void addMovementGroupCode(String movementGroupCode, String descriptionMovementGroup) {
+        public void addMovementGroup(String movementGroupCode, String descriptionMovementGroup) {
             waitAndClick(addButton);
             waitAndSendKeys(movementGroupCodeInputForm, movementGroupCode);
             setMovementGroupData(movementGroupCode, descriptionMovementGroup);

@@ -4,37 +4,37 @@ import org.junit.Before;
 import org.junit.Test;
 import pages.parametrizacion.ConfeccionPage;
 import pages.parametrizacion.ParametrizacionPage;
-import pages.parametrizacion.maestroclientes.MaestroClientes;
+import pages.parametrizacion.maestroclientes.MaestroClientesPage;
 import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
-import static org.example.utils.MachineCodeBuilder.randomMachineCode;
+import static org.example.utils.MachineCodeBuilder.randomCode;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.windowHandler;
 
-public class MaestroClientesTest extends BaseTestSeress {
+public class MaestroClientesPageTest extends BaseTestSeress {
 
 
     private ConfeccionPage confeccionPage;
     private ParametrizacionPage parametrizacionPage;
-    private MaestroClientes maestroClientes;
+    private MaestroClientesPage maestroClientesPage;
 
     @Before
     public void setup() {
         super.setup();
         confeccionPage = new ConfeccionPage();
         parametrizacionPage = new ParametrizacionPage();
-        maestroClientes  = new MaestroClientes();
+        maestroClientesPage = new MaestroClientesPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
         waitAndClick(parametrizacionPage.maestroClientesIcon);
     }
 
     @Test
-    public void MovementsGruopManagementTest() throws InterruptedException {
-        String masterCustomerCod = randomMachineCode();
+    public void masterCustomerManagementTest() throws InterruptedException {
+        String masterCustomerCod = randomCode();
         String masterCustomerDocumentType = "CC";
-        String masterCustomerDocument = "CodTest";
+        String masterCustomerDocument = randomCode() + "CodTest" ;
         String masterCustomerBusinessName = "RazonSocialTest" ;
         String masterCustomerFirstName = "PrimerNombreTest" ;
         String masterCustomerSecondName = "SegundoNombreTest" ;
@@ -44,11 +44,11 @@ public class MaestroClientesTest extends BaseTestSeress {
         String masterCustomerAddressnTwo = "DireccionDosTest" ;
         String masterCustomerPhoneOne = "TelefonoUnoTest" ;
         String masterCustomerPhoneTwo = "TelefonoDosTest" ;
-        String masterCustomerEmail= "Email@test.com" ;
-        String masterCustomerRegion = "Medellin" ;
-        String masterCustomerCodUpdate = randomMachineCode();
+        String masterCustomerEmail= "Email12@"+randomCode()+".com" ;
+        String masterCustomerRegion = "La estrella" ;
+        String masterCustomerCodUpdate = randomCode();
         String masterCustomerDocumentTypeUpdate = "NIT";
-        String masterCustomerDocumentUpdate = "CodTestUpdate";
+        String masterCustomerDocumentUpdate = randomCode() + "CodTestUpdate" ;
         String masterCustomerBusinessNameUpdate = "RazonSocialTestUpdate" ;
         String masterCustomerFirstNameUpdate = "PrimerNombreTestUpdate" ;
         String masterCustomerSecondNameUpdate = "SegundoNombreTestUpdate" ;
@@ -58,9 +58,9 @@ public class MaestroClientesTest extends BaseTestSeress {
         String masterCustomerAddressnTwoUpdate = "DireccionDosTestUpdate" ;
         String masterCustomerPhoneOneUpdate = "TelefonoUnoTestUpdate" ;
         String masterCustomerPhoneTwoUpdate = "TelefonoDosTestUpdate" ;
-        String masterCustomerEmailUpdate= "Email@test.comUpdate" ;
+        String masterCustomerEmailUpdate= "Email1@"+randomCode()+".comUpdate";
         String masterCustomerRegionUpdate = "La estrella" ;
-        maestroClientes.addMasterCustomer(masterCustomerCod,
+        maestroClientesPage.addMasterCustomer(masterCustomerCod,
                 masterCustomerDocumentType,
                 masterCustomerDocument,
                 masterCustomerBusinessName,
@@ -74,7 +74,7 @@ public class MaestroClientesTest extends BaseTestSeress {
                 masterCustomerPhoneTwo,
                 masterCustomerEmail,
                 masterCustomerRegion);
-         maestroClientes.editMasterCustomerName(masterCustomerCod,masterCustomerCodUpdate,
+         maestroClientesPage.editMasterCustomerName(masterCustomerCod,masterCustomerCodUpdate,
                 masterCustomerDocumentTypeUpdate,
                 masterCustomerDocumentUpdate,
                 masterCustomerBusinessNameUpdate,
@@ -88,7 +88,7 @@ public class MaestroClientesTest extends BaseTestSeress {
                 masterCustomerPhoneTwoUpdate,
                 masterCustomerEmailUpdate,
                 masterCustomerRegionUpdate);
-        maestroClientes.validateMovementGroup(masterCustomerCodUpdate,
+        maestroClientesPage.validateMovementGroup(masterCustomerCodUpdate,
                 masterCustomerDocumentTypeUpdate,
                 masterCustomerDocumentUpdate,
                 masterCustomerBusinessNameUpdate,
@@ -102,7 +102,7 @@ public class MaestroClientesTest extends BaseTestSeress {
                 masterCustomerPhoneTwoUpdate,
                 masterCustomerEmailUpdate,
                 masterCustomerRegionUpdate);
-        maestroClientes.deleteMasterCustomer(masterCustomerCodUpdate);
+        maestroClientesPage.deleteMasterCustomer(masterCustomerCodUpdate);
 
     }
 

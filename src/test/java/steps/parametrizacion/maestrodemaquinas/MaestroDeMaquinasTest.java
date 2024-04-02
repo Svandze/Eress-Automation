@@ -8,7 +8,7 @@ import pages.parametrizacion.maestrodemaquinas.MaestroDeMaquinasPage;
 import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
-import static org.example.utils.MachineCodeBuilder.randomMachineCode;
+import static org.example.utils.MachineCodeBuilder.randomCode;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.windowHandler;
 
@@ -31,7 +31,7 @@ public class MaestroDeMaquinasTest extends BaseTestSeress {
 
     @Test
     public void MachineManagementTest() {
-        String machineCode = randomMachineCode();
+        String machineCode = randomCode();
         String initialType = "PLANA 1 AGU";
         String initialDistance0To5 = "5";
         String initialDistance6To10 = "6";

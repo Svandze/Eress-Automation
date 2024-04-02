@@ -14,7 +14,7 @@ import java.time.Duration;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
-public class MaestroGeneros extends BasePage {
+public class MaestroGenerosPage extends BasePage {
 
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement confirmAddMasterGenres;
