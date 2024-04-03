@@ -25,6 +25,9 @@ public class MaestroClientesPage extends BasePage {
     @FindBy(xpath = "//seress-ui-dropdown-field[@label='labelDocumentTypes']//div[@aria-label='dropdown trigger']")
     public WebElement dropDownDocumentTypeMasterCustomer;
 
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[1]")
+    public WebElement dropDownDocumentTypeDataMasterCustomer;
+
     @FindBy(xpath = "//input[@class='p-dropdown-filter p-inputtext p-component']")
     public WebElement dropDownDocumentTypeInputFormMasterCustomer;
     @FindBy(xpath = "//body//app-root//p-dropdownitem[1]")
@@ -65,6 +68,9 @@ public class MaestroClientesPage extends BasePage {
 
     @FindBy(xpath = "//input[@class='p-dropdown-filter p-inputtext p-component']")
     public WebElement dropDownRegionTypeInputFormMasterCustomer;
+
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[2]")
+    public WebElement dropDownRegionTypeDataInputFormMasterCustomer;
 
     @FindBy(xpath = "//div[@class='p-dropdown-items-wrapper']")
     public WebElement dropDownRegionSelectMasterCustomer;
@@ -153,7 +159,7 @@ public class MaestroClientesPage extends BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.attributeToBe(masterCustomerCodeInputForm, "value", masterCustomerCod));
         String currentMasterCustomerCod = masterCustomerCodeInputForm.getAttribute("value");
-        String currentMasterCustomerDocumentType = dropDownDocumentTypeMasterCustomer.getAttribute("value");
+        String currentMasterCustomerDataDocumentType = dropDownDocumentTypeDataMasterCustomer.getText();
         String currentMasterCustomerDocument = masterCustomerDocumentInputForm.getAttribute("value");
         String currentMasterCustomerBussinessName = masterCustomerBusinessNameInputForm.getAttribute("value");
         String currentMasterCustomerFirstName = masterCustomerFirstNameInputForm.getAttribute("value");
@@ -165,10 +171,10 @@ public class MaestroClientesPage extends BasePage {
         String currentMasterCustomerPhoneOne = masterCustomerPhoneOneinputForm.getAttribute("value");
         String currentMasterCustomerPhoneTwo = masterCustomerPhoneTwoInputForm.getAttribute("value");
         String currentMasterCustomerEmail = masterCustomerEmailInputForm.getAttribute("value");
-        String currentMasterCustomerRegion = dropDownDocumentTypeMasterCustomer.getAttribute("value");
+        String currentMasterCustomerDataRegion = dropDownRegionTypeDataInputFormMasterCustomer.getText();
 
         Assert.assertEquals("El valor actual del código del grupo del maestro cliente con el esperado", masterCustomerCod, currentMasterCustomerCod);
-        //Assert.assertEquals("El valor actual del tipo de documento del maestro cliente coincide con el esperado", masterCustomerDocumentType, currentMasterCustomerDocumentType);
+        Assert.assertTrue("El valor actual del tipo de documento del maestro cliente contiene el esperado", currentMasterCustomerDataDocumentType.contains(masterCustomerDocumentType));
         Assert.assertEquals("El valor actual del documento del maestro cliente coincide con el esperado", masterCustomerDocument, currentMasterCustomerDocument);
         Assert.assertEquals("El valor actual de la labor social del maestro cliente con el esperado", masterCustomerBusinessName, currentMasterCustomerBussinessName);
         Assert.assertEquals("El valor actual del primer nombre del maestro cliente coincide con el esperado", masterCustomerFirstName, currentMasterCustomerFirstName);
@@ -180,7 +186,7 @@ public class MaestroClientesPage extends BasePage {
         Assert.assertEquals("El valor actual del teléfono 1  del maestro cliente coincide con el esperado", masterCustomerPhoneOne, currentMasterCustomerPhoneOne);
         Assert.assertEquals("El valor actual del teléfono 2 del maestro cliente con el esperado", masterCustomerPhoneTwo, currentMasterCustomerPhoneTwo);
         Assert.assertEquals("El valor actual del email del maestro cliente coincide con el esperado", masterCustomerEmail, currentMasterCustomerEmail);
-        //Assert.assertEquals("El valor actual de las region del maestro cliente con el esperado", masterCustomerRegion, currentMasterCustomerRegion);
+        Assert.assertTrue("El valor actual de las region del maestro cliente con el esperado",currentMasterCustomerDataRegion.contains(masterCustomerRegion));
     }
 
     public void addMasterCustomer(String masterCustomerCod,
@@ -293,9 +299,9 @@ public class MaestroClientesPage extends BasePage {
     }
     public void deleteMasterCustomer(String masterCustomerCode) throws InterruptedException {
         findMasterCustomer(masterCustomerCode);
-        Thread.sleep(1000);
+        Thread.sleep(500);
         clickWithJavaScript(getDeleteButtonForMasterCustomer());
-        Thread.sleep(1000);
+        Thread.sleep(500);
         clickWithJavaScript(confirmButtonDelete);
         Thread.sleep(500);
     }

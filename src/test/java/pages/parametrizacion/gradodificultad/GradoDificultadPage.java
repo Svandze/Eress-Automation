@@ -17,7 +17,7 @@ import static utils.ElementUtils.waitAndClick;
 public class GradoDificultadPage extends BasePage {
 
     @FindBy(xpath = "//button[@type='submit']")
-    public WebElement confirmAddMovementGroup;
+    public WebElement levelDifficultyGroup;
 
     @FindBy(xpath = "//input[@formcontrolname='code']")
     public WebElement levelDifficultyCodeInputForm;
@@ -64,8 +64,8 @@ public class GradoDificultadPage extends BasePage {
         waitAndSendKeys(levelDifficultyCodeInputForm, levelDifficultyCode);
         waitAndSendKeys(levelDifficultyDescriptionInputForm, levelDifficultyDescription);
         waitAndSendKeys(levelDifficultyCheckInputForm, levelDifficultyValue);
-        ScrollToElement(confirmAddMovementGroup);
-        clickWithJavaScript(confirmAddMovementGroup);
+        ScrollToElement(levelDifficultyGroup);
+        clickWithJavaScript(levelDifficultyGroup);
     }
 
 
@@ -79,7 +79,7 @@ public class GradoDificultadPage extends BasePage {
         String currentLevelDifficultyValue = levelDifficultyCheckInputForm.getAttribute("value");
         Assert.assertEquals("El valor actual del código del grupo de movimientos coincide con el esperado", levelDifficultyCode, currentMovementGroupCode);
         Assert.assertEquals("El valor actual de la descripción coincide con el esperado", levelDifficultyDescription, currentDescriptionMovementGroup);
-        Assert.assertEquals("El valor actual de la descripción coincide con el esperado", levelDifficultyValue ,currentLevelDifficultyValue);
+        Assert.assertEquals("El valor actual del valor coincide con el esperado", levelDifficultyValue ,currentLevelDifficultyValue);
     }
 
     public void addLevelDifficulty(String levelDifficultyCode, String levelDifficultyDescription, String levelDifficultyValue) throws InterruptedException {

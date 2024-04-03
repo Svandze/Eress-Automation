@@ -45,7 +45,7 @@ public class MaestroClientesPageTest extends BaseTestSeress {
         String masterCustomerPhoneOne = "TelefonoUnoTest" ;
         String masterCustomerPhoneTwo = "TelefonoDosTest" ;
         String masterCustomerEmail= "Email12@"+randomCode()+".com" ;
-        String masterCustomerRegion = "La estrella" ;
+        String masterCustomerRegion = "LA ESTRELLA" ;
         String masterCustomerCodUpdate = randomCode();
         String masterCustomerDocumentTypeUpdate = "NIT";
         String masterCustomerDocumentUpdate = randomCode() + "CodTestUpdate" ;
@@ -59,7 +59,7 @@ public class MaestroClientesPageTest extends BaseTestSeress {
         String masterCustomerPhoneOneUpdate = "TelefonoUnoTestUpdate" ;
         String masterCustomerPhoneTwoUpdate = "TelefonoDosTestUpdate" ;
         String masterCustomerEmailUpdate= "Email1@"+randomCode()+".comUpdate";
-        String masterCustomerRegionUpdate = "La estrella" ;
+        String masterCustomerRegionUpdate = "LA ESTRELLA" ;
         maestroClientesPage.addMasterCustomer(masterCustomerCod,
                 masterCustomerDocumentType,
                 masterCustomerDocument,
