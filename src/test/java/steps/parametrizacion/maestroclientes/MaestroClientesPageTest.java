@@ -35,7 +35,7 @@ public class MaestroClientesPageTest extends BaseTestSeress {
     }
 
     @Test
-    public void masterCustomerManagementTest() throws InterruptedException {
+    public void masterCustomerManagementTest() {
         String masterCustomerCod = randomCode();
         String masterCustomerCodUpdate = randomCode();
         String masterCustomerDocumentTypeUpdated = "NIT";
@@ -55,8 +55,5 @@ public class MaestroClientesPageTest extends BaseTestSeress {
         maestroClientesPage.editMasterCustomerName(masterCustomerCod, masterCustomerCodUpdate, masterCustomerDocumentTypeUpdated, masterCustomerDocumentUpdated, masterCustomerBusinessNameUpdated, masterCustomerFirstNameUpdated, masterCustomerSecondNameUpdated, masterCustomerLastNameUpdated, masterCustomerSecondLastNameUpdated, masterCustomerAddressnOneUpdated, masterCustomerAddressnTwoUpdated, masterCustomerPhoneOneUpdated, masterCustomerPhoneTwoUpdated, masterCustomerEmailUpdated, masterCustomerRegionUpdated);
         maestroClientesPage.validateMovementGroup(masterCustomerCodUpdate, masterCustomerDocumentTypeUpdated, masterCustomerDocumentUpdated, masterCustomerBusinessNameUpdated, masterCustomerFirstNameUpdated, masterCustomerSecondNameUpdated, masterCustomerLastNameUpdated, masterCustomerSecondLastNameUpdated, masterCustomerAddressnOneUpdated, masterCustomerAddressnTwoUpdated, masterCustomerPhoneOneUpdated, masterCustomerPhoneTwoUpdated, masterCustomerEmailUpdated, masterCustomerRegionUpdated);
         maestroClientesPage.deleteMasterCustomer(masterCustomerCodUpdate);
-
     }
-
-
 }

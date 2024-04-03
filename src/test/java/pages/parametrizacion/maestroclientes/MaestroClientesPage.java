@@ -107,22 +107,9 @@ public class MaestroClientesPage extends BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + masterCustomerCode + "']")));
     }
 
-    public void setMasterCustomer(String masterCustomerCod,
-                                  String masterCustomerDocumentType,
-                                  String masterCustomerDocument,
-                                  String masterCustomerBusinessName,
-                                  String masterCustomerFirstName,
-                                  String masterCustomerSecondName,
-                                  String masterCustomerLastName,
-                                  String masterCustomerSecondLastName,
-                                  String masterCustomerAddressnOne,
-                                  String masterCustomerAddressnTwo,
-                                  String masterCustomerPhoneOne,
-                                  String masterCustomerPhoneTwo,
-                                  String masterCustomerEmail,
-                                  String masterCustomerRegion) throws InterruptedException {
-        waitAndSendKeys(masterCustomerCodeInputForm,masterCustomerCod);
-        dropDownPersonalized(dropDownDocumentTypeMasterCustomer, dropDownDocumentTypeInputFormMasterCustomer, dropDownDocumentSelectMasterCustomer, masterCustomerDocumentType);
+    public void setMasterCustomer(String masterCustomerCod, String masterCustomerDocumentType, String masterCustomerDocument, String masterCustomerBusinessName, String masterCustomerFirstName, String masterCustomerSecondName, String masterCustomerLastName, String masterCustomerSecondLastName, String masterCustomerAddressnOne, String masterCustomerAddressnTwo, String masterCustomerPhoneOne, String masterCustomerPhoneTwo, String masterCustomerEmail, String masterCustomerRegion) {
+        waitAndSendKeys(masterCustomerCodeInputForm, masterCustomerCod);
+        customDropdown(dropDownDocumentTypeMasterCustomer, dropDownDocumentTypeInputFormMasterCustomer, dropDownDocumentSelectMasterCustomer, masterCustomerDocumentType);
         waitAndSendKeys(masterCustomerDocumentInputForm, masterCustomerDocument);
         waitAndSendKeys(masterCustomerBusinessNameInputForm, masterCustomerBusinessName);
         waitAndSendKeys(masterCustomerFirstNameInputForm, masterCustomerFirstName);
@@ -134,27 +121,13 @@ public class MaestroClientesPage extends BasePage {
         waitAndSendKeys(masterCustomerPhoneOneinputForm, masterCustomerPhoneOne);
         waitAndSendKeys(masterCustomerPhoneTwoInputForm, masterCustomerPhoneTwo);
         waitAndSendKeys(masterCustomerEmailInputForm, masterCustomerEmail);
-        dropDownPersonalized(dropDownRegionTypeMasterCustomer, dropDownRegionTypeInputFormMasterCustomer, dropDownRegionSelectMasterCustomer, masterCustomerRegion);
+        customDropdown(dropDownRegionTypeMasterCustomer, dropDownRegionTypeInputFormMasterCustomer, dropDownRegionSelectMasterCustomer, masterCustomerRegion);
         ScrollToElement(confirmAddMasterCustomer);
-        Thread.sleep(1000);
         clickWithJavaScript(confirmAddMasterCustomer);
 
     }
 
-    public void validateMovementGroupInfo(String masterCustomerCod,
-                                          String masterCustomerDocumentType,
-                                          String masterCustomerDocument,
-                                          String masterCustomerBusinessName,
-                                          String masterCustomerFirstName,
-                                          String masterCustomerSecondName,
-                                          String masterCustomerLastName,
-                                          String masterCustomerSecondLastName,
-                                          String masterCustomerAddressnOne,
-                                          String masterCustomerAddressnTwo,
-                                          String masterCustomerPhoneOne,
-                                          String masterCustomerPhoneTwo,
-                                          String masterCustomerEmail,
-                                          String masterCustomerRegion) {
+    public void validateMovementGroupInfo(String masterCustomerCod, String masterCustomerDocumentType, String masterCustomerDocument, String masterCustomerBusinessName, String masterCustomerFirstName, String masterCustomerSecondName, String masterCustomerLastName, String masterCustomerSecondLastName, String masterCustomerAddressnOne, String masterCustomerAddressnTwo, String masterCustomerPhoneOne, String masterCustomerPhoneTwo, String masterCustomerEmail, String masterCustomerRegion) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.attributeToBe(masterCustomerCodeInputForm, "value", masterCustomerCod));
@@ -186,123 +159,39 @@ public class MaestroClientesPage extends BasePage {
         Assert.assertEquals("El valor actual del teléfono 1  del maestro cliente coincide con el esperado", masterCustomerPhoneOne, currentMasterCustomerPhoneOne);
         Assert.assertEquals("El valor actual del teléfono 2 del maestro cliente con el esperado", masterCustomerPhoneTwo, currentMasterCustomerPhoneTwo);
         Assert.assertEquals("El valor actual del email del maestro cliente coincide con el esperado", masterCustomerEmail, currentMasterCustomerEmail);
-        Assert.assertTrue("El valor actual de las region del maestro cliente con el esperado",currentMasterCustomerDataRegion.contains(masterCustomerRegion));
+        Assert.assertTrue("El valor actual de las region del maestro cliente con el esperado", currentMasterCustomerDataRegion.contains(masterCustomerRegion));
     }
 
-    public void addMasterCustomer(String masterCustomerCod,
-                                  String masterCustomerDocumentType,
-                                  String masterCustomerDocument,
-                                  String masterCustomerBusinessName,
-                                  String masterCustomerFirstName,
-                                  String masterCustomerSecondName,
-                                  String masterCustomerLastName,
-                                  String masterCustomerSecondLastName,
-                                  String masterCustomerAddressnOne,
-                                  String masterCustomerAddressnTwo,
-                                  String masterCustomerPhoneOne,
-                                  String masterCustomerPhoneTwo,
-                                  String masterCustomerEmail,
-                                  String masterCustomerRegion
-    ) throws InterruptedException {
+    public void addMasterCustomer(String masterCustomerCod, String masterCustomerDocumentType, String masterCustomerDocument, String masterCustomerBusinessName, String masterCustomerFirstName, String masterCustomerSecondName, String masterCustomerLastName, String masterCustomerSecondLastName, String masterCustomerAddressnOne, String masterCustomerAddressnTwo, String masterCustomerPhoneOne, String masterCustomerPhoneTwo, String masterCustomerEmail, String masterCustomerRegion) {
         waitAndClick(addButton);
         waitAndSendKeys(masterCustomerCodeInputForm, masterCustomerCod);
-        setMasterCustomer(masterCustomerCod,
-                masterCustomerDocumentType,
-                masterCustomerDocument,
-                masterCustomerBusinessName,
-                masterCustomerFirstName,
-                masterCustomerSecondName,
-                masterCustomerLastName,
-                masterCustomerSecondLastName,
-                masterCustomerAddressnOne,
-                masterCustomerAddressnTwo,
-                masterCustomerPhoneOne,
-                masterCustomerPhoneTwo,
-                masterCustomerEmail,
-                masterCustomerRegion);
+        setMasterCustomer(masterCustomerCod, masterCustomerDocumentType, masterCustomerDocument, masterCustomerBusinessName, masterCustomerFirstName, masterCustomerSecondName, masterCustomerLastName, masterCustomerSecondLastName, masterCustomerAddressnOne, masterCustomerAddressnTwo, masterCustomerPhoneOne, masterCustomerPhoneTwo, masterCustomerEmail, masterCustomerRegion);
     }
 
-    public void dropDownPersonalized( WebElement masterCustomeDocumentType, WebElement masterCustomerDocumentTypeInputForm, WebElement masterCustomerDocumentTypeSelect, String data) throws InterruptedException {
+    public void customDropdown(WebElement masterCustomeDocumentType, WebElement masterCustomerDocumentTypeInputForm, WebElement masterCustomerDocumentTypeSelect, String data) {
         ScrollToElement(masterCustomeDocumentType);
-        Thread.sleep(500);
-        clickWithJavaScript(masterCustomeDocumentType);
-        Thread.sleep(500);
+        waitAndClick(masterCustomeDocumentType);
         waitAndSendKeys(masterCustomerDocumentTypeInputForm, data);
-        Thread.sleep(500);
-        (masterCustomerDocumentTypeSelect).click();
+        waitAndClick(masterCustomerDocumentTypeSelect);
     }
 
-    public void editMasterCustomerName(String masterCustomerCode, String newMasterCustomerCod,
-                                       String newMasterCustomerDocumentType,
-                                       String newMasterCustomerDocument,
-                                       String newMasterCustomerBusinessName,
-                                       String newMasterCustomerFirstName,
-                                       String newMasterCustomerSecondName,
-                                       String newMasterCustomerLastName,
-                                       String newMasterCustomerSecondLastName,
-                                       String newMasterCustomerAddressnOne,
-                                       String newMasterCustomerAddressnTwo,
-                                       String newMasterCustomerPhoneOne,
-                                       String newMasterCustomerPhoneTwo,
-                                       String newMasterCustomerEmail,
-                                       String newMasterCustomerRegion) throws InterruptedException {
+    public void editMasterCustomerName(String masterCustomerCode, String newMasterCustomerCod, String newMasterCustomerDocumentType, String newMasterCustomerDocument, String newMasterCustomerBusinessName, String newMasterCustomerFirstName, String newMasterCustomerSecondName, String newMasterCustomerLastName, String newMasterCustomerSecondLastName, String newMasterCustomerAddressnOne, String newMasterCustomerAddressnTwo, String newMasterCustomerPhoneOne, String newMasterCustomerPhoneTwo, String newMasterCustomerEmail, String newMasterCustomerRegion) {
         findMasterCustomer(masterCustomerCode);
         waitAndClick(getEditButtonForMasterCustomer(masterCustomerCode));
-        setMasterCustomer(newMasterCustomerCod,
-                newMasterCustomerDocumentType,
-                newMasterCustomerDocument,
-                newMasterCustomerBusinessName,
-                newMasterCustomerFirstName,
-                newMasterCustomerSecondName,
-                newMasterCustomerLastName,
-                newMasterCustomerSecondLastName,
-                newMasterCustomerAddressnOne,
-                newMasterCustomerAddressnTwo,
-                newMasterCustomerPhoneOne,
-                newMasterCustomerPhoneTwo,
-                newMasterCustomerEmail,
-                newMasterCustomerRegion);
+        setMasterCustomer(newMasterCustomerCod, newMasterCustomerDocumentType, newMasterCustomerDocument, newMasterCustomerBusinessName, newMasterCustomerFirstName, newMasterCustomerSecondName, newMasterCustomerLastName, newMasterCustomerSecondLastName, newMasterCustomerAddressnOne, newMasterCustomerAddressnTwo, newMasterCustomerPhoneOne, newMasterCustomerPhoneTwo, newMasterCustomerEmail, newMasterCustomerRegion);
 
     }
 
-    public void validateMovementGroup(String masterCustomerCod,
-                                      String masterCustomerDocumentType,
-                                      String masterCustomerDocument,
-                                      String masterCustomerBusinessName,
-                                      String masterCustomerFirstName,
-                                      String masterCustomerSecondName,
-                                      String masterCustomerLastName,
-                                      String masterCustomerSecondLastName,
-                                      String masterCustomerAddressnOne,
-                                      String masterCustomerAddressnTwo,
-                                      String masterCustomerPhoneOne,
-                                      String masterCustomerPhoneTwo,
-                                      String masterCustomerEmail,
-                                      String masterCustomerRegion) {
+    public void validateMovementGroup(String masterCustomerCod, String masterCustomerDocumentType, String masterCustomerDocument, String masterCustomerBusinessName, String masterCustomerFirstName, String masterCustomerSecondName, String masterCustomerLastName, String masterCustomerSecondLastName, String masterCustomerAddressnOne, String masterCustomerAddressnTwo, String masterCustomerPhoneOne, String masterCustomerPhoneTwo, String masterCustomerEmail, String masterCustomerRegion) {
         findMasterCustomer(masterCustomerCod);
         waitAndClick(getDetailsButtonForMasterCustomer(masterCustomerCod));
-        validateMovementGroupInfo(masterCustomerCod,
-                masterCustomerDocumentType,
-                masterCustomerDocument,
-                masterCustomerBusinessName,
-                masterCustomerFirstName,
-                masterCustomerSecondName,
-                masterCustomerLastName,
-                masterCustomerSecondLastName,
-                masterCustomerAddressnOne,
-                masterCustomerAddressnTwo,
-                masterCustomerPhoneOne,
-                masterCustomerPhoneTwo,
-                masterCustomerEmail,
-                masterCustomerRegion);
+        validateMovementGroupInfo(masterCustomerCod, masterCustomerDocumentType, masterCustomerDocument, masterCustomerBusinessName, masterCustomerFirstName, masterCustomerSecondName, masterCustomerLastName, masterCustomerSecondLastName, masterCustomerAddressnOne, masterCustomerAddressnTwo, masterCustomerPhoneOne, masterCustomerPhoneTwo, masterCustomerEmail, masterCustomerRegion);
         clickWithJavaScript(cancelButton);
     }
-    public void deleteMasterCustomer(String masterCustomerCode) throws InterruptedException {
+
+    public void deleteMasterCustomer(String masterCustomerCode) {
         findMasterCustomer(masterCustomerCode);
-        Thread.sleep(500);
         clickWithJavaScript(getDeleteButtonForMasterCustomer());
-        Thread.sleep(500);
         clickWithJavaScript(confirmButtonDelete);
-        Thread.sleep(500);
     }
 }
