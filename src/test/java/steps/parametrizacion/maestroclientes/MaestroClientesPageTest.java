@@ -1,5 +1,6 @@
 package steps.parametrizacion.maestroclientes;
 
+import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
 import pages.parametrizacion.ConfeccionPage;
@@ -19,9 +20,12 @@ public class MaestroClientesPageTest extends BaseTestSeress {
     private ParametrizacionPage parametrizacionPage;
     private MaestroClientesPage maestroClientesPage;
 
+    private Faker faker;
+
     @Before
     public void setup() {
         super.setup();
+        faker = new Faker();
         confeccionPage = new ConfeccionPage();
         parametrizacionPage = new ParametrizacionPage();
         maestroClientesPage = new MaestroClientesPage();
@@ -33,79 +37,26 @@ public class MaestroClientesPageTest extends BaseTestSeress {
     @Test
     public void masterCustomerManagementTest() throws InterruptedException {
         String masterCustomerCod = randomCode();
-        String masterCustomerDocumentType = "CC";
-        String masterCustomerDocument = randomCode() + "CodTest" ;
-        String masterCustomerBusinessName = "RazonSocialTest" ;
-        String masterCustomerFirstName = "PrimerNombreTest" ;
-        String masterCustomerSecondName = "SegundoNombreTest" ;
-        String masterCustomerLastName = "ApellidoTest" ;
-        String masterCustomerSecondLastName = "SegundoApellidoTest" ;
-        String masterCustomerAddressnOne = "DireccionUnoTest" ;
-        String masterCustomerAddressnTwo = "DireccionDosTest" ;
-        String masterCustomerPhoneOne = "TelefonoUnoTest" ;
-        String masterCustomerPhoneTwo = "TelefonoDosTest" ;
-        String masterCustomerEmail= "Email12@"+randomCode()+".com" ;
-        String masterCustomerRegion = "LA ESTRELLA" ;
         String masterCustomerCodUpdate = randomCode();
-        String masterCustomerDocumentTypeUpdate = "NIT";
-        String masterCustomerDocumentUpdate = randomCode() + "CodTestUpdate" ;
-        String masterCustomerBusinessNameUpdate = "RazonSocialTestUpdate" ;
-        String masterCustomerFirstNameUpdate = "PrimerNombreTestUpdate" ;
-        String masterCustomerSecondNameUpdate = "SegundoNombreTestUpdate" ;
-        String masterCustomerLastNameUpdate = "ApellidoTestUpdateUpdate" ;
-        String masterCustomerSecondLastNameUpdate = "SegundoApellidoTestUpdateUpdate" ;
-        String masterCustomerAddressnOneUpdate = "DireccionUnoTestUpdate" ;
-        String masterCustomerAddressnTwoUpdate = "DireccionDosTestUpdate" ;
-        String masterCustomerPhoneOneUpdate = "TelefonoUnoTestUpdate" ;
-        String masterCustomerPhoneTwoUpdate = "TelefonoDosTestUpdate" ;
-        String masterCustomerEmailUpdate= "Email1@"+randomCode()+".comUpdate";
-        String masterCustomerRegionUpdate = "LA ESTRELLA" ;
-        maestroClientesPage.addMasterCustomer(masterCustomerCod,
-                masterCustomerDocumentType,
-                masterCustomerDocument,
-                masterCustomerBusinessName,
-                masterCustomerFirstName,
-                masterCustomerSecondName,
-                masterCustomerLastName,
-                masterCustomerSecondLastName,
-                masterCustomerAddressnOne,
-                masterCustomerAddressnTwo,
-                masterCustomerPhoneOne,
-                masterCustomerPhoneTwo,
-                masterCustomerEmail,
-                masterCustomerRegion);
-         maestroClientesPage.editMasterCustomerName(masterCustomerCod,masterCustomerCodUpdate,
-                masterCustomerDocumentTypeUpdate,
-                masterCustomerDocumentUpdate,
-                masterCustomerBusinessNameUpdate,
-                masterCustomerFirstNameUpdate,
-                masterCustomerSecondNameUpdate,
-                masterCustomerLastNameUpdate,
-                masterCustomerSecondLastNameUpdate,
-                masterCustomerAddressnOneUpdate,
-                masterCustomerAddressnTwoUpdate,
-                masterCustomerPhoneOneUpdate,
-                masterCustomerPhoneTwoUpdate,
-                masterCustomerEmailUpdate,
-                masterCustomerRegionUpdate);
-        maestroClientesPage.validateMovementGroup(masterCustomerCodUpdate,
-                masterCustomerDocumentTypeUpdate,
-                masterCustomerDocumentUpdate,
-                masterCustomerBusinessNameUpdate,
-                masterCustomerFirstNameUpdate,
-                masterCustomerSecondNameUpdate,
-                masterCustomerLastNameUpdate,
-                masterCustomerSecondLastNameUpdate,
-                masterCustomerAddressnOneUpdate,
-                masterCustomerAddressnTwoUpdate,
-                masterCustomerPhoneOneUpdate,
-                masterCustomerPhoneTwoUpdate,
-                masterCustomerEmailUpdate,
-                masterCustomerRegionUpdate);
+        String masterCustomerDocumentTypeUpdated = "NIT";
+        String masterCustomerDocumentUpdated = faker.number().digits(8) + "CodTest";
+        String masterCustomerBusinessNameUpdated = faker.company().name();
+        String masterCustomerFirstNameUpdated = faker.name().firstName();
+        String masterCustomerSecondNameUpdated = faker.name().firstName();
+        String masterCustomerLastNameUpdated = faker.name().lastName();
+        String masterCustomerSecondLastNameUpdated = faker.name().lastName();
+        String masterCustomerAddressnOneUpdated = faker.address().streetAddress();
+        String masterCustomerAddressnTwoUpdated = faker.address().secondaryAddress();
+        String masterCustomerPhoneOneUpdated = faker.phoneNumber().phoneNumber();
+        String masterCustomerPhoneTwoUpdated = faker.phoneNumber().phoneNumber();
+        String masterCustomerEmailUpdated = faker.internet().emailAddress();
+        String masterCustomerRegionUpdated = "LA ESTRELLA";
+        maestroClientesPage.addMasterCustomer(masterCustomerCod, "CC", faker.number().digits(8) + "CodTest", faker.company().name(), faker.name().firstName(), faker.name().firstName(), faker.name().lastName(), faker.name().lastName(), faker.address().streetAddress(), faker.address().secondaryAddress(), faker.phoneNumber().phoneNumber(), faker.phoneNumber().phoneNumber(), faker.internet().emailAddress(), "MEDELLIN");
+        maestroClientesPage.editMasterCustomerName(masterCustomerCod, masterCustomerCodUpdate, masterCustomerDocumentTypeUpdated, masterCustomerDocumentUpdated, masterCustomerBusinessNameUpdated, masterCustomerFirstNameUpdated, masterCustomerSecondNameUpdated, masterCustomerLastNameUpdated, masterCustomerSecondLastNameUpdated, masterCustomerAddressnOneUpdated, masterCustomerAddressnTwoUpdated, masterCustomerPhoneOneUpdated, masterCustomerPhoneTwoUpdated, masterCustomerEmailUpdated, masterCustomerRegionUpdated);
+        maestroClientesPage.validateMovementGroup(masterCustomerCodUpdate, masterCustomerDocumentTypeUpdated, masterCustomerDocumentUpdated, masterCustomerBusinessNameUpdated, masterCustomerFirstNameUpdated, masterCustomerSecondNameUpdated, masterCustomerLastNameUpdated, masterCustomerSecondLastNameUpdated, masterCustomerAddressnOneUpdated, masterCustomerAddressnTwoUpdated, masterCustomerPhoneOneUpdated, masterCustomerPhoneTwoUpdated, masterCustomerEmailUpdated, masterCustomerRegionUpdated);
         maestroClientesPage.deleteMasterCustomer(masterCustomerCodUpdate);
 
     }
-
 
 
 }
