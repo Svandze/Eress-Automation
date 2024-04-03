@@ -74,10 +74,8 @@ public class MaestroEstilosPage extends BasePage {
         Assert.assertEquals("El valor actual de la descripción coincide con el esperado", masterStylesDescription, currentDescriptionMovementGroup);
     }
 
-    public void addMasterStyles(String masterStylesCode, String masterStylesDescription) throws InterruptedException {
-        Thread.sleep(1000);
-        ScrollToElement(addButton);
-        Thread.sleep(1000);
+    public void addMasterStyles(String masterStylesCode, String masterStylesDescription) {
+        implicitWait();
         waitAndClick(addButton);
         waitAndSendKeys(masterStylesCodeInputForm, masterStylesCode);
         setMasterStyles(masterStylesCode, masterStylesDescription);
@@ -96,12 +94,10 @@ public class MaestroEstilosPage extends BasePage {
         clickWithJavaScript(cancelButton);
     }
 
-    public void deleteMasterStyles(String masterStylesCode) throws InterruptedException {
+    public void deleteMasterStyles(String masterStylesCode) {
         findMasterStyles(masterStylesCode);
-        Thread.sleep(500);
+        ScrollToElement(getDeleteButtonForMasterStyles());
         waitAndClick(getDeleteButtonForMasterStyles());
-        Thread.sleep(500);
         waitAndClick(confirmButtonDelete);
-        Thread.sleep(500);
     }
 }

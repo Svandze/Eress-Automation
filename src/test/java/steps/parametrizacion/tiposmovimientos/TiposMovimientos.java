@@ -28,16 +28,11 @@ public class TiposMovimientos extends BaseTestSeress {
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
         ScrollToElement(parametrizacionPage.tipoMovimientoIcon);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         waitAndClick(parametrizacionPage.tipoMovimientoIcon);
     }
 
     @Test
-    public void MovementsGruopManagementTest() throws InterruptedException {
+    public void MovementsGruopManagementTest() {
         String typesMovementsCode = randomCode();
         String typesMovementsDescription = "Test";
         Boolean typesMovementsCheck = true;
@@ -49,7 +44,5 @@ public class TiposMovimientos extends BaseTestSeress {
         tipoMovimientosPage.editTypesMovements(typesMovementsCode, updateTypesMovementsCode, updatedTypesMovementsDescription, updatedTypesMovementsCheck);
         tipoMovimientosPage.validateTypesMovements(updateTypesMovementsCode,updateTypesMovementsCode, updatedTypesMovementsDescription, updatedTypesMovementsCheck);
         tipoMovimientosPage.deleteTypesMovements(updateTypesMovementsCode);
-
-
     }
 }

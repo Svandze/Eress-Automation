@@ -61,13 +61,13 @@ public class GradoDificultadPage extends BasePage {
     }
 
     public void setLevelDifficultyData(String levelDifficultyCode, String levelDifficultyDescription, String levelDifficultyValue) {
+        ScrollToElement(levelDifficultyCodeInputForm);
         waitAndSendKeys(levelDifficultyCodeInputForm, levelDifficultyCode);
         waitAndSendKeys(levelDifficultyDescriptionInputForm, levelDifficultyDescription);
         waitAndSendKeys(levelDifficultyCheckInputForm, levelDifficultyValue);
         ScrollToElement(levelDifficultyGroup);
         clickWithJavaScript(levelDifficultyGroup);
     }
-
 
 
     public void validateLevelDifficultyInfo(String levelDifficultyCode, String levelDifficultyDescription, String levelDifficultyValue) {
@@ -79,19 +79,18 @@ public class GradoDificultadPage extends BasePage {
         String currentLevelDifficultyValue = levelDifficultyCheckInputForm.getAttribute("value");
         Assert.assertEquals("El valor actual del código del grupo de movimientos coincide con el esperado", levelDifficultyCode, currentMovementGroupCode);
         Assert.assertEquals("El valor actual de la descripción coincide con el esperado", levelDifficultyDescription, currentDescriptionMovementGroup);
-        Assert.assertEquals("El valor actual del valor coincide con el esperado", levelDifficultyValue ,currentLevelDifficultyValue);
+        Assert.assertEquals("El valor actual del valor coincide con el esperado", levelDifficultyValue, currentLevelDifficultyValue);
     }
 
-    public void addLevelDifficulty(String levelDifficultyCode, String levelDifficultyDescription, String levelDifficultyValue) throws InterruptedException {
-        Thread.sleep(1000);
+    public void addLevelDifficulty(String levelDifficultyCode, String levelDifficultyDescription, String levelDifficultyValue) {
+        implicitWait();
         ScrollToElement(addButton);
-        Thread.sleep(1000);
         waitAndClick(addButton);
         waitAndSendKeys(levelDifficultyCodeInputForm, levelDifficultyCode);
         setLevelDifficultyData(levelDifficultyCode, levelDifficultyDescription, levelDifficultyValue);
     }
 
-    public void editLevelDifficulty(String levelDifficultyCode, String newLevelDifficultyCode, String newLevelDifficultyDescription, String newLevelDifficultyValue ) {
+    public void editLevelDifficulty(String levelDifficultyCode, String newLevelDifficultyCode, String newLevelDifficultyDescription, String newLevelDifficultyValue) {
         findLevelDifficulty(levelDifficultyCode);
         waitAndClick(getEditButtonForLevelDifficulty(levelDifficultyCode));
         setLevelDifficultyData(newLevelDifficultyCode, newLevelDifficultyDescription, newLevelDifficultyValue);
@@ -104,13 +103,10 @@ public class GradoDificultadPage extends BasePage {
         clickWithJavaScript(cancelButton);
     }
 
-    public void deleteLevelDifficulty(String levelDifficultyCode) throws InterruptedException {
+    public void deleteLevelDifficulty(String levelDifficultyCode) {
         findLevelDifficulty(levelDifficultyCode);
-        Thread.sleep(500);
+        ScrollToElement(getDeleteButtonForLevelDifficulty());
         waitAndClick(getDeleteButtonForLevelDifficulty());
-        Thread.sleep(500);
         waitAndClick(confirmButtonDelete);
-        Thread.sleep(500);
     }
-
 }

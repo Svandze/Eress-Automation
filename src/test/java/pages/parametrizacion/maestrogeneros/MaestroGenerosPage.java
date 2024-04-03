@@ -93,11 +93,10 @@ public class MaestroGenerosPage extends BasePage {
         clickWithJavaScript(cancelButton);
     }
 
-    public void deleteMasterGenres(String masterGenresCode) throws InterruptedException {
+    public void deleteMasterGenres(String masterGenresCode) {
         findMasterGenres(masterGenresCode);
-        Thread.sleep(500);
+        ScrollToElement(getDeleteButtonForMasterGenres());
         waitAndClick(getDeleteButtonForMasterGenres());
-        Thread.sleep(500);
         waitAndClick(confirmButtonDelete);
 
     }

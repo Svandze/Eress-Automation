@@ -75,10 +75,8 @@ public class TejidosPage extends BasePage {
         Assert.assertEquals("El valor actual de la descripción coincide con el esperado", weaveDescription, currentDescriptionMovementGroup);
     }
 
-    public void addWeave(String weaveCode, String weaveDescription) throws InterruptedException {
-        Thread.sleep(1000);
-        ScrollToElement(addButton);
-        Thread.sleep(1000);
+    public void addWeave(String weaveCode, String weaveDescription) {
+        implicitWait();
         waitAndClick(addButton);
         waitAndSendKeys(weaveCodeInputForm, weaveCode);
         setWeave(weaveCode, weaveDescription);
@@ -97,12 +95,10 @@ public class TejidosPage extends BasePage {
         clickWithJavaScript(cancelButton);
     }
 
-    public void deleteWeave(String weaveCode) throws InterruptedException {
+    public void deleteWeave(String weaveCode) {
         findWeave(weaveCode);
-        Thread.sleep(500);
+        ScrollToElement(getDeleteButtonForWeave());
         waitAndClick(getDeleteButtonForWeave());
-        Thread.sleep(500);
         waitAndClick(confirmButtonDelete);
-        Thread.sleep(500);
     }
 }

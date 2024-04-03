@@ -30,17 +30,12 @@ public class TejidosPageTest extends BaseTestSeress {
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
         ScrollToElement(parametrizacionPage.maestroTejidosIcon);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         waitAndClick(parametrizacionPage.maestroTejidosIcon);
 
     }
 
     @Test
-    public void MasterStilesManagementTest() throws InterruptedException {
+    public void MasterStilesManagementTest() {
         String weaveCode = randomCode();
         String weaveDescription = "Test";
         String updateWeaveCode = randomCode();

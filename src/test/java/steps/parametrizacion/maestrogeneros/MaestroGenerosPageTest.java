@@ -30,7 +30,7 @@ public class MaestroGenerosPageTest extends BaseTestSeress {
     }
 
     @Test
-    public void MasterGenresManagementTest() throws InterruptedException {
+    public void MasterGenresManagementTest()  {
         String masterGenresCode = randomCode();
         String masterGenresDescription = "Test";
         String updateMasterGenresCode = randomCode();

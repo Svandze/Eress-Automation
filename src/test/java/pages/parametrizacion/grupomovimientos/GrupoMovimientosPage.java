@@ -92,11 +92,10 @@ import static utils.ElementUtils.waitAndClick;
             clickWithJavaScript(cancelButton);
         }
 
-        public void deleteMovementGroup(String movementGroupCode) throws InterruptedException {
+        public void deleteMovementGroup(String movementGroupCode) {
             findMovementGroup(movementGroupCode);
             waitAndClick(getDeleteButtonForMovementGroup());
             waitAndClick(confirmButtonDelete);
-            Thread.sleep(500);
         }
 
     }

@@ -1,5 +1,6 @@
 package steps.parametrizacion.grupomovimientos;
 
+import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
 import pages.parametrizacion.ConfeccionPage;
@@ -32,15 +33,14 @@ public class GrupoMovimientosTest extends BaseTestSeress {
     }
 
     @Test
-    public void MovementsGruopManagementTest() throws InterruptedException {
+    public void MovementsGroupManagementTest() {
         String movementGroupCode = randomCode();
-        String movementGruopDescription = "Test";
+        String movementGroupDescription = "Test";
         String updateMovementGroupCode = randomCode();
         String updatedMovementGruopDescription = "Update Test";
-        grupoMovimientos.addMovementGroup(movementGroupCode,movementGruopDescription);
+        grupoMovimientos.addMovementGroup(movementGroupCode,movementGroupDescription);
         grupoMovimientos.editMovementGroup(movementGroupCode,updateMovementGroupCode,updatedMovementGruopDescription);
         grupoMovimientos.validateMovementGroup(updateMovementGroupCode,updateMovementGroupCode,updatedMovementGruopDescription);
         grupoMovimientos.deleteMovementGroup(updateMovementGroupCode);
-
     }
 }

@@ -39,7 +39,7 @@ public class MaestroClientesPageTest extends BaseTestSeress {
         String masterCustomerCod = randomCode();
         String masterCustomerCodUpdate = randomCode();
         String masterCustomerDocumentTypeUpdated = "NIT";
-        String masterCustomerDocumentUpdated = faker.number().digits(8) + "CodTest";
+        String masterCustomerDocumentUpdated = faker.number().digits(8) + "Test";
         String masterCustomerBusinessNameUpdated = faker.company().name();
         String masterCustomerFirstNameUpdated = faker.name().firstName();
         String masterCustomerSecondNameUpdated = faker.name().firstName();

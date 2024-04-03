@@ -79,16 +79,14 @@ public class TipoMovimientosPage extends BasePage {
         //Assert.assertEquals("El valor actual de la descripción coincide con el esperado", typesMovementsCheck ,currentLevelDifficultyValue);
     }
 
-    public void addTypesMovements(String typesMovementsCode, String typesMovementsDescription, Boolean typesMovementsCheck) throws InterruptedException {
-        Thread.sleep(1000);
-        ScrollToElement(addButton);
-        Thread.sleep(1000);
+    public void addTypesMovements(String typesMovementsCode, String typesMovementsDescription, Boolean typesMovementsCheck) {
+        implicitWait();
         waitAndClick(addButton);
         waitAndSendKeys(typesMovementsCodeInputForm, typesMovementsCode);
         setLevelTypesMovements(typesMovementsCode, typesMovementsDescription, typesMovementsCheck);
     }
 
-    public void editTypesMovements(String typesMovementsCode, String newTypesMovementsCode, String newTypesMovementsDescription, Boolean newTypesMovementsCheck ) {
+    public void editTypesMovements(String typesMovementsCode, String newTypesMovementsCode, String newTypesMovementsDescription, Boolean newTypesMovementsCheck) {
         findTypesMovements(typesMovementsCode);
         waitAndClick(getEditButtonForTypesMovements(typesMovementsCode));
         setLevelTypesMovements(newTypesMovementsCode, newTypesMovementsDescription, newTypesMovementsCheck);
@@ -96,23 +94,22 @@ public class TipoMovimientosPage extends BasePage {
 
     public void validateTypesMovements(String typesMovementsCode, String expectTypesMovementsCode, String expectTypesMovementsDescription, Boolean expectTypesMovementsCheck) {
         findTypesMovements(typesMovementsCode);
+        implicitWait();
         waitAndClick(getDetailsButtonForTypesMovements(typesMovementsCode));
         validateTypesMovementsInfo(expectTypesMovementsCode, expectTypesMovementsDescription, expectTypesMovementsCheck);
         clickWithJavaScript(cancelButton);
     }
 
-    public void deleteTypesMovements(String typesMovementsCode) throws InterruptedException {
+    public void deleteTypesMovements(String typesMovementsCode) {
         findTypesMovements(typesMovementsCode);
-        Thread.sleep(500);
+        ScrollToElement(getDeleteButtonForTypesMovements());
         waitAndClick(getDeleteButtonForTypesMovements());
-        Thread.sleep(500);
         waitAndClick(confirmButtonDelete);
-        Thread.sleep(500);
     }
 
-    public void checkFuntionTypesMovements(WebElement webElementLevelDifficultyCheck,Boolean levelDifficultyCheck ){
+    public void checkFuntionTypesMovements(WebElement webElementLevelDifficultyCheck, Boolean levelDifficultyCheck) {
         try {
-            if (levelDifficultyCheck==true) {
+            if (levelDifficultyCheck == true) {
                 waitAndClick(webElementLevelDifficultyCheck);
             }
         } catch (Exception e) {

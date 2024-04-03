@@ -29,17 +29,11 @@ public class MaestroEstilosPageTest extends BaseTestSeress {
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
         ScrollToElement(parametrizacionPage.maestroEstilosIcon);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         waitAndClick(parametrizacionPage.maestroEstilosIcon);
-
     }
 
     @Test
-    public void MasterStilesManagementTest() throws InterruptedException {
+    public void MasterStilesManagementTest() {
         String masterStylesCode = randomCode();
         String masterStylesDescription = "Test";
         String updateMasterStylesCode = randomCode();
