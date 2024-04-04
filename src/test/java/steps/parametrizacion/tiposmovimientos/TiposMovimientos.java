@@ -32,13 +32,13 @@ public class TiposMovimientos extends BaseTestSeress {
     }
 
     @Test
-    public void MovementsGruopManagementTest() {
+    public void TypesMovementsManagementsTest() {
         String typesMovementsCode = randomCode();
         String typesMovementsDescription = "Test";
-        Boolean typesMovementsCheck = true;
+        Boolean typesMovementsCheck = false;
         String updateTypesMovementsCode = randomCode();
         String updatedTypesMovementsDescription = "Update Test";
-        Boolean updatedTypesMovementsCheck = false;
+        Boolean updatedTypesMovementsCheck = true;
 
         tipoMovimientosPage.addTypesMovements(typesMovementsCode, typesMovementsDescription, typesMovementsCheck);
         tipoMovimientosPage.editTypesMovements(typesMovementsCode, updateTypesMovementsCode, updatedTypesMovementsDescription, updatedTypesMovementsCheck);

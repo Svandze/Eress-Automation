@@ -38,6 +38,13 @@ public class TipoMovimientosPage extends BasePage {
     @FindBy(xpath = "//button[@aria-label='Si']")
     public WebElement confirmButtonDelete;
 
+    @FindBy(xpath = "//p-checkbox[@inputid='is_machine'][1]")
+    public WebElement typesMovementsElementsCheckSewing;
+
+    @FindBy(xpath = "//input[@id='is_machine']")
+    public WebElement typesMovementsBooleanElementsCheckSewing;
+
+
 
     public WebElement getEditButtonForTypesMovements(String typesMovementsCode) {
         return driver.findElement(By.xpath("(//td[contains(text(),'" + typesMovementsCode + "')]/following-sibling::td/div/seress-ui-button)[1]"));
@@ -62,7 +69,7 @@ public class TipoMovimientosPage extends BasePage {
     public void setLevelTypesMovements(String typesMovementsCode, String typesMovementsDescription, Boolean typesMovementsCheck) {
         waitAndSendKeys(typesMovementsCodeInputForm, typesMovementsCode);
         waitAndSendKeys(typesMovementsDescriptionInputForm, typesMovementsDescription);
-        checkFuntionTypesMovements(typesMovementsCheckInputForm, typesMovementsCheck);
+        verifyCheck(typesMovementsElementsCheckSewing, typesMovementsCheck);
         ScrollToElement(confirmAddTypesMovements);
         clickWithJavaScript(confirmAddTypesMovements);
     }
@@ -73,15 +80,16 @@ public class TipoMovimientosPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(typesMovementsCodeInputForm, "value", typesMovementsCode));
         String currentMovementGroupCode = typesMovementsCodeInputForm.getAttribute("value");
         String currentDescriptionMovementGroup = typesMovementsDescriptionInputForm.getAttribute("value");
-        //String currentLevelDifficultyValue = typesMovementsCheckInputForm.getAttribute("value");
+        String currentnMasterElementsCheck = typesMovementsBooleanElementsCheckSewing.getAttribute("aria-checked");;
         Assert.assertEquals("El valor actual del código del grupo de movimientos coincide con el esperado", typesMovementsCode, currentMovementGroupCode);
         Assert.assertEquals("El valor actual de la descripción coincide con el esperado", typesMovementsDescription, currentDescriptionMovementGroup);
-        //Assert.assertEquals("El valor actual de la descripción coincide con el esperado", typesMovementsCheck ,currentLevelDifficultyValue);
+        Assert.assertEquals("El valor actual del check coincide con el esperado",(typesMovementsCheck).toString(),  currentnMasterElementsCheck);
+
     }
 
     public void addTypesMovements(String typesMovementsCode, String typesMovementsDescription, Boolean typesMovementsCheck) {
         implicitWait();
-        waitAndClick(addButton);
+        clickWithJavaScript(addButton);
         waitAndSendKeys(typesMovementsCodeInputForm, typesMovementsCode);
         setLevelTypesMovements(typesMovementsCode, typesMovementsDescription, typesMovementsCheck);
     }
@@ -107,13 +115,14 @@ public class TipoMovimientosPage extends BasePage {
         waitAndClick(confirmButtonDelete);
     }
 
-    public void checkFuntionTypesMovements(WebElement webElementLevelDifficultyCheck, Boolean levelDifficultyCheck) {
+    public void verifyCheck(WebElement Check, Boolean checkSewing){
         try {
-            if (levelDifficultyCheck == true) {
-                waitAndClick(webElementLevelDifficultyCheck);
+            if (checkSewing) {
+                ScrollToElement(typesMovementsElementsCheckSewing);
+                waitAndClick(typesMovementsElementsCheckSewing);
             }
         } catch (Exception e) {
-            System.out.println("Error al verificar la dificultad del nivel: " + e.getMessage());
+            System.err.println("Ocurrió un error específico durante la espera o el clic: " + e.getMessage());
         }
     }
 }
