@@ -69,7 +69,7 @@ public class TipoMovimientosPage extends BasePage {
     public void setLevelTypesMovements(String typesMovementsCode, String typesMovementsDescription, Boolean typesMovementsCheck) {
         waitAndSendKeys(typesMovementsCodeInputForm, typesMovementsCode);
         waitAndSendKeys(typesMovementsDescriptionInputForm, typesMovementsDescription);
-        verifyCheck(typesMovementsElementsCheckSewing, typesMovementsCheck);
+        verifyAndClickCheck(typesMovementsBooleanElementsCheckSewing ,typesMovementsCheck);
         ScrollToElement(confirmAddTypesMovements);
         clickWithJavaScript(confirmAddTypesMovements);
     }
@@ -83,7 +83,7 @@ public class TipoMovimientosPage extends BasePage {
         String currentnMasterElementsCheck = typesMovementsBooleanElementsCheckSewing.getAttribute("aria-checked");;
         Assert.assertEquals("El valor actual del código del grupo de movimientos coincide con el esperado", typesMovementsCode, currentMovementGroupCode);
         Assert.assertEquals("El valor actual de la descripción coincide con el esperado", typesMovementsDescription, currentDescriptionMovementGroup);
-        Assert.assertEquals("El valor actual del check coincide con el esperado",(typesMovementsCheck).toString(),  currentnMasterElementsCheck);
+        Assert.assertEquals("El valor actual del check coincide con el esperado",typesMovementsCheck, Boolean.parseBoolean(currentnMasterElementsCheck));
 
     }
 
@@ -115,9 +115,10 @@ public class TipoMovimientosPage extends BasePage {
         waitAndClick(confirmButtonDelete);
     }
 
-    public void verifyCheck(WebElement Check, Boolean checkSewing){
+    public void verifyAndClickCheck(WebElement webElement,Boolean checkSewing){
         try {
-            if (checkSewing) {
+            Boolean isChecked= Boolean.parseBoolean(webElement.getAttribute("aria-checked"));
+            if (checkSewing != isChecked){
                 ScrollToElement(typesMovementsElementsCheckSewing);
                 waitAndClick(typesMovementsElementsCheckSewing);
             }

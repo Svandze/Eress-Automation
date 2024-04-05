@@ -37,8 +37,7 @@ public class TiposMovimientos extends BaseTestSeress {
         Boolean typesMovementsCheck = false;
         String updateTypesMovementsCode = randomCode();
         String updatedTypesMovementsDescription = "Update Test";
-        Boolean updatedTypesMovementsCheck = true;
-
+        Boolean updatedTypesMovementsCheck = false;
         tipoMovimientosPage.addTypesMovements(typesMovementsCode, typesMovementsDescription, typesMovementsCheck);
         tipoMovimientosPage.editTypesMovements(typesMovementsCode, updateTypesMovementsCode, updatedTypesMovementsDescription, updatedTypesMovementsCheck);
         tipoMovimientosPage.validateTypesMovements(updateTypesMovementsCode,updateTypesMovementsCode, updatedTypesMovementsDescription, updatedTypesMovementsCheck);
