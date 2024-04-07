@@ -34,4 +34,7 @@ public class ParametrizacionPage extends BasePage {
 
     @FindBy(xpath ="//article[@class='mt-4 grid__modules__nav']/seress-ui-link-card[10]/a/div")
     public WebElement maestroPrendasoIcon;
+
+    @FindBy(xpath ="//article[@class='mt-4 grid__modules__nav']/seress-ui-link-card[11]/a/div")
+    public WebElement calendarioIcon;
 }
