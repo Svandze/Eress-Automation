@@ -59,6 +59,7 @@ public class TejidosPage extends BasePage {
     }
 
     public void setWeave(String weaveCode, String weaveDescription) {
+        ScrollToElement(weaveCodeInputForm);
         waitAndSendKeys(weaveCodeInputForm, weaveCode);
         waitAndSendKeys(weaveDescriptionInputForm, weaveDescription);
         ScrollToElement(confirmAddWeave);

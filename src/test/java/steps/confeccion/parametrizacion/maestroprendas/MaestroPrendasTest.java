@@ -10,7 +10,8 @@ import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
 import static org.example.utils.MachineCodeBuilder.randomCode;
-import static utils.ElementUtils.*;
+import static utils.ElementUtils.ScrollToElement;
+import static utils.ElementUtils.windowHandler;
 import static utils.ElementUtils.waitAndClick;
 
 public class MaestroPrendasTest extends BaseTestSeress {
@@ -24,7 +25,6 @@ public class MaestroPrendasTest extends BaseTestSeress {
     @Before
     public void setup() {
         super.setup();
-
         confeccionPage = new ConfeccionPage();
         parametrizacionPage = new ParametrizacionPage();
         maestroPrendasPage = new MaestroPrendasPage();

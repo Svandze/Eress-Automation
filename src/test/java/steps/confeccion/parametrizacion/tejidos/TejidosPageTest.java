@@ -35,7 +35,7 @@ public class TejidosPageTest extends BaseTestSeress {
     }
 
     @Test
-    public void MasterStilesManagementTest() {
+    public void weaveStylesManagementTest() {
         String weaveCode = randomCode();
         String weaveDescription = "Test";
         String updateWeaveCode = randomCode();
@@ -44,7 +44,5 @@ public class TejidosPageTest extends BaseTestSeress {
         tejidosPage.editWeave(weaveCode,updateWeaveCode, updatedWeaveDescription);
         tejidosPage.validateWeave(updateWeaveCode,updateWeaveCode,updatedWeaveDescription);
         tejidosPage.deleteWeave(updateWeaveCode);
-
-
     }
 }

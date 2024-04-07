@@ -58,6 +58,7 @@ public class MaestroGenerosPage extends BasePage {
     }
 
     public void setMasterGenresData(String masterGenresCode, String masterGenresDescription) {
+        ScrollToElement(masterGenresCodeInputForm);
         waitAndSendKeys(masterGenresCodeInputForm, masterGenresCode);
         waitAndSendKeys(masterGenresDescriptionInputForm, masterGenresDescription);
         ScrollToElement(confirmAddMasterGenres);

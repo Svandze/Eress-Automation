@@ -57,6 +57,7 @@ import static utils.ElementUtils.waitAndClick;
         }
 
         public void setMovementGroupData(String movementGroupCode, String descriptionMovementGroup) {
+            implicitWait();
             waitAndSendKeys(movementGroupCodeInputForm, movementGroupCode);
             waitAndSendKeys(movementGroupDescriptionInputForm, descriptionMovementGroup);
             ScrollToElement(confirmAddMovementGroup);

@@ -58,6 +58,7 @@ public class MaestroEstilosPage extends BasePage {
     }
 
     public void setMasterStyles(String masterStylespCode, String masterStylesDescription) {
+        ScrollToElement(masterStylesCodeInputForm);
         waitAndSendKeys(masterStylesCodeInputForm, masterStylespCode);
         waitAndSendKeys(masterStylesDescriptionInputForm, masterStylesDescription);
         ScrollToElement(confirmAddMasterStyles);

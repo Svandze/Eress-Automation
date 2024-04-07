@@ -33,7 +33,7 @@ public class MaestroEstilosPageTest extends BaseTestSeress {
     }
 
     @Test
-    public void MasterStilesManagementTest() {
+    public void masterStylesManagementTest() {
         String masterStylesCode = randomCode();
         String masterStylesDescription = "Test";
         String updateMasterStylesCode = randomCode();

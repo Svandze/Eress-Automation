@@ -191,6 +191,7 @@ public class MaestroClientesPage extends BasePage {
 
     public void deleteMasterCustomer(String masterCustomerCode) {
         findMasterCustomer(masterCustomerCode);
+        implicitWait();
         clickWithJavaScript(getDeleteButtonForMasterCustomer());
         clickWithJavaScript(confirmButtonDelete);
     }
