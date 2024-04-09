@@ -3,24 +3,18 @@ package steps.confeccion.parametrizacion.calendario;
 import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.confeccion.parametrizacion.ConfeccionPage;
 import pages.confeccion.parametrizacion.ParametrizacionPage;
 import pages.confeccion.parametrizacion.calendario.CalendarioPage;
-import pages.confeccion.parametrizacion.gradodificultad.GradoDificultadPage;
 import steps.BaseTestSeress;
 
-import java.time.Duration;
-import java.time.Year;
-import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
+import java.time.DayOfWeek;
 import java.util.Date;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
 import static utils.ElementUtils.ScrollToElement;
 import static utils.ElementUtils.waitAndClick;
+import static utils.ElementUtils.waitAndSendKeys;
 import static utils.ElementUtils.windowHandler;
 
 public class CalendarioTest extends BaseTestSeress {
@@ -46,33 +40,19 @@ public class CalendarioTest extends BaseTestSeress {
         Faker faker = new Faker();
         Date initialDateRange = new Date();
         Date endDateRange = new Date();
-        initialDateRange.setYear(2040 - 1900); // Ajuste para Date.setYear()
-        endDateRange.setYear(2049 - 1900); // Ajuste para Date.setYear()
-        String year = String.valueOf(faker.date().between(initialDateRange, endDateRange).getYear() + 1900); // Ajuste para obtener el año correcto
-
+        initialDateRange.setYear(2040 - 1900);
+        endDateRange.setYear(2049 - 1900);
+        String year = String.valueOf(faker.date().between(initialDateRange, endDateRange).getYear() + 1900);
         waitAndClick(calendarioPage.addButton);
         waitAndClick(calendarioPage.yearSetup);
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.of(10, ChronoUnit.SECONDS)); // Espera hasta 10 segundos
-        try {
-            // Espera hasta que el botón para el año deseado esté visible y luego haz clic
-            while(true) {
-                try {
-                    WebElement yearElement = calendarioPage.pickYear(year);
-                    wait.until(ExpectedConditions.visibilityOf(yearElement));
-                    if (yearElement.isDisplayed()) {
-                        yearElement.click();
-                        break;
-                    }
-                } catch (Exception e) {
-                    Thread.sleep(4000);
-                    waitAndClick(calendarioPage.nextYearButton);
-                }
-            }
-        } catch (Exception e) {
-            // Manejar excepción si es necesario
-        }
-
+        calendarioPage.navigateCalendarToselectedYear(year, 5);
+        calendarioPage.verifyAndClickCheck(calendarioPage.saturdayCheckbox, true);
+        calendarioPage.verifyAndClickCheck(calendarioPage.sundayCheckbox, false);
+        waitAndClick(calendarioPage.dateInputField);
+        calendarioPage.dateInputField.click();
+        calendarioPage.clickOnSpecifiedDay(DayOfWeek.WEDNESDAY);
+        waitAndSendKeys(calendarioPage.descriptionInput, "TEST");
+        waitAndClick(calendarioPage.addNewYear);
         Thread.sleep(10000);
     }
 }

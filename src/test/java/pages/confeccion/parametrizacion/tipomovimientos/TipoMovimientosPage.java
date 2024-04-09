@@ -67,6 +67,7 @@ public class TipoMovimientosPage extends BasePage {
     }
 
     public void setLevelTypesMovements(String typesMovementsCode, String typesMovementsDescription, Boolean typesMovementsCheck) {
+        ScrollToElement(typesMovementsCodeInputForm);
         waitAndSendKeys(typesMovementsCodeInputForm, typesMovementsCode);
         waitAndSendKeys(typesMovementsDescriptionInputForm, typesMovementsDescription);
         verifyAndClickCheck(typesMovementsBooleanElementsCheckSewing ,typesMovementsCheck);
@@ -113,17 +114,5 @@ public class TipoMovimientosPage extends BasePage {
         ScrollToElement(getDeleteButtonForTypesMovements());
         waitAndClick(getDeleteButtonForTypesMovements());
         waitAndClick(confirmButtonDelete);
-    }
-
-    public void verifyAndClickCheck(WebElement webElement,Boolean checkSewing){
-        try {
-            Boolean isChecked= Boolean.parseBoolean(webElement.getAttribute("aria-checked"));
-            if (checkSewing != isChecked){
-                ScrollToElement(typesMovementsElementsCheckSewing);
-                waitAndClick(typesMovementsElementsCheckSewing);
-            }
-        } catch (Exception e) {
-            System.err.println("Ocurrió un error específico durante la espera o el clic: " + e.getMessage());
-        }
     }
 }
