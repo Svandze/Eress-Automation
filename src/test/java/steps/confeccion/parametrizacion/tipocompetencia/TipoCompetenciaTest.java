@@ -37,7 +37,7 @@ public class TipoCompetenciaTest extends BaseTestSeress {
         Boolean competitionTypeCheck = true;
         String updateCompetitionTypeCode = randomCode();
         String updatedCompetitionTypeDescription = "Update Test";
-        Boolean updatedCompetitionTypeCheck = true;
+        Boolean updatedCompetitionTypeCheck = false;
         tipoCompetenciaPage.addCompetitionType(competitionTypeCode, competitionTypeDescription, competitionTypeCheck);
         tipoCompetenciaPage.editCompetitionType(competitionTypeCode, updateCompetitionTypeCode, updatedCompetitionTypeDescription, updatedCompetitionTypeCheck);
         tipoCompetenciaPage.validateCompetitionType(updateCompetitionTypeCode,updateCompetitionTypeCode, updatedCompetitionTypeDescription, updatedCompetitionTypeCheck);

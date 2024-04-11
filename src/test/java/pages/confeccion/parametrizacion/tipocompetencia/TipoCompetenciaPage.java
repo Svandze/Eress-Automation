@@ -66,9 +66,7 @@ public class TipoCompetenciaPage extends BasePage {
         ScrollToElement(competitionTypeCodeInputForm);
         waitAndSendKeys(competitionTypeCodeInputForm, competitionTypeCode);
         waitAndSendKeys(competitionTypeDescriptionInputForm, competitionTypeDescription);
-        verifyAndClickCheck(competitionTypeCheckSewing,competitionType);
-        //verifyAndClickCheckCompetitionType();
-
+        verifyAndClickCheck(competitionTypeCheckSewing,  competitionType);
         ScrollToElement(confirmAddCompetitionType);
         clickWithJavaScript(confirmAddCompetitionType);
     }

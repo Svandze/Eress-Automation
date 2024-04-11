@@ -19,9 +19,10 @@ public class BasePage {
     }
 
 
-    public void verifyAndClickCheck(WebElement webElement, Boolean checkSewing){
+    public void verifyAndClickCheck(WebElement webElement, Boolean checkSewing ){
         try {
             Boolean isChecked= Boolean.parseBoolean(webElement.getAttribute("aria-checked"));
+            System.out.println(isChecked);
             if (checkSewing != isChecked){
                 ScrollToElement(webElement);
                 waitAndClick(webElement);
