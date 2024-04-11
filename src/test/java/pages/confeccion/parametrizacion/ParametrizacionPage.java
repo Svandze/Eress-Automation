@@ -37,4 +37,14 @@ public class ParametrizacionPage extends BasePage {
 
     @FindBy(xpath ="//article[@class='mt-4 grid__modules__nav']/seress-ui-link-card[11]/a/div")
     public WebElement calendarioIcon;
+
+    @FindBy(xpath ="//article[@class='mt-4 grid__modules__nav']/seress-ui-link-card[12]/a/div")
+    public WebElement tallerIcon;
+    @FindBy(xpath ="//article[@class='mt-4 grid__modules__nav']/seress-ui-link-card[13]/a/div")
+    public WebElement cargosLaboralesIcon;
+    @FindBy(xpath ="(//h4[normalize-space()='Estado Civil'])[1]")
+    public WebElement estadoCivilIcon;
+
+    @FindBy(xpath ="(//h4[normalize-space()='Tipo de documentos'])[1]")
+    public WebElement tipoDocumentoIcon;
 }

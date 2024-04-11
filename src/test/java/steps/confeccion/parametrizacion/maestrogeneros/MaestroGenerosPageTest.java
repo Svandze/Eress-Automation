@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import pages.confeccion.parametrizacion.ConfeccionPage;
 import pages.confeccion.parametrizacion.ParametrizacionPage;
-import pages.confeccion.parametrizacion.maestrogeneros.MaestroGenerosPage;
+import pages.confeccion.parametrizacion.cargoslaborales.CargosLaboralesPage;
 import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
@@ -16,17 +16,17 @@ public class MaestroGenerosPageTest extends BaseTestSeress {
 
     private ConfeccionPage confeccionPage;
     private ParametrizacionPage parametrizacionPage;
-    private MaestroGenerosPage maestroGenerosPage;
+    private CargosLaboralesPage cargosLaboralesPage;
 
     @Before
     public void setup() {
         super.setup();
         confeccionPage = new ConfeccionPage();
         parametrizacionPage = new ParametrizacionPage();
-        maestroGenerosPage = new MaestroGenerosPage();
+        cargosLaboralesPage = new CargosLaboralesPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        waitAndClick(parametrizacionPage.maestroGenerosIcon);
+        waitAndClick(parametrizacionPage.cargosLaboralesIcon);
     }
 
     @Test
@@ -35,10 +35,10 @@ public class MaestroGenerosPageTest extends BaseTestSeress {
         String masterGenresDescription = "Test";
         String updateMasterGenresCode = randomCode();
         String updatedMasterGenresDescription = "Update Test";
-        maestroGenerosPage.addMasterGenresCode(masterGenresCode, masterGenresDescription);
-        maestroGenerosPage.editMasterGenres(masterGenresCode,updateMasterGenresCode,updatedMasterGenresDescription);
-        maestroGenerosPage.validateMasterGenres(updateMasterGenresCode, updateMasterGenresCode, updatedMasterGenresDescription);
-        maestroGenerosPage.deleteMasterGenres(updateMasterGenresCode);
+        cargosLaboralesPage.addJobRoles(masterGenresCode, masterGenresDescription);
+        cargosLaboralesPage.editJobRoles(masterGenresCode,updateMasterGenresCode,updatedMasterGenresDescription);
+        cargosLaboralesPage.validateJobRoles(updateMasterGenresCode, updateMasterGenresCode, updatedMasterGenresDescription);
+        cargosLaboralesPage.deleteJobRoles(updateMasterGenresCode);
 
 
     }

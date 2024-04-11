@@ -74,7 +74,7 @@ public class MaestroClientesPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='p-dropdown-items-wrapper']")
     public WebElement dropDownRegionSelectMasterCustomer;
-    ////ul[@role='listbox']/p-dropdownitem[1]/li/div
+
     @FindBy(xpath = "//button[normalize-space()='Adicionar']")
     public WebElement addButton;
 
