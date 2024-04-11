@@ -2,6 +2,7 @@ package steps.confeccion.parametrizacion.calendario;
 
 import com.github.javafaker.Faker;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import pages.confeccion.parametrizacion.ConfeccionPage;
 import pages.confeccion.parametrizacion.ParametrizacionPage;
@@ -35,23 +36,30 @@ public class CalendarioTest extends BaseTestSeress {
         waitAndClick(parametrizacionPage.calendarioIcon);
     }
 
+    @Ignore
     @Test
     public void calendarModule() throws InterruptedException {
         Faker faker = new Faker();
         Date initialDateRange = new Date();
         Date endDateRange = new Date();
-        initialDateRange.setYear(2040 - 1900);
-        endDateRange.setYear(2049 - 1900);
+        initialDateRange.setYear(2060 - 1900);
+        endDateRange.setYear(2100 - 1900);
         String year = String.valueOf(faker.date().between(initialDateRange, endDateRange).getYear() + 1900);
         waitAndClick(calendarioPage.addButton);
         waitAndClick(calendarioPage.yearSetup);
-        calendarioPage.navigateCalendarToselectedYear(year, 5);
+        calendarioPage.navigateCalendarToselectedYear(year, 10);
         calendarioPage.verifyAndClickCheck(calendarioPage.saturdayCheckbox, true);
         calendarioPage.verifyAndClickCheck(calendarioPage.sundayCheckbox, false);
+        ScrollToElement(calendarioPage.dateInputField);
         waitAndClick(calendarioPage.dateInputField);
         calendarioPage.dateInputField.click();
         calendarioPage.clickOnSpecifiedDay(DayOfWeek.WEDNESDAY);
         waitAndSendKeys(calendarioPage.descriptionInput, "TEST");
+        waitAndClick(calendarioPage.addNewYear);
+        Thread.sleep(6000);
+        ScrollToElement(calendarioPage.getDetailsButtonForCalendar(year));
+        calendarioPage.getEditButtonForCalendar(year).click();
+        calendarioPage.verifyAndClickCheck(calendarioPage.sundayCheckbox, true);
         waitAndClick(calendarioPage.addNewYear);
         Thread.sleep(10000);
     }

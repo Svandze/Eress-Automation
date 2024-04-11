@@ -18,6 +18,7 @@ import java.util.Calendar;
 
 import static java.lang.Integer.*;
 import static org.example.utils.CalendarHelper.*;
+import static utils.ElementUtils.ScrollToElement;
 import static utils.ElementUtils.waitAndClick;
 
 public class CalendarioPage extends BasePage {
@@ -34,10 +35,10 @@ public class CalendarioPage extends BasePage {
     @FindBy(xpath = "//chevronrighticon/ancestor::button")
     public WebElement nextYearButton;
 
-    @FindBy(xpath = "(//div[@class='p-checkbox-box'])[1]")
+    @FindBy(css = "#saturday")
     public WebElement saturdayCheckbox;
 
-    @FindBy(xpath = "(//div[@class='p-checkbox-box'])[2]")
+    @FindBy(css = "#sunday")
     public WebElement sundayCheckbox;
 
     @FindBy(xpath = "//td/*/*/input[@type='text']")
@@ -55,16 +56,16 @@ public class CalendarioPage extends BasePage {
     @FindBy(xpath = "//*[@value='Agregar']")
     public WebElement addNewYear;
 
-    public WebElement getEditButtonForLevelDifficulty(String levelDifficultyCode) {
-        return driver.findElement(By.xpath("(//td[contains(text(),'" + levelDifficultyCode + "')]/following-sibling::td/div/seress-ui-button)[1]"));
+    public WebElement getEditButtonForCalendar(String year) {
+        return driver.findElement(By.xpath("(//td[contains(text(),'" + year + "')]/following-sibling::td/div/seress-ui-button)[1]"));
     }
 
-    public WebElement getDetailsButtonForLevelDifficulty(String levelDifficultyCode) {
-        return driver.findElement(By.xpath("(//td[contains(text(),'" + levelDifficultyCode + "')]/following-sibling::td/div/seress-ui-button)[2]"));
+    public WebElement getDetailsButtonForCalendar(String year) {
+        return driver.findElement(By.xpath("(//*/*[contains(text(),'" + year + "')]//following-sibling::*/*/seress-ui-button)[2]"));
     }
 
-    public WebElement getDeleteButtonForLevelDifficulty() {
-        return driver.findElement(By.xpath("//*[@texttooltip=\"Eliminar\"]/button"));
+    public WebElement getDeleteButtonForCalendar(String year) {
+        return driver.findElement(By.xpath("//*/*[contains(text(),'" + year + "')]//following-sibling::*/*/seress-ui-button)[3]"));
     }
 
     public WebElement pickYear(String year) {
@@ -72,7 +73,7 @@ public class CalendarioPage extends BasePage {
     }
 
     public WebElement pickDay(String dayOfMonth) {
-        return driver.findElement(By.xpath("//table/*/tr/td/span[text()='"+ dayOfMonth + "']"));
+        return driver.findElement(By.xpath("//table/*/tr/td/span[text()='" + dayOfMonth + "']"));
 
     }
 
@@ -94,6 +95,7 @@ public class CalendarioPage extends BasePage {
                 if (++attempts >= maxAttempts) {
                     throw new RuntimeException("No se pudo encontrar el año después de " + maxAttempts + " intentos.");
                 }
+                ScrollToElement(nextYearButton);
                 waitAndClick(nextYearButton);
             }
         }
