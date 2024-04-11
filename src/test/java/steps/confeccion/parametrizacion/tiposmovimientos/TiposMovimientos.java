@@ -34,7 +34,7 @@ public class TiposMovimientos extends BaseTestSeress {
     public void TypesMovementsManagementsTest() {
         String typesMovementsCode = randomCode();
         String typesMovementsDescription = "Test";
-        Boolean typesMovementsCheck = false;
+        Boolean typesMovementsCheck = true;
         String updateTypesMovementsCode = randomCode();
         String updatedTypesMovementsDescription = "Update Test";
         Boolean updatedTypesMovementsCheck = false;

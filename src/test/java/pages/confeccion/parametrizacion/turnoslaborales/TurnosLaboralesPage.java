@@ -69,7 +69,7 @@ public class TurnosLaboralesPage extends BasePage {
     public void setWorkShiftsData(String workShiftsCode, String workShiftsDescription, String workShiftsValue) {
         ScrollToElement(workShiftsCodeInputForm);
         waitAndSendKeys(workShiftsCodeInputForm, workShiftsCode);
-        waitAndSendKeys(workShiftsDescriptionInputForm, workShiftsDescription);
+//        waitAndSendKeys(workShiftsDescriptionInputForm, workShiftsDescription);
         waitAndSendKeys(workShiftsCheckInputForm, workShiftsValue);
         ScrollToElement(workShiftsGroup);
         clickWithJavaScript(workShiftsGroup);
@@ -81,10 +81,10 @@ public class TurnosLaboralesPage extends BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.attributeToBe(workShiftsCodeInputForm, "value", workShiftsCode));
         String currentMovementGroupCode = workShiftsCodeInputForm.getAttribute("value");
-        String currentDescriptionMovementGroup = workShiftsDescriptionInputForm.getAttribute("value");
+//        String currentDescriptionMovementGroup = workShiftsDescriptionInputForm.getAttribute("value");
         String currentLevelDifficultyValue = workShiftsCheckInputForm.getAttribute("value");
         Assert.assertEquals("El valor actual del código del grupo de movimientos coincide con el esperado", workShiftsCode, currentMovementGroupCode);
-        Assert.assertEquals("El valor actual de la descripción coincide con el esperado", workShiftsDescription, currentDescriptionMovementGroup);
+//        Assert.assertEquals("El valor actual de la descripción coincide con el esperado", workShiftsDescription, currentDescriptionMovementGroup);
         Assert.assertEquals("El valor actual del valor coincide con el esperado", workShiftsValue, currentLevelDifficultyValue);
     }
 

@@ -3,10 +3,12 @@ package pages;
 import core.CustomPageFactory;
 import core.DriverManager;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import static utils.ElementUtils.ScrollToElement;
+import static utils.ElementUtils.clickWithJavaScript;
 import static utils.ElementUtils.waitAndClick;
 
 @Slf4j
@@ -19,16 +21,17 @@ public class BasePage {
     }
 
 
-    public void verifyAndClickCheck(WebElement webElement, Boolean checkSewing ){
+    public void verifyAndClickCheck(WebElement webElement, Boolean checkSewing) {
         try {
-            Boolean isChecked= Boolean.parseBoolean(webElement.getAttribute("aria-checked"));
-            System.out.println(isChecked);
-            if (checkSewing != isChecked){
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            String isCheckedStr = (String) js.executeScript("return arguments[0].getAttribute('aria-checked');", webElement);
+            Boolean isChecked = Boolean.parseBoolean(isCheckedStr);
+            if (checkSewing != isChecked) {
                 ScrollToElement(webElement);
-                waitAndClick(webElement);
+                clickWithJavaScript(webElement);
             }
         } catch (Exception e) {
-            log.error("Ocurrió un error específico durante la espera o el click: "+ e.getMessage());
+            log.error("Ocurrió un error específico durante la espera o el click: " + e.getMessage());
         }
     }
 }

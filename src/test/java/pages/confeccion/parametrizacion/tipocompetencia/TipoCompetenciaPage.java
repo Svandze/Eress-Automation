@@ -15,11 +15,8 @@ import static utils.ElementUtils.*;
 import static utils.ElementUtils.clickWithJavaScript;
 
 public class TipoCompetenciaPage extends BasePage {
-    @FindBy(xpath = "(//div[@class='p-checkbox-box'])[1]")
+    @FindBy(css = "p-checkbox div div input")
     public WebElement competitionTypeCheckSewing;
-
-    @FindBy(xpath = "//input[@type='checkbox']")
-    public WebElement competitionTypeBooleanElementsCheckSewing;
 
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement confirmAddCompetitionType;
@@ -66,7 +63,7 @@ public class TipoCompetenciaPage extends BasePage {
         ScrollToElement(competitionTypeCodeInputForm);
         waitAndSendKeys(competitionTypeCodeInputForm, competitionTypeCode);
         waitAndSendKeys(competitionTypeDescriptionInputForm, competitionTypeDescription);
-        verifyAndClickCheck(competitionTypeCheckSewing,  competitionType);
+        verifyAndClickCheck(competitionTypeCheckSewing, competitionType);
         ScrollToElement(confirmAddCompetitionType);
         clickWithJavaScript(confirmAddCompetitionType);
     }
@@ -77,10 +74,10 @@ public class TipoCompetenciaPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(competitionTypeCodeInputForm, "value", competitionTypeCode));
         String currentMasterGenresCode = competitionTypeCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = competitionTypeDescriptionInputForm.getAttribute("value");
-        String currentnMasterElementsCheck = competitionTypeBooleanElementsCheckSewing.getAttribute("aria-checked");
+        String currentnMasterElementsCheck = competitionTypeCheckSewing.getAttribute("aria-checked");
         Assert.assertEquals("El valor actual del código coincide con el esperado", competitionTypeCode, currentMasterGenresCode);
         Assert.assertEquals("La descripción actual coincide con el esperado", competitionTypeDescription, currentMasterGenresDescription);
-        Assert.assertEquals("El valor actual del check coincide con el esperado",competitionTypeCheck, Boolean.parseBoolean(currentnMasterElementsCheck));
+        Assert.assertEquals("El valor actual del check coincide con el esperado", competitionTypeCheck, Boolean.parseBoolean(currentnMasterElementsCheck));
 
     }
 
@@ -89,7 +86,7 @@ public class TipoCompetenciaPage extends BasePage {
         setCompetitionTypeData(competitionTypeCode, competitionTypeDescription, checkCompetition);
     }
 
-    public void editCompetitionType(String competitionTypeCode, String newCompetitionTypeCode, String newCompetitionTypeDescription, boolean newCompetitionTypeCheck ) {
+    public void editCompetitionType(String competitionTypeCode, String newCompetitionTypeCode, String newCompetitionTypeDescription, boolean newCompetitionTypeCheck) {
         findCompetitionType(competitionTypeCode);
         waitAndClick(getEditButtonForCompetitionType(competitionTypeCode));
         setCompetitionTypeData(newCompetitionTypeCode, newCompetitionTypeDescription, newCompetitionTypeCheck);
