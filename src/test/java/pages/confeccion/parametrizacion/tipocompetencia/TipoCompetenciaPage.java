@@ -15,10 +15,10 @@ import static utils.ElementUtils.*;
 import static utils.ElementUtils.clickWithJavaScript;
 
 public class TipoCompetenciaPage extends BasePage {
-    @FindBy(xpath = "//div[@class='p-checkbox-box']")
+    @FindBy(xpath = "(//div[@class='p-checkbox-box'])[1]")
     public WebElement competitionTypeCheckSewing;
 
-    @FindBy(xpath = "//p-checkbox[@class='p-element ng-valid ng-dirty ng-touched']/div/div")
+    @FindBy(xpath = "//input[@type='checkbox']")
     public WebElement competitionTypeBooleanElementsCheckSewing;
 
     @FindBy(xpath = "//button[@type='submit']")
@@ -66,10 +66,10 @@ public class TipoCompetenciaPage extends BasePage {
         ScrollToElement(competitionTypeCodeInputForm);
         waitAndSendKeys(competitionTypeCodeInputForm, competitionTypeCode);
         waitAndSendKeys(competitionTypeDescriptionInputForm, competitionTypeDescription);
-        verifyAndClickCheckCompetitionType(competitionTypeBooleanElementsCheckSewing,competitionType);
+        verifyAndClickCheck(competitionTypeCheckSewing,competitionType);
+        //verifyAndClickCheckCompetitionType();
+
         ScrollToElement(confirmAddCompetitionType);
-        String currentnMasterElementsCheck = competitionTypeCheckSewing.getAttribute("aria-checked");
-        System.out.println(currentnMasterElementsCheck);
         clickWithJavaScript(confirmAddCompetitionType);
     }
 
@@ -111,15 +111,5 @@ public class TipoCompetenciaPage extends BasePage {
         waitAndClick(confirmButtonDelete);
 
     }
-        public void verifyAndClickCheckCompetitionType(WebElement webElement, Boolean checkSewing){
-        try {
-            Boolean isChecked= Boolean.parseBoolean(webElement.getAttribute("aria-checked"));
-            if (checkSewing != isChecked){
-                ScrollToElement(webElement);
-                waitAndClick(webElement);
-            }
-        } catch (Exception e) {
-            //log.error("Ocurrió un error específico durante la espera o el click: "+ e.getMessage());
-        }
-    }
+
 }
