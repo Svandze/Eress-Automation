@@ -19,6 +19,7 @@ import java.util.Calendar;
 import static java.lang.Integer.*;
 import static org.example.utils.CalendarHelper.*;
 import static utils.ElementUtils.ScrollToElement;
+import static utils.ElementUtils.clickWithJavaScript;
 import static utils.ElementUtils.waitAndClick;
 
 public class CalendarioPage extends BasePage {
@@ -40,6 +41,15 @@ public class CalendarioPage extends BasePage {
 
     @FindBy(css = "#sunday")
     public WebElement sundayCheckbox;
+
+    @FindBy(xpath = "//tbody/tr")
+    public WebElement holydayList;
+
+    @FindBy(xpath = "//seress-ui-button/button")
+    public WebElement cancelEditionButton;
+
+    @FindBy(xpath = "//button[@aria-label='Si']")
+    public WebElement confirmButtonDelete;
 
     @FindBy(xpath = "//td/*/*/input[@type='text']")
     public WebElement dateInputField;
@@ -65,7 +75,7 @@ public class CalendarioPage extends BasePage {
     }
 
     public WebElement getDeleteButtonForCalendar(String year) {
-        return driver.findElement(By.xpath("//*/*[contains(text(),'" + year + "')]//following-sibling::*/*/seress-ui-button)[3]"));
+        return driver.findElement(By.xpath("(//*/*[contains(text(),'" + year + "')]//following-sibling::*/*/seress-ui-button)[3]"));
     }
 
     public WebElement pickYear(String year) {
@@ -89,14 +99,14 @@ public class CalendarioPage extends BasePage {
             try {
                 WebElement yearElement = pickYear(year);
                 wait.until(ExpectedConditions.visibilityOf(yearElement));
-                waitAndClick(yearElement);
+                clickWithJavaScript(yearElement);
                 break;
             } catch (TimeoutException | NoSuchElementException e) {
                 if (++attempts >= maxAttempts) {
                     throw new RuntimeException("No se pudo encontrar el año después de " + maxAttempts + " intentos.");
                 }
                 ScrollToElement(nextYearButton);
-                waitAndClick(nextYearButton);
+                clickWithJavaScript(nextYearButton);
             }
         }
     }

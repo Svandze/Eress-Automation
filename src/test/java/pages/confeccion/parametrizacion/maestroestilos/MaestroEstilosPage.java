@@ -33,6 +33,7 @@ public class MaestroEstilosPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='search__input']//input[@placeholder='Buscar']")
     public WebElement searchInputField;
+
     @FindBy(xpath = "//button[@aria-label='Si']")
     public WebElement confirmButtonDelete;
 

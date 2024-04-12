@@ -1,6 +1,7 @@
 package steps.confeccion.parametrizacion.calendario;
 
 import com.github.javafaker.Faker;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -14,6 +15,8 @@ import java.util.Date;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
 import static utils.ElementUtils.ScrollToElement;
+import static utils.ElementUtils.clickWithJavaScript;
+import static utils.ElementUtils.implicitWait;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.waitAndSendKeys;
 import static utils.ElementUtils.windowHandler;
@@ -36,7 +39,6 @@ public class CalendarioTest extends BaseTestSeress {
         waitAndClick(parametrizacionPage.calendarioIcon);
     }
 
-    @Ignore
     @Test
     public void calendarModule() throws InterruptedException {
         Faker faker = new Faker();
@@ -50,6 +52,7 @@ public class CalendarioTest extends BaseTestSeress {
         calendarioPage.navigateCalendarToselectedYear(year, 10);
         calendarioPage.verifyAndClickCheck(calendarioPage.saturdayCheckbox, true);
         calendarioPage.verifyAndClickCheck(calendarioPage.sundayCheckbox, false);
+        implicitWait();
         ScrollToElement(calendarioPage.dateInputField);
         waitAndClick(calendarioPage.dateInputField);
         calendarioPage.dateInputField.click();
@@ -61,6 +64,17 @@ public class CalendarioTest extends BaseTestSeress {
         calendarioPage.getEditButtonForCalendar(year).click();
         calendarioPage.verifyAndClickCheck(calendarioPage.sundayCheckbox, true);
         waitAndClick(calendarioPage.addNewYear);
-        Thread.sleep(10000);
+        implicitWait();
+        ScrollToElement(calendarioPage.getDetailsButtonForCalendar(year));
+        waitAndClick(calendarioPage.getDetailsButtonForCalendar(year));
+        implicitWait();
+        Assert.assertEquals(Boolean.parseBoolean(calendarioPage.sundayCheckbox.getAttribute("aria-checked")), true);
+        Assert.assertEquals(Boolean.parseBoolean(calendarioPage.saturdayCheckbox.getAttribute("aria-checked")), true);
+        Assert.assertTrue(calendarioPage.holydayList.isDisplayed());
+        waitAndClick(calendarioPage.cancelEditionButton);
+        implicitWait();
+        ScrollToElement(calendarioPage.getDeleteButtonForCalendar(year));
+        waitAndClick(calendarioPage.getDeleteButtonForCalendar(year));
+        clickWithJavaScript(calendarioPage.confirmButtonDelete);
     }
 }
