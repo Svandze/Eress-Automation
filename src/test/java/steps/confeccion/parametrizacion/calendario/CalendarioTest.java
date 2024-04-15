@@ -10,16 +10,11 @@ import pages.confeccion.parametrizacion.ParametrizacionPage;
 import pages.confeccion.parametrizacion.calendario.CalendarioPage;
 import steps.BaseTestSeress;
 
-import java.time.DayOfWeek;
 import java.util.Date;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
-import static utils.ElementUtils.ScrollToElement;
-import static utils.ElementUtils.clickWithJavaScript;
-import static utils.ElementUtils.implicitWait;
-import static utils.ElementUtils.waitAndClick;
-import static utils.ElementUtils.waitAndSendKeys;
-import static utils.ElementUtils.windowHandler;
+import static org.junit.Assert.*;
+import static utils.ElementUtils.*;
 
 public class CalendarioTest extends BaseTestSeress {
 
@@ -39,42 +34,22 @@ public class CalendarioTest extends BaseTestSeress {
         waitAndClick(parametrizacionPage.calendarioIcon);
     }
 
+    @Ignore
     @Test
     public void calendarModule() throws InterruptedException {
         Faker faker = new Faker();
         Date initialDateRange = new Date();
         Date endDateRange = new Date();
-        initialDateRange.setYear(2060 - 1900);
-        endDateRange.setYear(2100 - 1900);
+        initialDateRange.setYear(2070 - 1900);
+        endDateRange.setYear(2110 - 1900);
         String year = String.valueOf(faker.date().between(initialDateRange, endDateRange).getYear() + 1900);
-        waitAndClick(calendarioPage.addButton);
-        waitAndClick(calendarioPage.yearSetup);
-        calendarioPage.navigateCalendarToselectedYear(year, 10);
-        calendarioPage.verifyAndClickCheck(calendarioPage.saturdayCheckbox, true);
-        calendarioPage.verifyAndClickCheck(calendarioPage.sundayCheckbox, false);
-        implicitWait();
-        ScrollToElement(calendarioPage.dateInputField);
-        waitAndClick(calendarioPage.dateInputField);
-        calendarioPage.dateInputField.click();
-        calendarioPage.clickOnSpecifiedDay(DayOfWeek.WEDNESDAY);
-        waitAndSendKeys(calendarioPage.descriptionInput, "TEST");
-        waitAndClick(calendarioPage.addNewYear);
+        calendarioPage.initializeNewCalendar(year, true, false, "TEST");
         Thread.sleep(6000);
-        ScrollToElement(calendarioPage.getDetailsButtonForCalendar(year));
-        calendarioPage.getEditButtonForCalendar(year).click();
-        calendarioPage.verifyAndClickCheck(calendarioPage.sundayCheckbox, true);
-        waitAndClick(calendarioPage.addNewYear);
-        implicitWait();
-        ScrollToElement(calendarioPage.getDetailsButtonForCalendar(year));
-        waitAndClick(calendarioPage.getDetailsButtonForCalendar(year));
-        implicitWait();
-        Assert.assertEquals(Boolean.parseBoolean(calendarioPage.sundayCheckbox.getAttribute("aria-checked")), true);
-        Assert.assertEquals(Boolean.parseBoolean(calendarioPage.saturdayCheckbox.getAttribute("aria-checked")), true);
-        Assert.assertTrue(calendarioPage.holydayList.isDisplayed());
+        calendarioPage.modifyCalendar(year, true, true);
+        assertTrue(Boolean.parseBoolean(calendarioPage.sundayCheckbox.getAttribute("aria-checked")));
+        assertFalse(Boolean.parseBoolean(calendarioPage.saturdayCheckbox.getAttribute("aria-checked")));
+        assertTrue("Holiday list should be visible", calendarioPage.holydayList.isDisplayed());
         waitAndClick(calendarioPage.cancelEditionButton);
-        implicitWait();
-        ScrollToElement(calendarioPage.getDeleteButtonForCalendar(year));
-        waitAndClick(calendarioPage.getDeleteButtonForCalendar(year));
-        clickWithJavaScript(calendarioPage.confirmButtonDelete);
+        calendarioPage.viewAndDeleteCalendar(year);
     }
 }

@@ -1,6 +1,5 @@
 package pages.confeccion.parametrizacion.calendario;
 
-import org.example.utils.CalendarHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -13,28 +12,26 @@ import pages.BasePage;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.Calendar;
 
-import static java.lang.Integer.*;
-import static org.example.utils.CalendarHelper.*;
-import static utils.ElementUtils.ScrollToElement;
-import static utils.ElementUtils.clickWithJavaScript;
-import static utils.ElementUtils.waitAndClick;
+import static java.lang.Integer.parseInt;
+import static org.example.utils.CalendarHelper.findDayInMonth;
+import static org.example.utils.CalendarHelper.stringToMonth;
+import static utils.ElementUtils.*;
 
 public class CalendarioPage extends BasePage {
 
     @FindBy(xpath = "//button[normalize-space()='Adicionar']")
-    public WebElement addButton;
+    private WebElement addButton;
 
     @FindBy(xpath = "//button[normalize-space()='Cancelar']")
-    public WebElement cancelButton;
+    private WebElement cancelButton;
 
     @FindBy(xpath = "//p-calendar")
-    public WebElement yearSetup;
+    private WebElement yearSetup;
 
     @FindBy(xpath = "//chevronrighticon/ancestor::button")
-    public WebElement nextYearButton;
+    private WebElement nextYearButton;
 
     @FindBy(css = "#saturday")
     public WebElement saturdayCheckbox;
@@ -49,42 +46,38 @@ public class CalendarioPage extends BasePage {
     public WebElement cancelEditionButton;
 
     @FindBy(xpath = "//button[@aria-label='Si']")
-    public WebElement confirmButtonDelete;
+    private WebElement confirmButtonDelete;
 
     @FindBy(xpath = "//td/*/*/input[@type='text']")
-    public WebElement dateInputField;
+    private WebElement dateInputField;
 
     @FindBy(xpath = "//*[contains(@class, 'p-datepicker-month')]")
-    public WebElement calendarMonthTitle;
+    private WebElement calendarMonthTitle;
 
     @FindBy(xpath = "//*[contains(@class, 'p-datepicker-year')]")
-    public WebElement calendarYearTitle;
+    private WebElement calendarYearTitle;
 
     @FindBy(xpath = "//td/input")
-    public WebElement descriptionInput;
+    private WebElement descriptionInput;
 
     @FindBy(xpath = "//*[@value='Agregar']")
-    public WebElement addNewYear;
-
-    public WebElement getEditButtonForCalendar(String year) {
-        return driver.findElement(By.xpath("(//td[contains(text(),'" + year + "')]/following-sibling::td/div/seress-ui-button)[1]"));
-    }
-
-    public WebElement getDetailsButtonForCalendar(String year) {
-        return driver.findElement(By.xpath("(//*/*[contains(text(),'" + year + "')]//following-sibling::*/*/seress-ui-button)[2]"));
-    }
-
-    public WebElement getDeleteButtonForCalendar(String year) {
-        return driver.findElement(By.xpath("(//*/*[contains(text(),'" + year + "')]//following-sibling::*/*/seress-ui-button)[3]"));
-    }
-
-    public WebElement pickYear(String year) {
-        return driver.findElement(By.xpath("//span[contains(text(),'" + year + "')]"));
-    }
+    private WebElement addNewYear;
 
     public WebElement pickDay(String dayOfMonth) {
         return driver.findElement(By.xpath("//table/*/tr/td/span[text()='" + dayOfMonth + "']"));
 
+    }
+
+    public void initializeNewCalendar(String year, boolean saturday, boolean sunday, String description) {
+        addNewCalendarEntry();
+        navigateToCalendarSettings();
+        setupYear(year, 10);
+        setupWeekendCheckboxes(saturday, sunday);
+        waitAndClick(dateInputField);
+        dateInputField.click();
+        clickOnSpecifiedDay(java.time.DayOfWeek.WEDNESDAY);
+        enterDescription(description);
+        addYearToCalendar();
     }
 
     public void clickOnSpecifiedDay(DayOfWeek dayOfWeek) {
@@ -92,12 +85,81 @@ public class CalendarioPage extends BasePage {
         pickDay(String.valueOf(date.getDayOfMonth())).click();
     }
 
-    public void navigateCalendarToselectedYear(String year, int maxAttempts) {
+    public void modifyCalendar(String year, boolean newSaturday, boolean newSunday) {
+        editCalendar(year);
+        setupWeekendCheckboxes(newSaturday, newSunday);
+        addYearToCalendar();
+    }
+
+    public void viewAndDeleteCalendar(String year) {
+        viewCalendarDetails(year);
+        deleteCalendar(year);
+    }
+
+    public void navigateToCalendarSettings() {
+        waitAndClick(yearSetup);
+    }
+
+    public void addNewCalendarEntry() {
+        waitAndClick(addButton);
+    }
+
+    public void cancelCalendarEdition() {
+        waitAndClick(cancelEditionButton);
+    }
+
+    public void confirmDelete() {
+        clickWithJavaScript(confirmButtonDelete);
+    }
+
+    public void setupYear(String year, int maxAttempts) {
+        navigateCalendarToselectedYear(year, maxAttempts);
+    }
+
+    public void setupWeekendCheckboxes(boolean saturday, boolean sunday) {
+        verifyAndClickCheck(saturdayCheckbox, saturday);
+        verifyAndClickCheck(sundayCheckbox, sunday);
+    }
+
+    public void enterDescription(String description) {
+        waitAndSendKeys(descriptionInput, description);
+    }
+
+    public void addYearToCalendar() {
+        waitAndClick(addNewYear);
+    }
+
+    public void editCalendar(String year) {
+        getEditButtonForCalendar(year).click();
+    }
+
+    public void viewCalendarDetails(String year) {
+        waitAndClick(getDetailsButtonForCalendar(year));
+    }
+
+    public void deleteCalendar(String year) {
+        waitAndClick(getDeleteButtonForCalendar(year));
+        confirmDelete();
+    }
+
+    private WebElement getEditButtonForCalendar(String year) {
+        return driver.findElement(By.xpath("(//td[contains(text(),'" + year + "')]/following-sibling::td/div/seress-ui-button)[1]"));
+    }
+
+    private WebElement getDetailsButtonForCalendar(String year) {
+        return driver.findElement(By.xpath("(//*/*[contains(text(),'" + year + "')]//following-sibling::*/*/seress-ui-button)[2]"));
+    }
+
+    private WebElement getDeleteButtonForCalendar(String year) {
+        return driver.findElement(By.xpath("(//*/*[contains(text(),'" + year + "')]//following-sibling::*/*/seress-ui-button)[3]"));
+    }
+
+    private void navigateCalendarToselectedYear(String year, int maxAttempts) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         int attempts = 0;
         while (true) {
             try {
-                WebElement yearElement = pickYear(year);
+                WebElement yearElement = driver.findElement(By.xpath("//span[contains(text(),'" + year + "')]"));
                 wait.until(ExpectedConditions.visibilityOf(yearElement));
                 clickWithJavaScript(yearElement);
                 break;
@@ -105,7 +167,6 @@ public class CalendarioPage extends BasePage {
                 if (++attempts >= maxAttempts) {
                     throw new RuntimeException("No se pudo encontrar el año después de " + maxAttempts + " intentos.");
                 }
-                ScrollToElement(nextYearButton);
                 clickWithJavaScript(nextYearButton);
             }
         }
