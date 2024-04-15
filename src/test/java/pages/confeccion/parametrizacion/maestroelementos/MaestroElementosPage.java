@@ -112,7 +112,7 @@ public class MaestroElementosPage extends BasePage {
     }
 
     public void setMasterElementsData(String masterElementsCode, String masterElementsDescription, String masterElementsDropDownDataGroupMovements, String masterElementsDropDownDataTypeMovements, String masterElementsDataDropDownDistance, String masterElementsTimeData, Boolean checkSewingMasterElements) {
-        ScrollToElement(masterElementsCodeInputForm);
+        scrollToElement(masterElementsCodeInputForm);
         waitAndSendKeys(masterElementsCodeInputForm, masterElementsCode);
         waitAndSendKeys(masterElementsDescriptionInputForm, masterElementsDescription);
         customDropdown(dropDownGruopMovementsMasterElements,dropDownGroupMovementsInputFormMasterElements, dropDownGroupMovementsSelectMasterElements, masterElementsDropDownDataGroupMovements);
@@ -120,7 +120,7 @@ public class MaestroElementosPage extends BasePage {
         verifyCheck(masterElementscheckSewing, checkSewingMasterElements);
         customDropdown(dropDownDistanceMasterElements, dropDownDistanceInputFormMasterElements,dropDownDistanceSelectMasterElements, masterElementsDataDropDownDistance);
         waitAndSendKeys(masterElementsTimeInputForm, masterElementsTimeData);
-        ScrollToElement(masterElementsAdd);
+        scrollToElement(masterElementsAdd);
         clickWithJavaScript(masterElementsAdd);
     }
 
@@ -149,7 +149,7 @@ public class MaestroElementosPage extends BasePage {
 
     public void addMasterElements(String masterElementsCode, String masterElementsDescription, String masterElementsDropDownGroupMovements, String masterElementsDropDownTypeMovements, String masterElementsDropDownDistance, String masterElementsTime, Boolean masterElementsCheck) {
         implicitWait();
-        ScrollToElement(addButton);
+        scrollToElement(addButton);
         waitAndClick(addButton);
         setMasterElementsData(masterElementsCode, masterElementsDescription, masterElementsDropDownGroupMovements, masterElementsDropDownTypeMovements, masterElementsDropDownDistance, masterElementsTime,masterElementsCheck);
     }
@@ -169,12 +169,12 @@ public class MaestroElementosPage extends BasePage {
 
     public void deleteMasterElements(String masterElementsCode) {
         findMasterElements(masterElementsCode);
-        ScrollToElement(getDeleteButtonForMasterElements());
+        scrollToElement(getDeleteButtonForMasterElements());
         waitAndClick(getDeleteButtonForMasterElements());
         waitAndClick(confirmButtonDelete);
     }
     public void customDropdown(WebElement masterCustomeDocumentType, WebElement masterCustomerDocumentTypeInputForm, WebElement masterCustomerDocumentTypeSelect, String data) {
-        ScrollToElement(masterCustomeDocumentType);
+        scrollToElement(masterCustomeDocumentType);
         waitAndClick(masterCustomeDocumentType);
         waitAndSendKeys(masterCustomerDocumentTypeInputForm, data);
         waitAndClick(masterCustomerDocumentTypeSelect);
@@ -183,7 +183,7 @@ public class MaestroElementosPage extends BasePage {
     public void verifyCheck(WebElement Check, Boolean checkSewing){
         try {
             if (checkSewing && masterElementscheckSewing.isDisplayed()) {
-                ScrollToElement(masterElementscheckSewing);
+                scrollToElement(masterElementscheckSewing);
                 waitAndClick(masterElementscheckSewing);
             }
         } catch (Exception e) {

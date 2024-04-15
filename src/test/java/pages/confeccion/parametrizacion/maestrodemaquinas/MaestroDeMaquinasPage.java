@@ -11,7 +11,7 @@ import pages.BasePage;
 
 import java.time.Duration;
 
-import static utils.ElementUtils.ScrollToElement;
+import static utils.ElementUtils.scrollToElement;
 import static utils.ElementUtils.clickWithJavaScript;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.waitAndSendKeys;
@@ -72,7 +72,7 @@ public class MaestroDeMaquinasPage extends BasePage {
         waitAndSendKeys(distance0To5InputForm, distance0To5cm);
         waitAndSendKeys(distance6To10InputForm, distance6To10cm);
         waitAndSendKeys(distanceGreatherThan11InputForm, distanceGreatherThan11Cm);
-        ScrollToElement(confirmAddMachineButton);
+        scrollToElement(confirmAddMachineButton);
         clickWithJavaScript(confirmAddMachineButton);
     }
 

@@ -67,11 +67,11 @@ public class TurnosLaboralesPage extends BasePage {
     }
 
     public void setWorkShiftsData(String workShiftsCode, String workShiftsDescription, String workShiftsValue) {
-        ScrollToElement(workShiftsCodeInputForm);
+        scrollToElement(workShiftsCodeInputForm);
         waitAndSendKeys(workShiftsCodeInputForm, workShiftsCode);
 //        waitAndSendKeys(workShiftsDescriptionInputForm, workShiftsDescription);
         waitAndSendKeys(workShiftsCheckInputForm, workShiftsValue);
-        ScrollToElement(workShiftsGroup);
+        scrollToElement(workShiftsGroup);
         clickWithJavaScript(workShiftsGroup);
     }
 
@@ -90,7 +90,7 @@ public class TurnosLaboralesPage extends BasePage {
 
     public void addWorkShifts(String workShiftsCode, String workShiftsDescription, String workShiftsValue) {
         implicitWait();
-        ScrollToElement(addButton);
+        scrollToElement(addButton);
         waitAndClick(addButton);
         waitAndSendKeys(workShiftsCodeInputForm, workShiftsCode);
         setWorkShiftsData(workShiftsCode, workShiftsDescription, workShiftsValue);
@@ -111,7 +111,7 @@ public class TurnosLaboralesPage extends BasePage {
 
     public void deleteWorkShifts(String workShiftsCode) {
         findWorkShifts(workShiftsCode);
-        ScrollToElement(getDeleteButtonForWorkShifts());
+        scrollToElement(getDeleteButtonForWorkShifts());
         waitAndClick(getDeleteButtonForWorkShifts());
         waitAndClick(confirmButtonDelete);
 

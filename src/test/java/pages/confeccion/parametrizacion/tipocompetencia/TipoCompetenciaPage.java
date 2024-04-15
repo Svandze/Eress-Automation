@@ -60,11 +60,11 @@ public class TipoCompetenciaPage extends BasePage {
     }
 
     public void setCompetitionTypeData(String competitionTypeCode, String competitionTypeDescription, boolean competitionType) {
-        ScrollToElement(competitionTypeCodeInputForm);
+        scrollToElement(competitionTypeCodeInputForm);
         waitAndSendKeys(competitionTypeCodeInputForm, competitionTypeCode);
         waitAndSendKeys(competitionTypeDescriptionInputForm, competitionTypeDescription);
         verifyAndClickCheck(competitionTypeCheckSewing, competitionType);
-        ScrollToElement(confirmAddCompetitionType);
+        scrollToElement(confirmAddCompetitionType);
         clickWithJavaScript(confirmAddCompetitionType);
     }
 
@@ -101,7 +101,7 @@ public class TipoCompetenciaPage extends BasePage {
 
     public void deleteCompetitionType(String competitionTypeCode) {
         findCompetitionType(competitionTypeCode);
-        ScrollToElement(getDeleteButtonForCompetitionType());
+        scrollToElement(getDeleteButtonForCompetitionType());
         waitAndClick(getDeleteButtonForCompetitionType());
         waitAndClick(confirmButtonDelete);
 

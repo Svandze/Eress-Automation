@@ -30,7 +30,7 @@ public class CalendarioTest extends BaseTestSeress {
         calendarioPage = new CalendarioPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        ScrollToElement(parametrizacionPage.calendarioIcon);
+        scrollToElement(parametrizacionPage.calendarioIcon);
         waitAndClick(parametrizacionPage.calendarioIcon);
     }
 

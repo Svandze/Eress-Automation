@@ -67,11 +67,11 @@ public class TipoMovimientosPage extends BasePage {
     }
 
     public void setLevelTypesMovements(String typesMovementsCode, String typesMovementsDescription, Boolean typesMovementsCheck) {
-        ScrollToElement(typesMovementsCodeInputForm);
+        scrollToElement(typesMovementsCodeInputForm);
         waitAndSendKeys(typesMovementsCodeInputForm, typesMovementsCode);
         waitAndSendKeys(typesMovementsDescriptionInputForm, typesMovementsDescription);
         verifyAndClickCheck(typesMovementsBooleanElementsCheckSewing ,typesMovementsCheck);
-        ScrollToElement(confirmAddTypesMovements);
+        scrollToElement(confirmAddTypesMovements);
         clickWithJavaScript(confirmAddTypesMovements);
     }
 
@@ -111,7 +111,7 @@ public class TipoMovimientosPage extends BasePage {
 
     public void deleteTypesMovements(String typesMovementsCode) {
         findTypesMovements(typesMovementsCode);
-        ScrollToElement(getDeleteButtonForTypesMovements());
+        scrollToElement(getDeleteButtonForTypesMovements());
         waitAndClick(getDeleteButtonForTypesMovements());
         waitAndClick(confirmButtonDelete);
     }

@@ -59,10 +59,10 @@ public class MaestroEstilosPage extends BasePage {
     }
 
     public void setMasterStyles(String masterStylespCode, String masterStylesDescription) {
-        ScrollToElement(masterStylesCodeInputForm);
+        scrollToElement(masterStylesCodeInputForm);
         waitAndSendKeys(masterStylesCodeInputForm, masterStylespCode);
         waitAndSendKeys(masterStylesDescriptionInputForm, masterStylesDescription);
-        ScrollToElement(confirmAddMasterStyles);
+        scrollToElement(confirmAddMasterStyles);
         clickWithJavaScript(confirmAddMasterStyles);
     }
 
@@ -98,7 +98,7 @@ public class MaestroEstilosPage extends BasePage {
 
     public void deleteMasterStyles(String masterStylesCode) {
         findMasterStyles(masterStylesCode);
-        ScrollToElement(getDeleteButtonForMasterStyles());
+        scrollToElement(getDeleteButtonForMasterStyles());
         waitAndClick(getDeleteButtonForMasterStyles());
         waitAndClick(confirmButtonDelete);
     }

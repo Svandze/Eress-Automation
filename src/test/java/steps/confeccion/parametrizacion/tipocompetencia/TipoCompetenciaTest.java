@@ -26,7 +26,7 @@ public class TipoCompetenciaTest extends BaseTestSeress {
         tipoCompetenciaPage = new TipoCompetenciaPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        ScrollToElement(parametrizacionPage.tipoMovimientoIcon);
+        scrollToElement(parametrizacionPage.tipoMovimientoIcon);
         waitAndClick(parametrizacionPage.tipoMovimientoIcon);
     }
 

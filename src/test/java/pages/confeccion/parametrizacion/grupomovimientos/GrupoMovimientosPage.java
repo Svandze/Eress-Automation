@@ -60,7 +60,7 @@ import static utils.ElementUtils.waitAndClick;
             implicitWait();
             waitAndSendKeys(movementGroupCodeInputForm, movementGroupCode);
             waitAndSendKeys(movementGroupDescriptionInputForm, descriptionMovementGroup);
-            ScrollToElement(confirmAddMovementGroup);
+            scrollToElement(confirmAddMovementGroup);
             clickWithJavaScript(confirmAddMovementGroup);
         }
 

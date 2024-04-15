@@ -10,7 +10,7 @@ import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
 import static org.example.utils.MachineCodeBuilder.randomCode;
-import static utils.ElementUtils.ScrollToElement;
+import static utils.ElementUtils.scrollToElement;
 import static utils.ElementUtils.windowHandler;
 import static utils.ElementUtils.waitAndClick;
 
@@ -30,7 +30,7 @@ public class MaestroPrendasTest extends BaseTestSeress {
         maestroPrendasPage = new MaestroPrendasPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        ScrollToElement(parametrizacionPage.maestroElementosoIcon);
+        scrollToElement(parametrizacionPage.maestroElementosoIcon);
         waitAndClick(parametrizacionPage.maestroPrendasoIcon);
     }
 

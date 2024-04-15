@@ -61,11 +61,11 @@ public class GradoDificultadPage extends BasePage {
     }
 
     public void setLevelDifficultyData(String levelDifficultyCode, String levelDifficultyDescription, String levelDifficultyValue) {
-        ScrollToElement(levelDifficultyCodeInputForm);
+        scrollToElement(levelDifficultyCodeInputForm);
         waitAndSendKeys(levelDifficultyCodeInputForm, levelDifficultyCode);
         waitAndSendKeys(levelDifficultyDescriptionInputForm, levelDifficultyDescription);
         waitAndSendKeys(levelDifficultyCheckInputForm, levelDifficultyValue);
-        ScrollToElement(levelDifficultyGroup);
+        scrollToElement(levelDifficultyGroup);
         clickWithJavaScript(levelDifficultyGroup);
     }
 
@@ -84,7 +84,7 @@ public class GradoDificultadPage extends BasePage {
 
     public void addLevelDifficulty(String levelDifficultyCode, String levelDifficultyDescription, String levelDifficultyValue) {
         implicitWait();
-        ScrollToElement(addButton);
+        scrollToElement(addButton);
         waitAndClick(addButton);
         waitAndSendKeys(levelDifficultyCodeInputForm, levelDifficultyCode);
         setLevelDifficultyData(levelDifficultyCode, levelDifficultyDescription, levelDifficultyValue);
@@ -105,7 +105,7 @@ public class GradoDificultadPage extends BasePage {
 
     public void deleteLevelDifficulty(String levelDifficultyCode) {
         findLevelDifficulty(levelDifficultyCode);
-        ScrollToElement(getDeleteButtonForLevelDifficulty());
+        scrollToElement(getDeleteButtonForLevelDifficulty());
         waitAndClick(getDeleteButtonForLevelDifficulty());
         waitAndClick(confirmButtonDelete);
     }

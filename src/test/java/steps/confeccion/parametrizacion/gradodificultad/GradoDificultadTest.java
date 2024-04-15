@@ -26,7 +26,7 @@ public class GradoDificultadTest extends BaseTestSeress {
         gradoDificultadPage = new GradoDificultadPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        ScrollToElement(parametrizacionPage.gradoDificultadIcon);
+        scrollToElement(parametrizacionPage.gradoDificultadIcon);
         waitAndClick(parametrizacionPage.gradoDificultadIcon);
     }
 

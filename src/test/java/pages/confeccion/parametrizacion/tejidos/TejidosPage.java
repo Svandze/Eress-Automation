@@ -59,10 +59,10 @@ public class TejidosPage extends BasePage {
     }
 
     public void setWeave(String weaveCode, String weaveDescription) {
-        ScrollToElement(weaveCodeInputForm);
+        scrollToElement(weaveCodeInputForm);
         waitAndSendKeys(weaveCodeInputForm, weaveCode);
         waitAndSendKeys(weaveDescriptionInputForm, weaveDescription);
-        ScrollToElement(confirmAddWeave);
+        scrollToElement(confirmAddWeave);
         clickWithJavaScript(confirmAddWeave);
     }
 
@@ -98,7 +98,7 @@ public class TejidosPage extends BasePage {
 
     public void deleteWeave(String weaveCode) {
         findWeave(weaveCode);
-        ScrollToElement(getDeleteButtonForWeave());
+        scrollToElement(getDeleteButtonForWeave());
         waitAndClick(getDeleteButtonForWeave());
         waitAndClick(confirmButtonDelete);
     }

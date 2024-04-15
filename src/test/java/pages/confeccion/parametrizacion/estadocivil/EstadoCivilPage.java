@@ -58,10 +58,10 @@ public class EstadoCivilPage extends BasePage {
     }
 
     public void setMaritalStatusData(String maritalStatusCode, String maritalStatusDescription) {
-        ScrollToElement(maritalStatusCodeInputForm);
+        scrollToElement(maritalStatusCodeInputForm);
         waitAndSendKeys(maritalStatusCodeInputForm, maritalStatusCode);
         waitAndSendKeys(maritalStatusDescriptionInputForm, maritalStatusDescription);
-        ScrollToElement(confirmAddMaritalStatus);
+        scrollToElement(confirmAddMaritalStatus);
         clickWithJavaScript(confirmAddMaritalStatus);
     }
 
@@ -96,7 +96,7 @@ public class EstadoCivilPage extends BasePage {
 
     public void deleteJobRoles(String maritalStatusCode) {
         findMaritalStatus(maritalStatusCode);
-        ScrollToElement(getDeleteButtonForMaritalStatus());
+        scrollToElement(getDeleteButtonForMaritalStatus());
         waitAndClick(getDeleteButtonForMaritalStatus());
         waitAndClick(confirmButtonDelete);
 

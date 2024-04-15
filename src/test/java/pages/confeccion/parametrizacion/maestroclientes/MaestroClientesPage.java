@@ -122,7 +122,7 @@ public class MaestroClientesPage extends BasePage {
         waitAndSendKeys(masterCustomerPhoneTwoInputForm, masterCustomerPhoneTwo);
         waitAndSendKeys(masterCustomerEmailInputForm, masterCustomerEmail);
         customDropdown(dropDownRegionTypeMasterCustomer, dropDownRegionTypeInputFormMasterCustomer, dropDownRegionSelectMasterCustomer, masterCustomerRegion);
-        ScrollToElement(confirmAddMasterCustomer);
+        scrollToElement(confirmAddMasterCustomer);
         clickWithJavaScript(confirmAddMasterCustomer);
 
     }
@@ -169,7 +169,7 @@ public class MaestroClientesPage extends BasePage {
     }
 
     public void customDropdown(WebElement masterCustomeDocumentType, WebElement masterCustomerDocumentTypeInputForm, WebElement masterCustomerDocumentTypeSelect, String data) {
-        ScrollToElement(masterCustomeDocumentType);
+        scrollToElement(masterCustomeDocumentType);
         waitAndClick(masterCustomeDocumentType);
         waitAndSendKeys(masterCustomerDocumentTypeInputForm, data);
         waitAndClick(masterCustomerDocumentTypeSelect);

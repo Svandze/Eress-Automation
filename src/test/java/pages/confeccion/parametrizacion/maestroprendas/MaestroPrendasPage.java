@@ -93,13 +93,13 @@ public class MaestroPrendasPage extends BasePage {
     }
 
     public void setMasterClothingData(String masterClothingCode, String masterClothingDescription, String masterClothingDropDownDataStyle, String masterClothingDropDownDataGender, String masterClothingDataDropDownWeave) {
-        ScrollToElement(masterClothingCodeInputForm);
+        scrollToElement(masterClothingCodeInputForm);
         waitAndSendKeys(masterClothingCodeInputForm, masterClothingCode);
         waitAndSendKeys(masterClothingDescriptionInputForm, masterClothingDescription);
         customDropdown(masterClothingDropDownStyle, masterClothingDropDownStyleInputForm, masterClothingDropDownStyleSelect, masterClothingDropDownDataStyle);
         customDropdown(masterClothingDropDownGender, masterClothingDropDownGenderInputForm, masterClothingDropDownTypeMovementsSelect, masterClothingDropDownDataGender);
         customDropdown(masterClothingDropDownWeave, masterClothingDropDownWeaveInputForm, masterClothingDropDownWeaveSelect, masterClothingDataDropDownWeave);
-        ScrollToElement(masterClothingAdd);
+        scrollToElement(masterClothingAdd);
         clickWithJavaScript(masterClothingAdd);
     }
 
@@ -123,7 +123,7 @@ public class MaestroPrendasPage extends BasePage {
 
     public void addMasterClothing(String masterClothingCode, String masterClothingDescription, String masterClothingDropDownStyle, String masterClothingDropDownGender, String masterClothingDropDownWeave) {
         implicitWait();
-        ScrollToElement(addButton);
+        scrollToElement(addButton);
         waitAndClick(addButton);
         setMasterClothingData(masterClothingCode, masterClothingDescription, masterClothingDropDownStyle, masterClothingDropDownGender, masterClothingDropDownWeave);
     }
@@ -143,12 +143,12 @@ public class MaestroPrendasPage extends BasePage {
 
     public void deleteMasterClothing(String masterClothingCode) {
         findMasterClothing(masterClothingCode);
-        ScrollToElement(getDeleteButtonForMasterClothing());
+        scrollToElement(getDeleteButtonForMasterClothing());
         waitAndClick(getDeleteButtonForMasterClothing());
         waitAndClick(confirmButtonDelete);
     }
     public void customDropdown(WebElement masterClothingDocumentType, WebElement masterClothingDocumentTypeInputForm, WebElement masterClothingDocumentTypeSelect, String data) {
-        ScrollToElement(masterClothingDocumentType);
+        scrollToElement(masterClothingDocumentType);
         waitAndClick(masterClothingDocumentType);
         waitAndSendKeys(masterClothingDocumentTypeInputForm, data);
         waitAndClick(masterClothingDocumentTypeSelect);

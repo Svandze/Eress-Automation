@@ -27,7 +27,7 @@ public class TallerTest extends BaseTestSeress {
         tallerPage = new TallerPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        ScrollToElement(parametrizacionPage.tipoMovimientoIcon);
+        scrollToElement(parametrizacionPage.tipoMovimientoIcon);
         waitAndClick(parametrizacionPage.tallerIcon);
     }
 

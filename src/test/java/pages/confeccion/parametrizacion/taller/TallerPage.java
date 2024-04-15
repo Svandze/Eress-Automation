@@ -148,7 +148,7 @@ public class TallerPage extends BasePage {
     }
 
     public void customDropdown(WebElement masterCustomeDocumentType, WebElement masterCustomerDocumentTypeInputForm, WebElement masterCustomerDocumentTypeSelect, String data) {
-        ScrollToElement(masterCustomeDocumentType);
+        scrollToElement(masterCustomeDocumentType);
         waitAndClick(masterCustomeDocumentType);
         waitAndSendKeys(masterCustomerDocumentTypeInputForm, data);
         waitAndClick(masterCustomerDocumentTypeSelect);

@@ -26,7 +26,7 @@ public class TiposMovimientos extends BaseTestSeress {
         tipoMovimientosPage = new TipoMovimientosPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        ScrollToElement(parametrizacionPage.tipoMovimientoIcon);
+        scrollToElement(parametrizacionPage.tipoMovimientoIcon);
         waitAndClick(parametrizacionPage.tipoMovimientoIcon);
     }
 

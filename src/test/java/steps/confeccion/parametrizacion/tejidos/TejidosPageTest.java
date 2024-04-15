@@ -29,7 +29,7 @@ public class TejidosPageTest extends BaseTestSeress {
         tejidosPage = new TejidosPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        ScrollToElement(parametrizacionPage.maestroTejidosIcon);
+        scrollToElement(parametrizacionPage.maestroTejidosIcon);
         waitAndClick(parametrizacionPage.maestroTejidosIcon);
 
     }

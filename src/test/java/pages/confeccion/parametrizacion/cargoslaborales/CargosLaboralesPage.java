@@ -58,10 +58,10 @@ public class CargosLaboralesPage extends BasePage {
     }
 
     public void setJobRolesData(String jobRolesCode, String jobRolesDescription) {
-        ScrollToElement(jobRolesCodeInputForm);
+        scrollToElement(jobRolesCodeInputForm);
         waitAndSendKeys(jobRolesCodeInputForm, jobRolesCode);
         waitAndSendKeys(jobRolesDescriptionInputForm, jobRolesDescription);
-        ScrollToElement(confirmAddJobRoles);
+        scrollToElement(confirmAddJobRoles);
         clickWithJavaScript(confirmAddJobRoles);
     }
 
@@ -96,7 +96,7 @@ public class CargosLaboralesPage extends BasePage {
 
     public void deleteJobRoles(String jobRolesCode) {
         findJobRoles(jobRolesCode);
-        ScrollToElement(getDeleteButtonForJobRoles());
+        scrollToElement(getDeleteButtonForJobRoles());
         waitAndClick(getDeleteButtonForJobRoles());
         waitAndClick(confirmButtonDelete);
 

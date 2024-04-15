@@ -7,9 +7,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static utils.ElementUtils.ScrollToElement;
 import static utils.ElementUtils.clickWithJavaScript;
-import static utils.ElementUtils.waitAndClick;
+import static utils.ElementUtils.scrollToElement;
 
 @Slf4j
 public class BasePage {
@@ -27,7 +26,7 @@ public class BasePage {
             String isCheckedStr = (String) js.executeScript("return arguments[0].getAttribute('aria-checked');", webElement);
             Boolean isChecked = Boolean.parseBoolean(isCheckedStr);
             if (checkSewing != isChecked) {
-                ScrollToElement(webElement);
+                scrollToElement(webElement);
                 clickWithJavaScript(webElement);
             }
         } catch (Exception e) {

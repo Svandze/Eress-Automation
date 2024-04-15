@@ -28,7 +28,7 @@ public class MaestroEstilosPageTest extends BaseTestSeress {
         maestroEstilosPage = new MaestroEstilosPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        ScrollToElement(parametrizacionPage.maestroEstilosIcon);
+        scrollToElement(parametrizacionPage.maestroEstilosIcon);
         waitAndClick(parametrizacionPage.maestroEstilosIcon);
     }
 

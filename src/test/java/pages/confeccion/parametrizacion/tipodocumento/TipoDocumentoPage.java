@@ -58,10 +58,10 @@ public class TipoDocumentoPage extends BasePage {
     }
 
     public void setDocumentTypeData(String documentTypeCode, String documentTypeDescription) {
-        ScrollToElement(documentTypeCodeInputForm);
+        scrollToElement(documentTypeCodeInputForm);
         waitAndSendKeys(documentTypeCodeInputForm, documentTypeCode);
         waitAndSendKeys(documentTypeDescriptionInputForm, documentTypeDescription);
-        ScrollToElement(confirmAddDocumentType);
+        scrollToElement(confirmAddDocumentType);
         clickWithJavaScript(confirmAddDocumentType);
     }
 
@@ -96,7 +96,7 @@ public class TipoDocumentoPage extends BasePage {
 
     public void deleteDocumentType(String documentTypeCode) {
         findDocumentType(documentTypeCode);
-        ScrollToElement(getDeleteButtonForDocumentType());
+        scrollToElement(getDeleteButtonForDocumentType());
         waitAndClick(getDeleteButtonForDocumentType());
         waitAndClick(confirmButtonDelete);
 

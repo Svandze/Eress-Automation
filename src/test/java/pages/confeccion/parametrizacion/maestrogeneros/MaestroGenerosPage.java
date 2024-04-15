@@ -58,10 +58,10 @@ public class MaestroGenerosPage extends BasePage {
     }
 
     public void setMasterGenresData(String masterGenresCode, String masterGenresDescription) {
-        ScrollToElement(masterGenresCodeInputForm);
+        scrollToElement(masterGenresCodeInputForm);
         waitAndSendKeys(masterGenresCodeInputForm, masterGenresCode);
         waitAndSendKeys(masterGenresDescriptionInputForm, masterGenresDescription);
-        ScrollToElement(confirmAddMasterGenres);
+        scrollToElement(confirmAddMasterGenres);
         clickWithJavaScript(confirmAddMasterGenres);
     }
 
@@ -96,7 +96,7 @@ public class MaestroGenerosPage extends BasePage {
 
     public void deleteMasterGenres(String masterGenresCode) {
         findMasterGenres(masterGenresCode);
-        ScrollToElement(getDeleteButtonForMasterGenres());
+        scrollToElement(getDeleteButtonForMasterGenres());
         waitAndClick(getDeleteButtonForMasterGenres());
         waitAndClick(confirmButtonDelete);
 
