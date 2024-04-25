@@ -19,8 +19,6 @@ public class ConceptosCostosGastosPage extends BasePage {
     @FindBy(xpath = "(//seress-ui-button[@value='Agregar'])[1]")
     public WebElement conceptCostsExpensesAdd;
 
-
-
     @FindBy(xpath = "//button[@tooltipposition='bottom']/i ")
     public WebElement conceptCostsExpensesIconDelete;
     @FindBy(xpath = "(//div[@class='p-dropdown-trigger'])[1]")
@@ -39,7 +37,7 @@ public class ConceptosCostosGastosPage extends BasePage {
     @FindBy(xpath = "(//input[@type='text'])[4]")
     public WebElement conceptCostsExpensesConceptInputForm;
 
-    @FindBy(xpath = "(//button[@tooltipposition='bottom'])[1]")
+    @FindBy(xpath = "//button[normalize-space()='Agregar Concepto']")
     public WebElement addConcept;
 
     @FindBy(xpath = "//button[normalize-space()='Adicionar']")
@@ -76,9 +74,7 @@ public class ConceptosCostosGastosPage extends BasePage {
     }
 
     public void setConceptCostsExpensesData(String conceptCostsExpensesDropDownGroup, String conceptCostsExpensesCod, String conceptCostsExpensesConcept) {
-        waitAndClick(conceptCostsExpensesIconDelete);
-        waitAndClick(confirmButtonDelete);
-        waitAndClick(addConcept);
+        implicitWait();
         scrollToElement(conceptCostsExpensesDropDownButtonGroup);
         customDropdown(conceptCostsExpensesDropDownButtonGroup, conceptCostsExpensesDropDownGroupInputForm, conceptCostsExpensesDropDownGroupSelect, conceptCostsExpensesDropDownGroup);
         waitAndSendKeys(conceptCostsExpensesCodeInputForm, conceptCostsExpensesCod);
@@ -95,6 +91,8 @@ public class ConceptosCostosGastosPage extends BasePage {
         String currentConceptCostsExpensesCode = conceptCostsExpensesCodeInputForm.getAttribute("value");
         String currentConceptCostsExpensesConcept = conceptCostsExpensesConceptInputForm.getAttribute("value");
         String currentConceptCostsExpensesGroup = conceptCostsExpensesDropDownGroupDataInputForm.getText();
+        System.out.println(currentConceptCostsExpensesGroup);
+        System.out.println(conceptCostsExpensesDropDownGroup);
         Assert.assertEquals("El valor actual del código del grupo de movimientos coincide con el esperado", conceptCostsExpensesCod, currentConceptCostsExpensesCode);
         Assert.assertEquals("El valor actual de la descripción coincide con el esperado", conceptCostsExpensesConcept, currentConceptCostsExpensesConcept);
         Assert.assertTrue("El valor actual del estilo coincide con el esperado",currentConceptCostsExpensesGroup.contains(conceptCostsExpensesDropDownGroup));
@@ -105,6 +103,9 @@ public class ConceptosCostosGastosPage extends BasePage {
         implicitWait();
         scrollToElement(addButton);
         waitAndClick(addButton);
+        waitAndClick(conceptCostsExpensesIconDelete);
+        waitAndClick(confirmButtonDelete);
+        waitAndClick(addConcept);
         setConceptCostsExpensesData(conceptCostsExpensesDropDownGroup, conceptCostsExpensesCod, conceptCostsExpensesConcept);
     }
 

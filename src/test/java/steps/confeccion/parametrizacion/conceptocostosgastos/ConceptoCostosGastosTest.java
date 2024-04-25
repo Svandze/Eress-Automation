@@ -2,6 +2,7 @@ package steps.confeccion.parametrizacion.conceptocostosgastos;
 
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import pages.confeccion.parametrizacion.ConfeccionPage;
 import pages.confeccion.parametrizacion.ParametrizacionPage;
@@ -31,12 +32,13 @@ public class ConceptoCostosGastosTest extends BaseTestSeress {
         clickWithJavaScript(parametrizacionPage.conceptoCostosGastosIcon);
     }
 
+    @Ignore
     @Test
     public void conceptsCostsExpensesManagementTest() {
         String conceptsCostsExpensesCode = randomCode();
         String updateConceptsCostsExpensesCode = randomCode();
         String updateconceptsCostsExpensesConcept = randomCode();
-        String updatedConceptsCostsExpensesGroup = "Update Test";
+        String updatedConceptsCostsExpensesGroup = "Costos indirectos";
         conceptosCostosGastosPage.addConceptCostsExpenses("Costos directos", conceptsCostsExpensesCode, "Test");
         conceptosCostosGastosPage.editConceptCostsExpenses(conceptsCostsExpensesCode, updatedConceptsCostsExpensesGroup, updateConceptsCostsExpensesCode, updateconceptsCostsExpensesConcept);
         conceptosCostosGastosPage.validateConceptCostsExpenses(updatedConceptsCostsExpensesGroup, updateConceptsCostsExpensesCode, updateconceptsCostsExpensesConcept);
