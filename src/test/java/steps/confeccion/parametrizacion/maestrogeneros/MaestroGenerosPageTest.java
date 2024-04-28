@@ -9,8 +9,7 @@ import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
 import static org.example.utils.MachineCodeBuilder.randomCode;
-import static utils.ElementUtils.waitAndClick;
-import static utils.ElementUtils.windowHandler;
+import static utils.ElementUtils.*;
 
 public class MaestroGenerosPageTest extends BaseTestSeress {
 
@@ -26,7 +25,7 @@ public class MaestroGenerosPageTest extends BaseTestSeress {
         cargosLaboralesPage = new CargosLaboralesPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.parameterizationIcon);
-        waitAndClick(parametrizacionPage.cargosLaboralesIcon);
+        clickWithJavaScript(parametrizacionPage.cargosLaboralesIcon);
     }
 
     @Test

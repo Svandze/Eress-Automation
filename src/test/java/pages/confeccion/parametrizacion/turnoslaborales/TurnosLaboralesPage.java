@@ -9,43 +9,59 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
 public class TurnosLaboralesPage extends BasePage {
 
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement workShiftsGroup;
-
     @FindBy(xpath = "//input[@formcontrolname='code']")
     public WebElement workShiftsCodeInputForm;
+    @FindBy(xpath = "//input[@formcontrolname='description']")
+    public WebElement workShiftsDescriptionInputForm;
 
-    @FindBy(xpath = "//input[@class='ng-tns-c3918063748-1 p-inputtext p-component ng-star-inserted']")
+
+    @FindBy(xpath = "(//div[@class='col-12 col-md-6'])[3]/div/p-calendar/span/input")
     public WebElement workShiftsInitialHourInputForm;
 
-    @FindBy(xpath = "")
+
+    @FindBy(xpath = "(//button[@type='button'])[2]")
     public WebElement workShiftsInitialIncreaseHH;
 
-    @FindBy(xpath = "")
-    public WebElement workShiftsInitiaDecreacreaseHH;
+    @FindBy(xpath = "(//p-calendar/span/div/div/div/span)[1]")
+    public WebElement workShiftsIntialHHNumber;
 
     @FindBy(xpath = "//p-inputnumber[@type='number']/span/input")
     public WebElement workShiftsCheckInputForm;
+    @FindBy(xpath = "(//button[@type='button'])[4]")
+    public WebElement workShiftsInitialIncreaseMM;
 
-    @FindBy(xpath = "//button[normalize-space()='Adicionar']")
+    @FindBy(xpath = "(//p-calendar/span/div/div/div/span)[3]")
+    public WebElement workShiftsInitialMMNumber;
+    @FindBy(xpath = "(//div[@class='col-12 col-md-6'])[4]/div/p-calendar/span/input")
+    public WebElement workShiftsFinalHourInputForm;
+
+    @FindBy(xpath = "//input[@class='p-inputtext p-component p-element p-inputnumber-input p-filled']")
+    public WebElement workShiftsHoursInputForm;
+
+    @FindBy(xpath = "//button[normalize-space()='Agregar']")
     public WebElement addButton;
+
+    @FindBy(xpath = "//i[@class='pi pi-bg pi-custom pi-plus ng-star-inserted']")
+    public WebElement add;
 
     @FindBy(xpath = "//button[normalize-space()='Cancelar']")
     public WebElement cancelButton;
 
-    @FindBy(xpath = "//div[@class='search__input']//input[@placeholder='Buscar']")
-    public WebElement searchInputField;
     @FindBy(xpath = "//button[@aria-label='Si']")
     public WebElement confirmButtonDelete;
 
-
+    @FindBy(xpath = "//div[@class='search__input']//input[@placeholder='Buscar']")
+    public WebElement searchInputField;
     public WebElement getEditButtonForWorkShifts(String workShiftsCode) {
         return driver.findElement(By.xpath("(//td[contains(text(),'" + workShiftsCode + "')]/following-sibling::td/div/seress-ui-button)[1]"));
     }
@@ -66,46 +82,55 @@ public class TurnosLaboralesPage extends BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + workShiftsCode + "']")));
     }
 
-    public void setWorkShiftsData(String workShiftsCode, String workShiftsDescription, String workShiftsValue) {
+    public void setWorkShiftsData(String workShiftsCode, String workShiftsDescription, int numberInitialHour, int numberInitialMinute,int numberFinalHour, int numberFinalMinute) {
         scrollToElement(workShiftsCodeInputForm);
         waitAndSendKeys(workShiftsCodeInputForm, workShiftsCode);
-//        waitAndSendKeys(workShiftsDescriptionInputForm, workShiftsDescription);
-        waitAndSendKeys(workShiftsCheckInputForm, workShiftsValue);
-        scrollToElement(workShiftsGroup);
-        clickWithJavaScript(workShiftsGroup);
+        waitAndSendKeys(workShiftsDescriptionInputForm, workShiftsDescription);
+        hour(workShiftsInitialHourInputForm,workShiftsInitialIncreaseHH, workShiftsIntialHHNumber,numberInitialHour);
+        minute(workShiftsInitialIncreaseMM,workShiftsInitialMMNumber, numberInitialMinute);
+        waitAndClick(workShiftsCodeInputForm);
+        hour(workShiftsFinalHourInputForm,workShiftsInitialIncreaseHH, workShiftsIntialHHNumber,numberFinalHour);
+        minute(workShiftsInitialIncreaseMM,workShiftsInitialMMNumber, numberFinalMinute);
+        waitAndClick(workShiftsCodeInputForm);
+        waitAndClick(addButton);
     }
 
 
-    public void validateWorkShiftsInfo(String workShiftsCode, String workShiftsDescription, String workShiftsValue) {
+        public void validateWorkShiftsInfo(String workShiftsCode, String workShiftsDescription, int expectWorkShiftInitialHour, int expectWorkShiftInitialMinute, int expectWorkShiftFinalHour, int expectWorkShiftFinalMinute) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.attributeToBe(workShiftsCodeInputForm, "value", workShiftsCode));
-        String currentMovementGroupCode = workShiftsCodeInputForm.getAttribute("value");
-//        String currentDescriptionMovementGroup = workShiftsDescriptionInputForm.getAttribute("value");
-        String currentLevelDifficultyValue = workShiftsCheckInputForm.getAttribute("value");
-        Assert.assertEquals("El valor actual del código del grupo de movimientos coincide con el esperado", workShiftsCode, currentMovementGroupCode);
-//        Assert.assertEquals("El valor actual de la descripción coincide con el esperado", workShiftsDescription, currentDescriptionMovementGroup);
-        Assert.assertEquals("El valor actual del valor coincide con el esperado", workShiftsValue, currentLevelDifficultyValue);
-    }
+        String currentWorkShiftsCode = workShiftsCodeInputForm.getAttribute("value");
+        String currentWorkShiftsDescription = workShiftsDescriptionInputForm.getAttribute("value");
+        String currenthoursWorkShifts = workShiftsHoursInputForm.getAttribute("value");
+        double numeroHoras=  calcularHoras(expectWorkShiftInitialHour, expectWorkShiftInitialMinute, expectWorkShiftFinalHour, expectWorkShiftFinalMinute);
+        int horas = (int) numeroHoras;
+        double minutos = (numeroHoras - horas) * 60;
+        String totalHoras= (horas+"."+(int) minutos);
+        Assert.assertEquals("El valor actual del código del grupo de movimientos coincide con el esperado", workShiftsCode, currentWorkShiftsCode);
+        Assert.assertEquals("El valor actual de la descripción coincide con el esperado", workShiftsDescription, currentWorkShiftsDescription);
+        Assert.assertEquals("El valor actual del valor coincide con el esperado", totalHoras, currenthoursWorkShifts);
 
-    public void addWorkShifts(String workShiftsCode, String workShiftsDescription, String workShiftsValue) {
+        }
+
+    public void addWorkShifts(String workShiftsCode, String workShiftsDescription, int initialHour, int initialMinute, int finalHour, int finalMinute) {
         implicitWait();
-        scrollToElement(addButton);
-        waitAndClick(addButton);
+        scrollToElement(add);
+        waitAndClick(add);
         waitAndSendKeys(workShiftsCodeInputForm, workShiftsCode);
-        setWorkShiftsData(workShiftsCode, workShiftsDescription, workShiftsValue);
+        setWorkShiftsData(workShiftsCode, workShiftsDescription, initialHour, initialMinute, finalHour, finalMinute);
     }
 
-    public void editWorkShifts(String workShiftsCode, String newWorkShiftsCode, String newWorkShiftsDescription, String newWorkShiftsValue) {
+    public void editWorkShifts(String workShiftsCode, String newWorkShiftsCode, String newWorkShiftsDescription, int newWorkShiftInitialHour, int newWorkShiftInitialMinute, int newWorkShiftFinalHour, int newWorkShiftFinalMinute) {
         findWorkShifts(workShiftsCode);
         waitAndClick(getEditButtonForWorkShifts(workShiftsCode));
-        setWorkShiftsData(newWorkShiftsCode, newWorkShiftsDescription, newWorkShiftsValue);
+        setWorkShiftsData(newWorkShiftsCode, newWorkShiftsDescription, newWorkShiftInitialHour, newWorkShiftInitialMinute , newWorkShiftFinalHour, newWorkShiftFinalMinute);
     }
 
-    public void validateWorkShifts(String workShiftsCode, String expectWorkShiftsCode, String expectWorkShiftsDescription, String expectWorkShiftsValue) {
+    public void validateWorkShifts(String workShiftsCode, String expectWorkShiftsCode, String expectWorkShiftsDescription,  int expectWorkShiftInitialHour, int expectWorkShiftInitialMinute, int expectWorkShiftFinalHour, int expectWorkShiftFinalMinute) {
         findWorkShifts(workShiftsCode);
         waitAndClick(getDetailsButtonForWorkShifts(workShiftsCode));
-        validateWorkShiftsInfo(expectWorkShiftsCode, expectWorkShiftsDescription, expectWorkShiftsValue);
+        validateWorkShiftsInfo(expectWorkShiftsCode, expectWorkShiftsDescription,expectWorkShiftInitialHour, expectWorkShiftInitialMinute, expectWorkShiftFinalHour, expectWorkShiftFinalMinute );
         clickWithJavaScript(cancelButton);
     }
 
@@ -116,4 +141,67 @@ public class TurnosLaboralesPage extends BasePage {
         waitAndClick(confirmButtonDelete);
 
     }
+
+
+    public void hour(WebElement input, WebElement increase, WebElement hour, int targetHour) {
+        waitAndClick(input);
+        implicitWait();
+        int currentHour = Integer.parseInt(hour.getText());
+        int maxAttempts = 25;
+
+        if (currentHour == targetHour) {
+            return;
+        }
+
+        if (targetHour != currentHour) {
+
+            for (int attempt = 0; attempt < maxAttempts && currentHour != targetHour; attempt++) {
+                waitAndClick(increase);
+                currentHour = Integer.parseInt(hour.getText());
+            }
+        }
+    }
+
+    public void minute(WebElement increase, WebElement minute, int targetMinute) {
+
+
+        int currentHour = Integer.parseInt(minute.getText());
+        int maxAttempts = 60;
+
+        if (currentHour == targetMinute) {
+            return;
+        }
+
+
+        if (targetMinute != currentHour) {
+
+            for (int attempt = 0; attempt < maxAttempts && currentHour != targetMinute; attempt++) {
+                waitAndClick(increase);
+                currentHour = Integer.parseInt(minute.getText());
+            }
+        }
+    }
+
+    public double calcularHoras( int numberInitialHour, int numberInitialMinute,int numberFinalHour, int numberFinalMinute) {
+
+        String horaInicial = String.format("%02d:%02d", numberInitialHour, numberInitialMinute);
+        String horaFinal = String.format("%02d:%02d", numberFinalHour, numberFinalMinute);
+
+        SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm");
+        try {
+            Date fechaInicial = formatoHora.parse(horaInicial);
+            Date fechaFinal = formatoHora.parse(horaFinal);
+
+            long diferenciaMilisegundos = fechaFinal.getTime() - fechaInicial.getTime();
+            double diferenciaHoras = diferenciaMilisegundos / (1000 * 60 * 60.0);
+            if (diferenciaHoras < 0) {
+                diferenciaHoras += 24;
+            }
+            return diferenciaHoras;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
 }
+

@@ -25,7 +25,7 @@ public class CargosLaboralesPage extends BasePage {
     @FindBy(xpath = "//input[@formcontrolname='description']")
     public WebElement jobRolesDescriptionInputForm;
 
-    @FindBy(xpath = "//seress-ui-button[@value='Agregar']")
+    @FindBy(xpath = "//button[normalize-space()='Adicionar']")
     public WebElement addButton;
 
     @FindBy(xpath = "//button[normalize-space()='Cancelar']")
