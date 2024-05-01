@@ -47,4 +47,23 @@ public class ParametrizacionPage extends BasePage {
 
     @FindBy(xpath ="(//h4[normalize-space()='Tipo de documentos'])[1]")
     public WebElement tipoDocumentoIcon;
+
+
+    @FindBy(xpath ="(//h4[normalize-space()='Localización por regiones'])[1]")
+    public WebElement localizacionRegionesIcon;
+
+    @FindBy(xpath ="(//h4[normalize-space()='Máquinas por operario'])[1]")
+    public WebElement maquinasOperarioIcon;
+
+    @FindBy(xpath ="(//h4[normalize-space()='Grupos de costos y gastos'])[1]")
+    public WebElement grupoCostosGastosIcon;
+
+    @FindBy(xpath ="(//h4[normalize-space()='Conceptos de costos y gastos'])[1]")
+    public WebElement conceptoCostosGastosIcon;
+
+    @FindBy(xpath ="(//h4[normalize-space()='Turnos Laborales'])[1]")
+    public WebElement turnosLaboralesIcon;
+
+    @FindBy(xpath ="(//h4[normalize-space()='Empleados'])[1]")
+    public WebElement empleadosIcon;
 }
