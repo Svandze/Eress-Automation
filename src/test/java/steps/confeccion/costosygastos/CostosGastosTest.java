@@ -31,7 +31,6 @@ public class CostosGastosTest extends BaseTestSeress {
 
     @Test
     public void costExpensesManagementTest()  {
-        Faker faker = new Faker();
         String costExpensesWorkShop = "Taller para Test E2E";
         int year = 2027;
         String costExpensesGroupCost = "Costos directos";

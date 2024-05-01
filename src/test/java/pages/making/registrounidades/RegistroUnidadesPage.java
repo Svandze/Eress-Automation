@@ -1,5 +1,6 @@
 package pages.making.registrounidades;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -18,31 +19,25 @@ public class RegistroUnidadesPage extends BasePage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement confirmAddUnitRegistration;
 
-    //Dropdown taller
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[1]")
     public WebElement unitRegistrationWorkShopDropDown;
 
     @FindBy(xpath = "(//input[@class='p-dropdown-filter p-inputtext p-component'])[1]")
     public WebElement dropDownInputForm;
 
-    @FindBy(xpath = "//p-dropdownitem[1]/li")
+    @FindBy(xpath = "//li[@aria-label='Taller para Test E2E']")
     public WebElement dropDownSelect;
 
-    @FindBy(xpath = "")
-    public WebElement unitRegistrationWorkShopDropDownData;
+    @FindBy(xpath = "//p-calendar/span/input")
+    public WebElement dateInputForm;
 
-
-    //Dropdown referencia
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[2]")
     public WebElement unitRegistrationReferenceDropDown;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//p-dropdownitem/li")
     public WebElement unitRegistrationReferenceDropDownData;
-
-
     @FindBy(xpath = "(//p-inputnumber[@type='number'])[1]/span/input")
     public WebElement unitRegistrationSAMInputForm;
-
     @FindBy(xpath = "(//p-inputnumber[@type='number'])[2]/span/input")
     public WebElement unitRegistrationUnitsProducedInputForm;
     @FindBy(xpath = "(//p-inputnumber[@type='number'])[3]/span/input")
@@ -52,6 +47,9 @@ public class RegistroUnidadesPage extends BasePage {
     @FindBy(xpath = "(//p-inputnumber[@type='number'])[5]/span/input")
     public WebElement unitRegistrationNPersonsMODInputForm;
 
+    @FindBy(xpath = "//button[normalize-space()='Agregar']")
+    public WebElement addNewUnit;
+
     @FindBy(xpath = "//button[normalize-space()='Adicionar']")
     public WebElement addButton;
 
@@ -60,9 +58,13 @@ public class RegistroUnidadesPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='search__input']//input[@placeholder='Buscar']")
     public WebElement searchInputField;
+
     @FindBy(xpath = "//button[@aria-label='Si']")
     public WebElement confirmButtonDelete;
 
+    public WebElement getSpecifiedDateOnCalendar(String dayOfTheMonth) {
+        return driver.findElement(By.xpath("//td[not(contains(@class, 'p-datepicker-other-month')) and span[text()='" + dayOfTheMonth + "']]"));
+    }
 
     public WebElement getEditButtonForUnitRegistration(String unitRegistrationCode) {
         return driver.findElement(By.xpath("(//td[contains(text(),'" + unitRegistrationCode + "')]/following-sibling::td/div/seress-ui-button)[1]"));
@@ -76,66 +78,56 @@ public class RegistroUnidadesPage extends BasePage {
         return driver.findElement(By.xpath("//*[@texttooltip=\"Eliminar\"]/button"));
     }
 
-    public void findUnitRegistration(String unitRegistrationCode) {
-        waitAndSendKeys(searchInputField, unitRegistrationCode);
-        searchInputField.sendKeys(Keys.ENTER);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.invisibilityOfElementLocated((By.cssSelector(".toast-title"))));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + unitRegistrationCode + "']")));
-    }
-
-    public void setUnitRegistrationData(String unitRegistrationWorkShop, String unitRegistrationReference, String unitRegistrationSAM, String unitRegistrationUnitsProduced, String unitRegistrationTurnMinute, String unitRegistrationExtraMinute, String unitRegistrationNPersonsMOD) {
-        customDropdown(unitRegistrationWorkShopDropDown, dropDownInputForm, dropDownSelect, unitRegistrationWorkShop);
-        customDropdown(unitRegistrationReferenceDropDown, dropDownInputForm, dropDownSelect,unitRegistrationReference);
-        waitAndSendKeys(unitRegistrationSAMInputForm,unitRegistrationSAM);
-        waitAndSendKeys(unitRegistrationUnitsProducedInputForm, unitRegistrationUnitsProduced);
-        waitAndSendKeys(unitRegistrationTurnMinuteInputForm, unitRegistrationTurnMinute);
-        waitAndSendKeys(unitRegistrationExtraMinuteInputForm, unitRegistrationExtraMinute);
-        waitAndSendKeys(unitRegistrationNPersonsMODInputForm,unitRegistrationNPersonsMOD);
-        scrollToElement(confirmAddUnitRegistration);
-        clickWithJavaScript(confirmAddUnitRegistration);
-    }
-
-    public void validateUnitRegistrationInfo(String unitRegistrationWorkShop, String unitRegistrationReference, String unitRegistrationSAM, String unitRegistrationUnitsProduced, String unitRegistrationTurnMinute, String unitRegistrationExtraMinute, String unitRegistrationNPersonsMOD) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
-        /*wait.until(ExpectedConditions.attributeToBe(UnitRegistrationCodeInputForm, "value", operationsCode));
-        String currentMasterGenresCode = UnitRegistrationCodeInputForm.getAttribute("value");
-        String currentMasterGenresDescription = operationsDescriptionInputForm.getAttribute("value");
-        Assert.assertEquals("El valor actual del código coincide con el esperado", operationsCode, currentMasterGenresCode);
-        Assert.assertEquals("La descripción actual coincide con el esperado", operationsDescription, currentMasterGenresDescription);*/
-    }
-
-    public void addUnitRegistration(String unitRegistrationWorkShop, String unitRegistrationReference, String unitRegistrationSAM, String unitRegistrationUnitsProduced, String unitRegistrationTurnMinute, String unitRegistrationExtraMinute, String unitRegistrationNPersonsMOD) {
+    public void addNewUnitRegister(String dayOfMonth, String producedUnits, String turnMin, String extraMin, String nPersons) {
         waitAndClick(addButton);
-        setUnitRegistrationData(unitRegistrationWorkShop, unitRegistrationReference,  unitRegistrationSAM,  unitRegistrationUnitsProduced,  unitRegistrationTurnMinute,   unitRegistrationExtraMinute,   unitRegistrationNPersonsMOD);
+        waitAndClick(unitRegistrationWorkShopDropDown);
+        waitAndClick(dropDownSelect);
+        waitAndClick(dateInputForm);
+        waitAndClick(getSpecifiedDateOnCalendar(dayOfMonth));
+        waitAndClick(unitRegistrationReferenceDropDown);
+        waitAndClick(unitRegistrationReferenceDropDownData);
+        waitAndSendKeys(unitRegistrationUnitsProducedInputForm, producedUnits);
+        waitAndSendKeys(unitRegistrationTurnMinuteInputForm, turnMin);
+        waitAndSendKeys(unitRegistrationExtraMinuteInputForm, extraMin);
+        waitAndSendKeys(unitRegistrationNPersonsMODInputForm, nPersons);
+        implicitWait();
+        waitAndClick(addNewUnit);
+        implicitWait();
     }
 
-    public void editUnitRegistration(String newUnitRegistrationWorkShop, String newUnitRegistrationReference, String newUnitRegistrationSAM, String newUnitRegistrationProduced, String newUnitRegistrationTurnMinute, String newUnitRegistrationExtraMinute, String newUnitRegistrationNPersonsMOD) {
-        findUnitRegistration(newUnitRegistrationWorkShop);
-        waitAndClick(getEditButtonForUnitRegistration(newUnitRegistrationWorkShop));
-        setUnitRegistrationData(newUnitRegistrationWorkShop,   newUnitRegistrationReference,   newUnitRegistrationSAM,   newUnitRegistrationProduced,   newUnitRegistrationTurnMinute,   newUnitRegistrationExtraMinute,   newUnitRegistrationNPersonsMOD);
+    public void editRegisteredUnit(String producedUnits, String turnMin, String extraMin, String nPersons) {
+        searchForUnit();
+        waitAndClick(getEditButtonForUnitRegistration("Taller para Test E2E"));
+        implicitWait();
+        waitAndSendKeys(unitRegistrationUnitsProducedInputForm, producedUnits);
+        waitAndSendKeys(unitRegistrationTurnMinuteInputForm, turnMin);
+        waitAndSendKeys(unitRegistrationExtraMinuteInputForm, extraMin);
+        waitAndSendKeys(unitRegistrationNPersonsMODInputForm, nPersons);
+        waitAndClick(addNewUnit);
+        implicitWait();
     }
 
-    public void validateUnitRegistration(String expectUnitRegistrationWorkShop, String expectUnitRegistrationReference, String expectUnitRegistrationSAM, String expectUnitRegistrationProduced, String expectUnitRegistrationTurnMinute, String expectUnitRegistrationExtraMinute, String expectUnitRegistrationNPersonsMOD) {
-        findUnitRegistration(expectUnitRegistrationWorkShop);
-        waitAndClick(getDetailsButtonForUnitRegistration(expectUnitRegistrationWorkShop));
-        validateUnitRegistrationInfo( expectUnitRegistrationWorkShop,  expectUnitRegistrationReference,  expectUnitRegistrationSAM,  expectUnitRegistrationProduced,  expectUnitRegistrationTurnMinute,  expectUnitRegistrationExtraMinute,  expectUnitRegistrationNPersonsMOD);
-        clickWithJavaScript(cancelButton);
+    public void validateUnitInformation(String producedUnits, String turnMin, String extraMin, String nPersons) {
+        searchForUnit();
+        waitAndClick(getDetailsButtonForUnitRegistration("Taller para Test E2E"));
+        implicitWait();
+        Assert.assertEquals(unitRegistrationUnitsProducedInputForm.getAttribute("value"), producedUnits);
+        Assert.assertEquals(unitRegistrationTurnMinuteInputForm.getAttribute("value"), turnMin);
+        Assert.assertEquals(unitRegistrationExtraMinuteInputForm.getAttribute("value"), extraMin);
+        Assert.assertEquals(unitRegistrationNPersonsMODInputForm.getAttribute("value"), nPersons);
+        waitAndClick(cancelButton);
+        implicitWait();
     }
 
-    public void deleteUnitRegistration(String unitRegistrationCode) {
-        findUnitRegistration(unitRegistrationCode);
-        scrollToElement(getDeleteButtonForUnitRegistration());
+    public void deleteUnit() {
+        searchForUnit();
         waitAndClick(getDeleteButtonForUnitRegistration());
         waitAndClick(confirmButtonDelete);
-
+        implicitWait();
     }
 
-    public void customDropdown(WebElement dropDown, WebElement inputForm, WebElement select, String data) {
-        scrollToElement(dropDown);
-        waitAndClick(dropDown);
-        waitAndSendKeys(inputForm, data);
-        waitAndClick(select);
+    public void searchForUnit() {
+        waitAndSendKeys(searchInputField, "Taller para Test E2E" + Keys.ENTER);
+        implicitWait();
     }
 }

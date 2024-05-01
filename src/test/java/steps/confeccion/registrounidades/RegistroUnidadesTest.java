@@ -1,6 +1,5 @@
 package steps.confeccion.registrounidades;
 
-import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
 import pages.making.parametrizacion.ConfeccionPage;
@@ -23,15 +22,25 @@ public class RegistroUnidadesTest extends BaseTestSeress {
         super.setup();
         confeccionPage = new ConfeccionPage();
         parametrizacionPage = new ParametrizacionPage();
-        registroUnidadesPage= new RegistroUnidadesPage();
+        registroUnidadesPage = new RegistroUnidadesPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.costUnitRegisterIcon);
     }
 
     @Test
-    public void unitsRegistrationManagementTest()  {
-        Faker faker = new Faker();
-
-
+    public void unitsRegistrationManagementTest() {
+        String dayOfTheMonth = "14";
+        String producedUnits = "2";
+        String turnMin = "2";
+        String extraMin = "2";
+        String nPersons = "3";
+        String producedUnitsForUpdate = "10";
+        String turnMinForUpdate = "10";
+        String extraMinForUpdate = "10";
+        String nPersonsForUpdate = "10";
+        registroUnidadesPage.addNewUnitRegister(dayOfTheMonth, producedUnits, turnMin, extraMin, nPersons);
+        registroUnidadesPage.editRegisteredUnit(producedUnitsForUpdate, turnMinForUpdate, extraMinForUpdate, nPersonsForUpdate);
+        registroUnidadesPage.validateUnitInformation(producedUnitsForUpdate, turnMinForUpdate, extraMinForUpdate, nPersonsForUpdate);
+        registroUnidadesPage.deleteUnit();
     }
 }
