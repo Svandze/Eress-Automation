@@ -33,9 +33,9 @@ public class GrupoCostosGastosPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='search__input']//input[@placeholder='Buscar']")
     public WebElement searchInputField;
+
     @FindBy(xpath = "//button[@aria-label='Si']")
     public WebElement confirmButtonDelete;
-
 
     public WebElement getEditButtonForCostExpenseGroups(String costExpenseGroupsCode) {
         return driver.findElement(By.xpath("(//td[contains(text(),'" + costExpenseGroupsCode + "')]/following-sibling::td/div/seress-ui-button)[1]"));

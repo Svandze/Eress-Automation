@@ -63,4 +63,7 @@ public class ParametrizacionPage extends BasePage {
 
     @FindBy(xpath ="(//h4[normalize-space()='Turnos Laborales'])[1]")
     public WebElement turnosLaboralesIcon;
+
+    @FindBy(xpath ="(//h4[normalize-space()='Empleados'])[1]")
+    public WebElement empleadosIcon;
 }

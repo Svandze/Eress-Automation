@@ -36,7 +36,5 @@ public class ListaOperacionesTest extends BaseTestSeress {
     @Test
     public void operationsListManagementTest()  {
         Faker faker = new Faker();
-
-
     }
 }

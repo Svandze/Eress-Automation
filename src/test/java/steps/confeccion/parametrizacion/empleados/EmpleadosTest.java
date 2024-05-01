@@ -1,5 +1,6 @@
 package steps.confeccion.parametrizacion.empleados;
 
+import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
 import pages.confeccion.parametrizacion.ConfeccionPage;
@@ -10,9 +11,7 @@ import steps.BaseTestSeress;
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
 import static utils.ElementUtils.clickWithJavaScript;
 import static utils.ElementUtils.implicitWait;
-import static utils.ElementUtils.scrollToElement;
 import static utils.ElementUtils.waitAndClick;
-import static utils.ElementUtils.waitAndSendKeys;
 import static utils.ElementUtils.windowHandler;
 
 public class EmpleadosTest extends BaseTestSeress {
@@ -33,41 +32,28 @@ public class EmpleadosTest extends BaseTestSeress {
     }
 
     @Test
-    public void EmployeesTest(){
-        waitAndClick(empleadosPage.addNewEmployee);
-        implicitWait();
-        waitAndClick(empleadosPage.idDropdown);
-        waitAndClick(empleadosPage.getFirstDropdownOption);
-        waitAndSendKeys(empleadosPage.documentInput, "123456");
-        waitAndSendKeys(empleadosPage.namesInput, "la bestia");
-        waitAndSendKeys(empleadosPage.surnameInput, "gutierrez" );
-        waitAndClick(empleadosPage.isEmployee);
-        waitAndSendKeys(empleadosPage.firstPhoneNumberInput, "123456");
-        waitAndSendKeys(empleadosPage.secondPhoneNumberInput, "123456");
-        waitAndSendKeys(empleadosPage.firstAddressInput, "123456");
-        waitAndSendKeys(empleadosPage.secondAddressInput, "123456");
-        waitAndSendKeys(empleadosPage.emailInput, "123456@gmail.com");
-        scrollToElement(empleadosPage.selectPositionDropdown);
-        waitAndClick(empleadosPage.selectPositionDropdown);
-        waitAndClick(empleadosPage.getFirstDropdownOption);
-        waitAndClick(empleadosPage.selectSexDropdown);
-        waitAndClick(empleadosPage.getFirstDropdownOption);
-        waitAndClick(empleadosPage.selectShiftDropdown);
-        waitAndClick(empleadosPage.getFirstDropdownOption);
-        empleadosPage.setCalendarDate(empleadosPage.admissionDateCalendar, 2020, 2025);
-//        empleadosPage.setCalendarDate(empleadosPage.admissionDateCalendar, "04/17/2024");
-//        empleadosPage.setCalendarDate(empleadosPage.birthDateCalendar, "03/02/1996");
-        waitAndClick(empleadosPage.selectBirthPlaceDropdown);
+    public void EmployeesTest() {
+        Faker faker = new Faker();
+        String id = faker.number().digits(6);
+        String idToUpdate = faker.number().digits(6);
+        String name = faker.name().firstName();
+        String nameToUpdate = faker.name().firstName();
+        String surname = faker.name().lastName();
+        String surnameToUpdate = faker.name().lastName();
+        String firstPhoneNumber = faker.phoneNumber().phoneNumber();
+        String firstPhoneNumberToUpdate = faker.phoneNumber().phoneNumber();
+        String secondPhoneNumber = faker.phoneNumber().cellPhone();
+        String secondPhoneNumberToUpdate = faker.phoneNumber().cellPhone();
+        String firstAddress = faker.address().streetAddress();
+        String firstAddressToUpdate = faker.address().streetAddress();
+        String secondAddress = faker.address().streetAddress();
+        String secondAddressToUpdate = faker.address().streetAddress();
+        String email = faker.internet().emailAddress();
+        String emailToUpdate = faker.internet().emailAddress();
 
-        waitAndClick(empleadosPage.getFirstDropdownOption);
-        waitAndClick(empleadosPage.selectMaritalStatusDropdown);
-        waitAndClick(empleadosPage.getFirstDropdownOption);
-        waitAndClick(empleadosPage.confirmNewEmployeeButton);
-
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        empleadosPage.createEmployee(id, name, surname, firstPhoneNumber, secondPhoneNumber, firstAddress, secondAddress, email);
+        empleadosPage.editEmployee(id, idToUpdate, nameToUpdate, surnameToUpdate, firstPhoneNumberToUpdate, secondPhoneNumberToUpdate, firstAddressToUpdate, secondAddressToUpdate, emailToUpdate);
+        empleadosPage.validateEmployeeDetails(idToUpdate, nameToUpdate);
+        empleadosPage.deleteEmployee(idToUpdate);
     }
 }
