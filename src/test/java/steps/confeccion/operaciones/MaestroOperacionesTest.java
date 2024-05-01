@@ -19,8 +19,7 @@ public class MaestroOperacionesTest extends BaseTestSeress {
     private ParametrizacionPage parametrizacionPage;
     private pages.confeccion.operaciones.MaestroOperacionesPage maestroOperacionesPage;
 
-    @FindBy(xpath = "//a[@href='/parametrizacion/operaciones']//div[@class='card__projects-body-content']")
-    public WebElement operacionesIcon;
+
     @Before
     public void setup() {
         super.setup();
@@ -28,7 +27,7 @@ public class MaestroOperacionesTest extends BaseTestSeress {
         parametrizacionPage = new ParametrizacionPage();
         maestroOperacionesPage= new pages.confeccion.operaciones.MaestroOperacionesPage();
         windowHandler(CONFECCIONES_WINDOW);
-        waitAndClick(operacionesIcon);
+        waitAndClick(confeccionPage.operacionesIcon);
     }
 
     @Test
@@ -38,7 +37,9 @@ public class MaestroOperacionesTest extends BaseTestSeress {
         String operationDescription = "Test";
         String updateOperationCode = randomCode();
         String updatedOperationDescription = "Update Test";
-        maestroOperacionesPage.addOperations(operationCode,operationDescription,"PL1A","4", "6","GD00",  "Pruebas QA", "Pruebas QA", "GET04", "6-15", "");
-
+        maestroOperacionesPage.addOperations(operationCode,operationDescription,"PL1A","4", "6","GD00",  "Pruebas QA", "Pruebas QA", "", "", "");
+        maestroOperacionesPage.editOperations(operationCode,updateOperationCode,updatedOperationDescription,"FPS","6", "4", "GD10","Admin","Admin","" ,"","");
+        maestroOperacionesPage.validateOperations(updateOperationCode, updatedOperationDescription,"FPS","6", "4", "GD10","Admin","Admin","" ,"","");
+        maestroOperacionesPage.deleteOperations(updateOperationCode);
     }
 }

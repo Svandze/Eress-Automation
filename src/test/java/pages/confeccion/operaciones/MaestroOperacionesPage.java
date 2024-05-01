@@ -35,7 +35,7 @@ public class MaestroOperacionesPage extends BasePage {
     @FindBy(xpath = "//p-dropdownitem[1]/li")
     public WebElement operationsDropDownSelect;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[1]")
     public WebElement operationsMachineDropDownData;
 
     @FindBy(xpath = "//p-inputnumber[@formcontrolname='ppp']/span/input")
@@ -49,7 +49,7 @@ public class MaestroOperacionesPage extends BasePage {
     public WebElement operationsDifficultDropDown;
 
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[2]")
     public WebElement operationsDifficultDropDownData;
 
     //Dropdown elaborado
@@ -57,28 +57,28 @@ public class MaestroOperacionesPage extends BasePage {
     public WebElement operationsElaborateDropDown;
 
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[3]")
     public WebElement operationsElaborateDropDownData;
 
     //Dropdown elaborado
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[4]")
     public WebElement operationsAprobateDropDown;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[4]")
     public WebElement operationsAprobateDropDownData;
 
     //Dropdown elemento
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[5]")
     public WebElement operationsElementDropDown;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[5]")
     public WebElement operationsElementDropDownData;
 
     //Dropdown distancia
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[6]")
     public WebElement operationsDistanceDropDown;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[6]")
     public WebElement operationsDistanceDropDownData;
 
     @FindBy(xpath = "(//input[@name='sewing'])[1]")
@@ -98,7 +98,7 @@ public class MaestroOperacionesPage extends BasePage {
 
 
     public WebElement getEditButtonForOperations(String operationsCode) {
-        return driver.findElement(By.xpath("(//td[contains(text(),'" + operationsCode + "')]/following-sibling::td/div/seress-ui-button)[1]"));
+        return driver.findElement(By.xpath("(//td[contains(text(),'" + operationsCode + "')]/following-sibling::td/div/seress-ui-button)[2]"));
     }
 
     public WebElement getDetailsButtonForOperations(String operationsCode) {
@@ -128,20 +128,36 @@ public class MaestroOperacionesPage extends BasePage {
         customDropdown(operationsElaborateDropDown, operationsDropDownInputForm, operationsDropDownSelect, operationsElaborate);
         customDropdown(operationsAprobateDropDown, operationsDropDownInputForm, operationsDropDownSelect, operationsAprobate);
         customDropdown(operationsElementDropDown, operationsDropDownInputForm, operationsDropDownSelect, operationsElement);
-        customDropdown(operationsDistanceDropDown, operationsDropDownInputForm, operationsDropDownSelect, operationsDistance);
+        //customDropdown(operationsDistanceDropDown, operationsDropDownInputForm, operationsDropDownSelect, operationsDistance);
         //waitAndSendKeys(operationsSewingInputForm, operationsSewing);
         scrollToElement(confirmAddOperations);
         clickWithJavaScript(confirmAddOperations);
     }
 
-    public void validateOperationsInfo(String operationsCode, String operationsDescription, String operationsMachine, String operationsStitchesInch, String operationsSuplement, String operationsDifficult, String operationsElaborate, String operationsAprobate, String operationsElement, String operationsDistance, String operationsSewing) {
+    public void validateOperationsInfo(String operationsCode, String operationsDescription, String operationsMachine, String operationsStitchesInch, String operationsSupplement, String operationsDifficult, String operationsElaborate, String operationsAprobate, String operationsElement, String operationsDistance, String operationsSewing) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.attributeToBe(operationsCodeInputForm, "value", operationsCode));
-        String currentMasterGenresCode = operationsCodeInputForm.getAttribute("value");
-        String currentMasterGenresDescription = operationsDescriptionInputForm.getAttribute("value");
-        Assert.assertEquals("El valor actual del código coincide con el esperado", operationsCode, currentMasterGenresCode);
-        Assert.assertEquals("La descripción actual coincide con el esperado", operationsDescription, currentMasterGenresDescription);
+        String currentMasterOperationsCode = operationsCodeInputForm.getAttribute("value");
+        String currentMasterOperationsDescription = operationsDescriptionInputForm.getAttribute("value");
+        String currentMasterMasterOperationsMachines = operationsMachineDropDownData.getText();
+        String currentMasterMasterOperationStitchesInch = operationsStitchesInchInputForm.getAttribute("value");
+        String currentMasterMasterOperationSupplement = operationsSupplementInputForm.getAttribute("value");
+        String currentMasterMasterOperationDifficult = operationsDifficultDropDownData.getText();
+        String currentMasterMasterOperationElaborate = operationsElaborateDropDownData.getText();
+        String currentMasterMasterOperationAprobate = operationsAprobateDropDownData.getText();
+        String currentMasterMasterOperationElement = operationsElementDropDownData.getText();
+        String currentMasterMasterOperationDistance = operationsDistanceDropDownData.getText();
+        Assert.assertEquals("El valor actual del código coincide con el esperado", operationsCode, currentMasterOperationsCode);
+        Assert.assertEquals("La descripción actual coincide con el esperado", operationsDescription, currentMasterOperationsDescription);
+        Assert.assertTrue("El valor actual de la maquina coincide con el esperado", currentMasterMasterOperationsMachines.contains(operationsMachine));
+        Assert.assertEquals("El valor actual de la pulgada x puntada coincide con el esperado", operationsStitchesInch, currentMasterMasterOperationStitchesInch);
+        Assert.assertEquals("El suplemento actual coincide con el esperado", operationsSupplement, currentMasterMasterOperationSupplement);
+        Assert.assertTrue("El valor actual del grado de dificultad coincide con el esperado", currentMasterMasterOperationDifficult.contains(operationsDifficult));
+        Assert.assertTrue("El valor actual del elaborado coincide con el esperado", currentMasterMasterOperationElaborate.contains(operationsElaborate));
+        Assert.assertTrue("El valor actual del aprobado coincide con el esperado", currentMasterMasterOperationAprobate.contains(operationsAprobate));
+        Assert.assertTrue("El valor actual del elemento coincide con el esperado", currentMasterMasterOperationElement.contains(operationsElement));
+        Assert.assertTrue("El valor actual de la distancia coincide con el esperado", currentMasterMasterOperationDistance.contains(operationsDistance));
     }
 
     public void addOperations(String operationsCode, String operationsDescription, String operationsMachine, String operationsStitchesInch, String operationsSuplement, String operationsDifficult, String operationsElaborate, String operationsAprobate, String operationsElement, String operationsDistance, String operationsSewing) {
