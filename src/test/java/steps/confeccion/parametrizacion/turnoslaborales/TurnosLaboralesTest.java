@@ -3,10 +3,9 @@ package steps.confeccion.parametrizacion.turnoslaborales;
 import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
-import pages.confeccion.parametrizacion.ConfeccionPage;
-import pages.confeccion.parametrizacion.ParametrizacionPage;
-import pages.confeccion.parametrizacion.tipocompetencia.TipoCompetenciaPage;
-import pages.confeccion.parametrizacion.turnoslaborales.TurnosLaboralesPage;
+import pages.making.parametrizacion.ConfeccionPage;
+import pages.making.parametrizacion.ParametrizacionPage;
+import pages.making.parametrizacion.turnoslaborales.TurnosLaboralesPage;
 import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;

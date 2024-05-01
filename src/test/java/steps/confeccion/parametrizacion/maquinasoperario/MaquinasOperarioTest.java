@@ -3,9 +3,9 @@ package steps.confeccion.parametrizacion.maquinasoperario;
 
 import org.junit.Before;
 import org.junit.Test;
-import pages.confeccion.parametrizacion.ConfeccionPage;
-import pages.confeccion.parametrizacion.ParametrizacionPage;
-import pages.confeccion.parametrizacion.maquinasoperario.MaquinasOperarioPage;
+import pages.making.parametrizacion.ConfeccionPage;
+import pages.making.parametrizacion.ParametrizacionPage;
+import pages.making.parametrizacion.maquinasoperario.MaquinasOperarioPage;
 import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;

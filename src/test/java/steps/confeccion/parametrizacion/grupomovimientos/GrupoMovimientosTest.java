@@ -2,9 +2,9 @@ package steps.confeccion.parametrizacion.grupomovimientos;
 
 import org.junit.Before;
 import org.junit.Test;
-import pages.confeccion.parametrizacion.ConfeccionPage;
-import pages.confeccion.parametrizacion.ParametrizacionPage;
-import pages.confeccion.parametrizacion.grupomovimientos.GrupoMovimientosPage;
+import pages.making.parametrizacion.ConfeccionPage;
+import pages.making.parametrizacion.ParametrizacionPage;
+import pages.making.parametrizacion.grupomovimientos.GrupoMovimientosPage;
 import steps.BaseTestSeress;
 
 

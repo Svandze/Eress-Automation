@@ -4,9 +4,9 @@ package steps.confeccion.parametrizacion.conceptocostosgastos;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import pages.confeccion.parametrizacion.ConfeccionPage;
-import pages.confeccion.parametrizacion.ParametrizacionPage;
-import pages.confeccion.parametrizacion.conceptocostosgastos.ConceptosCostosGastosPage;
+import pages.making.parametrizacion.ConfeccionPage;
+import pages.making.parametrizacion.ParametrizacionPage;
+import pages.making.parametrizacion.conceptocostosgastos.ConceptosCostosGastosPage;
 
 import steps.BaseTestSeress;
 

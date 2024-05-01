@@ -3,12 +3,9 @@ package steps.confeccion.listaoperaciones;
 import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import pages.confeccion.costosygastos.CostosGastosPage;
-import pages.confeccion.listaoperaciones.ListaOperacionesPage;
-import pages.confeccion.parametrizacion.ConfeccionPage;
-import pages.confeccion.parametrizacion.ParametrizacionPage;
+import pages.making.listaoperaciones.ListaOperacionesPage;
+import pages.making.parametrizacion.ConfeccionPage;
+import pages.making.parametrizacion.ParametrizacionPage;
 import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;

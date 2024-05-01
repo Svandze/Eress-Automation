@@ -2,9 +2,9 @@ package steps.confeccion.parametrizacion.gradodificultad;
 
 import org.junit.Before;
 import org.junit.Test;
-import pages.confeccion.parametrizacion.ConfeccionPage;
-import pages.confeccion.parametrizacion.ParametrizacionPage;
-import pages.confeccion.parametrizacion.gradodificultad.GradoDificultadPage;
+import pages.making.parametrizacion.ConfeccionPage;
+import pages.making.parametrizacion.ParametrizacionPage;
+import pages.making.parametrizacion.gradodificultad.GradoDificultadPage;
 import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;

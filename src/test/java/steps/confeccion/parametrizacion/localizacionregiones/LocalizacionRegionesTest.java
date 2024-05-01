@@ -1,15 +1,12 @@
 package steps.confeccion.parametrizacion.localizacionregiones;
 
-import pages.confeccion.parametrizacion.ConfeccionPage;
+import pages.making.parametrizacion.ConfeccionPage;
 import steps.BaseTestSeress;
 import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
-import pages.confeccion.parametrizacion.ConfeccionPage;
-import pages.confeccion.parametrizacion.ParametrizacionPage;
-import pages.confeccion.parametrizacion.localizacionregiones.LocalizacionRegionesPage;
-import pages.confeccion.parametrizacion.maestrodemaquinas.MaestroDeMaquinasPage;
-import steps.BaseTestSeress;
+import pages.making.parametrizacion.ParametrizacionPage;
+import pages.making.parametrizacion.localizacionregiones.LocalizacionRegionesPage;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
 import static org.example.utils.MachineCodeBuilder.randomCode;

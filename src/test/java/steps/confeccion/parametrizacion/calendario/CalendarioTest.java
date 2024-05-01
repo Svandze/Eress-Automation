@@ -1,13 +1,12 @@
 package steps.confeccion.parametrizacion.calendario;
 
 import com.github.javafaker.Faker;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import pages.confeccion.parametrizacion.ConfeccionPage;
-import pages.confeccion.parametrizacion.ParametrizacionPage;
-import pages.confeccion.parametrizacion.calendario.CalendarioPage;
+import pages.making.parametrizacion.ConfeccionPage;
+import pages.making.parametrizacion.ParametrizacionPage;
+import pages.making.parametrizacion.calendario.CalendarioPage;
 import steps.BaseTestSeress;
 
 import java.util.Date;

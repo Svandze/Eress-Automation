@@ -3,10 +3,8 @@ package steps.confeccion.operaciones;
 import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import pages.confeccion.parametrizacion.ConfeccionPage;
-import pages.confeccion.parametrizacion.ParametrizacionPage;
+import pages.making.parametrizacion.ConfeccionPage;
+import pages.making.parametrizacion.ParametrizacionPage;
 import steps.BaseTestSeress;
 
 import static org.example.constants.SeressConstants.CONFECCIONES_WINDOW;
@@ -17,7 +15,7 @@ import static utils.ElementUtils.windowHandler;
 public class MaestroOperacionesTest extends BaseTestSeress {
     private ConfeccionPage confeccionPage;
     private ParametrizacionPage parametrizacionPage;
-    private pages.confeccion.operaciones.MaestroOperacionesPage maestroOperacionesPage;
+    private pages.making.operaciones.MaestroOperacionesPage maestroOperacionesPage;
 
 
     @Before
@@ -25,7 +23,7 @@ public class MaestroOperacionesTest extends BaseTestSeress {
         super.setup();
         confeccionPage = new ConfeccionPage();
         parametrizacionPage = new ParametrizacionPage();
-        maestroOperacionesPage= new pages.confeccion.operaciones.MaestroOperacionesPage();
+        maestroOperacionesPage= new pages.making.operaciones.MaestroOperacionesPage();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(confeccionPage.operacionesIcon);
     }
