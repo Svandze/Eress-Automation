@@ -22,7 +22,7 @@ public class ListaOperacionesPage extends BasePage {
     public WebElement operationsListListCodeInputForm;
 
     @FindBy(xpath = "//input[@formcontrolname='list_operation_name']")
-    public WebElement operationsListListNameoperationsListListDescriptionInputForm;
+    public WebElement operationsListListNameInputForm;
 
     //Dropdown maquinas
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[1]")
@@ -34,9 +34,8 @@ public class ListaOperacionesPage extends BasePage {
     @FindBy(xpath = "//p-dropdownitem[1]/li")
     public WebElement operationsListDropDownSelect;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[1]")
     public WebElement operationsListListCustomerDropDownData;
-
 
 
     //Dropdown grado de dificultad
@@ -44,30 +43,30 @@ public class ListaOperacionesPage extends BasePage {
     public WebElement operationsListListReferenceDifficultDropDown;
 
 
-    @FindBy(xpath = "")
-    public WebElement operationsListListReferenceDifficultDropDownData;
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[2]")
+    public WebElement operationsListListReferenceDropDownData;
 
     //Dropdown elaborado
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[3]")
     public WebElement operationsListListElaborateDropDown;
 
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[3]")
     public WebElement operationsListListElaborateDropDownData;
 
     //Dropdown elaborado
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[4]")
     public WebElement operationsListListAprobateDropDown;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[4]")
     public WebElement operationsListListAprobateDropDownData;
 
     //Dropdown elemento
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[5]")
-    public WebElement operationsListListOperationDropDown;
+    public WebElement operationsListOperationDropDown;
 
-    @FindBy(xpath = "")
-    public WebElement operationsListListOperationElementDropDownData;
+    @FindBy(xpath = "(//span[@class='p-element p-dropdown-label p-inputtext ng-star-inserted'])[5]")
+    public WebElement operationsListOperationElementDropDownData;
 
 
     @FindBy(xpath = "(//p-inputnumber[@type='number'])[1]/span/input")
@@ -106,45 +105,58 @@ public class ListaOperacionesPage extends BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + operationsListCode + "']")));
     }
 
-    public void setOperationsListData(String operationsListCode, String operationsListName, String operationsListCustomer,  String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation, String operationsListSAM) {
+    public void setOperationsListData(String operationsListCode, String operationsListName, String operationsListCustomer,  String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation) {
         scrollToElement(operationsListListCodeInputForm);
         waitAndSendKeys(operationsListListCodeInputForm, operationsListCode);
-        waitAndSendKeys(operationsListListNameoperationsListListDescriptionInputForm, operationsListName);
+        waitAndSendKeys(operationsListListNameInputForm, operationsListName);
         customDropdown(operationsListListCustomerDropDown, operationsListDropDownInputForm, operationsListDropDownSelect, operationsListCustomer);
         customDropdown(operationsListListReferenceDifficultDropDown, operationsListDropDownInputForm, operationsListDropDownSelect, operationsListReference);
         customDropdown(operationsListListElaborateDropDown, operationsListDropDownInputForm, operationsListDropDownSelect, operationsListElaborate);
         customDropdown(operationsListListAprobateDropDown, operationsListDropDownInputForm, operationsListDropDownSelect, operationsListAprobate);
-        customDropdown(operationsListListOperationDropDown, operationsListDropDownInputForm, operationsListDropDownSelect, operationsListOperation);
-        waitAndSendKeys(operationsListListListSAMInputForm, operationsListSAM);
+        customDropdown(operationsListOperationDropDown, operationsListDropDownInputForm, operationsListDropDownSelect, operationsListOperation);
         scrollToElement(confirmAddOperationsListList);
         clickWithJavaScript(confirmAddOperationsListList);
     }
 
-    public void validateOperationsListInfo(String operationsListCode, String operationsListName, String operationsListCustomer,  String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation, String operationsListSAM) {
+    public void validateOperationsListInfo(String operationsListCode, String operationsListName, String operationsListCustomer,  String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.attributeToBe(operationsListListCodeInputForm, "value", operationsListCode));
-       /* String currentMasterGenresCode = operationsListListCodeInputForm.getAttribute("value");
-        String currentMasterGenresDescription = operationsListListNameoperationsListListDescriptionInputForm.getAttribute("value");
-        Assert.assertEquals("El valor actual del código coincide con el esperado", operationsListCode, currentMasterGenresCode);
-        Assert.assertEquals("La descripción actual coincide con el esperado", operationsListDescription, currentMasterGenresDescription);*/
+        String currentOperationsListCode = operationsListListCodeInputForm.getAttribute("value");
+        String currentOperationsLisName = operationsListListNameInputForm.getAttribute("value");
+        String currentOperationsCustomer = operationsListListCustomerDropDownData.getText();
+        String currentOperationsReference = operationsListListReferenceDropDownData.getText();
+        String currentOperationsElaborate = operationsListListElaborateDropDownData.getText();
+        String currentOperationsAprobate = operationsListListAprobateDropDownData.getText();
+        String currentOperationsOperation= operationsListOperationElementDropDownData.getText();
+        Assert.assertEquals("El valor actual del código coincide con el esperado", operationsListCode, currentOperationsListCode);
+        Assert.assertEquals("El nombre actual coincide con el esperado", operationsListName, currentOperationsLisName);
+        Assert.assertTrue("El valor actual del cliente coincide con el esperado", currentOperationsCustomer.contains(operationsListCustomer));
+        Assert.assertTrue("El valor actual de la referencia coincide con el esperado", currentOperationsReference.contains(operationsListReference));
+        Assert.assertTrue("El valor actual del elaborado coincide con el esperado", currentOperationsElaborate.contains(operationsListElaborate));
+        Assert.assertTrue("El valor actual del aprobado coincide con el esperado", currentOperationsAprobate.contains(operationsListAprobate));
+        System.out.println(currentOperationsOperation);
+        System.out.println(operationsListOperation);
+        System.out.println("hi");
+        Assert.assertTrue("El valor actual de la operación coincide con el esperado", currentOperationsOperation.contains(operationsListOperation));
+
     }
 
-    public void addOperationsList(String operationsListCode, String operationsListName, String operationsListCustomer,  String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation, String operationsListSAM) {
+    public void addOperationsList(String operationsListCode, String operationsListName, String operationsListCustomer,  String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation) {
         waitAndClick(addButton);
-        setOperationsListData(operationsListCode,  operationsListName,  operationsListCustomer,   operationsListReference,  operationsListElaborate,  operationsListAprobate,  operationsListOperation,  operationsListSAM);
+        setOperationsListData(operationsListCode,  operationsListName,  operationsListCustomer,   operationsListReference,  operationsListElaborate,  operationsListAprobate,  operationsListOperation);
     }
 
-    public void editOperationsList(String newOperationsListCode, String newOperationsListName, String newOperationsListCustomer,  String newOperationsListReference, String newOperationsListElaborate, String newOperationsListAprobate, String newOperationsListnewOperation, String newOperationsListSAM) {
-        findOperationsList(newOperationsListCode);
-        waitAndClick(getEditButtonForOperationsList(newOperationsListCode));
-        setOperationsListData(newOperationsListCode,  newOperationsListName,  newOperationsListCustomer,   newOperationsListReference,  newOperationsListElaborate,  newOperationsListAprobate,  newOperationsListnewOperation,  newOperationsListSAM);
+    public void editOperationsList(String operationListCode, String newOperationsListCode, String newOperationsListName, String newOperationsListCustomer,  String newOperationsListReference, String newOperationsListElaborate, String newOperationsListAprobate, String newOperationsListnewOperation) {
+        findOperationsList(operationListCode);
+        waitAndClick(getEditButtonForOperationsList(operationListCode));
+        setOperationsListData(newOperationsListCode,  newOperationsListName,  newOperationsListCustomer,   newOperationsListReference,  newOperationsListElaborate,  newOperationsListAprobate,  newOperationsListnewOperation);
     }
 
-    public void validateOperationsList(String expectOperationsListCode, String expectOperationsListName, String expectOperationsListCustomer,  String expectOperationsListReference, String expectOperationsListElaborate, String expectOperationsListAprobate, String expectOperationsListexpectOperation, String expectOperationsListSAM) {
+    public void validateOperationsList(String expectOperationsListCode, String expectOperationsListName, String expectOperationsListCustomer,  String expectOperationsListReference, String expectOperationsListElaborate, String expectOperationsListAprobate, String expectOperationsListexpectOperation) {
         findOperationsList(expectOperationsListCode);
         waitAndClick(getDetailsButtonForOperationsList(expectOperationsListCode));
-        validateOperationsListInfo(expectOperationsListCode,  expectOperationsListName,  expectOperationsListCustomer,   expectOperationsListReference,  expectOperationsListElaborate,  expectOperationsListAprobate,  expectOperationsListexpectOperation,  expectOperationsListSAM);
+        validateOperationsListInfo(expectOperationsListCode,  expectOperationsListName,  expectOperationsListCustomer,   expectOperationsListReference,  expectOperationsListElaborate,  expectOperationsListAprobate,  expectOperationsListexpectOperation);
         clickWithJavaScript(cancelButton);
     }
 
@@ -160,6 +172,7 @@ public class ListaOperacionesPage extends BasePage {
         scrollToElement(dropDown);
         waitAndClick(dropDown);
         waitAndSendKeys(inputForm, data);
+        implicitWait();
         waitAndClick(select);
     }
 }
