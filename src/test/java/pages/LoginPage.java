@@ -3,9 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static org.example.constants.SeressConstants.EMAIL;
-import static org.example.constants.SeressConstants.PASSWORD;
-import static utils.ElementUtils.implicitWait;
+import static org.example.constants.EressConstants.EMAIL;
+import static org.example.constants.EressConstants.PASSWORD;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.waitAndSendKeys;
 

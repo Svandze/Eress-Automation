@@ -1,7 +1,7 @@
 package pages;
 
 
-import static org.example.constants.SeressConstants.BASE_URL;
+import static org.example.constants.EressConstants.BASE_URL;
 
 public class SimplePage extends BasePage {
 
