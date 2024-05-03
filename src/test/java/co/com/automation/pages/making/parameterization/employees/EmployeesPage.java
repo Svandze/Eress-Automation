@@ -148,6 +148,7 @@ public class EmployeesPage extends BasePage {
         waitAndClick(getFirstDropdownOption);
         scrollToElement(confirmNewEmployeeButton);
         waitAndClick(confirmNewEmployeeButton);
+        implicitWait();
     }
 
     public void editEmployee(String idToSearch, String id, String name, String surname, String firstPhoneNumber, String secondPhoneNumber, String firstAddress, String secondAddress, String email) {

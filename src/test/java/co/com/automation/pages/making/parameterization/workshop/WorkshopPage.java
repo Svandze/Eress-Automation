@@ -118,6 +118,7 @@ public class WorkshopPage extends BasePage {
         clickWithJavaScript(workshopIconDeleteMachine);
         clickWithJavaScript(confirmButtonDelete);
         waitAndClick(confirmAddWorkShop);
+        implicitWait();
     }
 
     public void validateWorkshopInfo(String workshopCustomer, String workshopCod, String workshopDescription, String workshopOTIF, String workshopPersons, String workshopStyle, String workshopMachine, String workshopAmount) {
