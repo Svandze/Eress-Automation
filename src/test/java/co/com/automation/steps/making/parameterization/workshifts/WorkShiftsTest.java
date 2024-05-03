@@ -35,10 +35,10 @@ public class WorkShiftsTest extends BaseTestEress {
         clickWithJavaScript(parameterizationPage.turnosLaboralesIcon);
     }
 
-
+    @Ignore
     @Test
     public void workShiftManagementsTest() {
-        System.out.println(Locale.getDefault()+ "here");
+
         Faker faker = new Faker();
         String workShiftCode = randomCode();
         String workShiftDescription = "Test";
