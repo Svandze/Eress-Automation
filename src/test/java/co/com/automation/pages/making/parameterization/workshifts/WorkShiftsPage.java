@@ -114,7 +114,7 @@ public class WorkShiftsPage extends BasePage {
         boolean resultado = validarHoras(currenthoursWorkShifts,totalHoras);
         Assert.assertEquals("The current code value  matches the expected value", workShiftsCode, currentWorkShiftsCode);
         Assert.assertEquals("The current description value  matches the expected value", workShiftsDescription, currentWorkShiftsDescription);
-       // Assert.assertTrue("La validación ha fallado", resultado);
+        Assert.assertTrue("La validación ha fallado", resultado);
         }
 
     public void addWorkShifts(String workShiftsCode, String workShiftsDescription, int initialHour, int initialMinute, int finalHour, int finalMinute) {

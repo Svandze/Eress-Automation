@@ -16,7 +16,7 @@ import static utils.ElementUtils.clickWithJavaScript;
 
 public class WorkshopPage extends BasePage {
 
-    @FindBy(xpath = "//seress-ui-button[@value='Agregar']")
+    @FindBy(xpath = "//seress-ui-button[@value='Agregar']/button")
     public WebElement confirmAddWorkShop;
 
     @FindBy(xpath = "(//div[@class='p-dropdown-trigger'])[1]")
