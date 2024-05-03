@@ -97,6 +97,7 @@ import static utils.ElementUtils.waitAndClick;
             findMovementGroup(movementGroupCode);
             waitAndClick(getDeleteButtonForMovementGroup());
             waitAndClick(confirmButtonDelete);
+            implicitWait();
         }
 
     }

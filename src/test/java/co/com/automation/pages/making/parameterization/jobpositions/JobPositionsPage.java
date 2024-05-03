@@ -99,6 +99,6 @@ public class JobPositionsPage extends BasePage {
         scrollToElement(getDeleteButtonForJobRoles());
         waitAndClick(getDeleteButtonForJobRoles());
         waitAndClick(confirmButtonDelete);
-
+        implicitWait();
     }
 }

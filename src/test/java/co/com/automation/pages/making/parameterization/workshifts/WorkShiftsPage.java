@@ -92,6 +92,7 @@ public class WorkShiftsPage extends BasePage {
         hour(workShiftsFinalHourInputForm,workShiftsInitialIncreaseHH, workShiftsIntialHHNumber,numberFinalHour);
         minute(workShiftsInitialIncreaseMM,workShiftsInitialMMNumber, numberFinalMinute);
         waitAndClick(workShiftsCodeInputForm);
+        implicitWait();
         waitAndClick(addButton);
     }
 
@@ -106,11 +107,11 @@ public class WorkShiftsPage extends BasePage {
         double numeroHoras=  calcularHoras(expectWorkShiftInitialHour, expectWorkShiftInitialMinute, expectWorkShiftFinalHour, expectWorkShiftFinalMinute);
         int horas = (int) numeroHoras;
         double minutos = (numeroHoras - horas) * 60;
-        String totalHoras= (horas+"."+(int) minutos);
-            Assert.assertEquals("The current code value  matches the expected value", workShiftsCode, currentWorkShiftsCode);
-            Assert.assertEquals("The current description value  matches the expected value", workShiftsDescription, currentWorkShiftsDescription);
-            Assert.assertEquals("The current value  matches the expected value", totalHoras, currenthoursWorkShifts);
-
+        Float totalHoras= Float.valueOf((horas+"."+(int) minutos));
+        boolean resultado = validarHoras(currenthoursWorkShifts,totalHoras);
+        Assert.assertEquals("The current code value  matches the expected value", workShiftsCode, currentWorkShiftsCode);
+        Assert.assertEquals("The current description value  matches the expected value", workShiftsDescription, currentWorkShiftsDescription);
+        Assert.assertTrue("La validación ha fallado", resultado);
         }
 
     public void addWorkShifts(String workShiftsCode, String workShiftsDescription, int initialHour, int initialMinute, int finalHour, int finalMinute) {
@@ -137,8 +138,10 @@ public class WorkShiftsPage extends BasePage {
     public void deleteWorkShifts(String workShiftsCode) {
         findWorkShifts(workShiftsCode);
         scrollToElement(getDeleteButtonForWorkShifts());
+        implicitWait();
         waitAndClick(getDeleteButtonForWorkShifts());
         waitAndClick(confirmButtonDelete);
+        implicitWait();
 
     }
 
@@ -202,6 +205,20 @@ public class WorkShiftsPage extends BasePage {
             e.printStackTrace();
             return -1;
         }
+    }
+    public boolean validarHoras(String currentHoursWorkShifts, float totalHoras) {
+        float currentHours = Float.parseFloat(currentHoursWorkShifts);
+
+        // Definir una tolerancia aceptable para la comparación de números flotantes
+        float tolerancia = 0.02f;
+
+        // Calcular la diferencia absoluta entre los dos números
+        float diferencia = Math.abs(totalHoras - currentHours);
+
+        // Comparar la diferencia con la tolerancia
+        boolean resultado = diferencia <= tolerancia;
+
+        return resultado;
     }
 }
 

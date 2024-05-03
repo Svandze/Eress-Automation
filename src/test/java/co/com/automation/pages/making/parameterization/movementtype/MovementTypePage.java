@@ -114,5 +114,6 @@ public class MovementTypePage extends BasePage {
         scrollToElement(getDeleteButtonForTypesMovements());
         waitAndClick(getDeleteButtonForTypesMovements());
         waitAndClick(confirmButtonDelete);
+        implicitWait();
     }
 }

@@ -104,7 +104,7 @@ public class CompetenceTypePage extends BasePage {
         scrollToElement(getDeleteButtonForCompetitionType());
         waitAndClick(getDeleteButtonForCompetitionType());
         waitAndClick(confirmButtonDelete);
-
+        implicitWait();
     }
 
 }

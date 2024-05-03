@@ -133,5 +133,6 @@ public class ConceptOfCostsAndExpensesPage extends BasePage {
         waitAndClick(dropDown);
         waitAndSendKeys(inputForm, data);
         waitAndClick(select);
+        implicitWait();
     }
 }

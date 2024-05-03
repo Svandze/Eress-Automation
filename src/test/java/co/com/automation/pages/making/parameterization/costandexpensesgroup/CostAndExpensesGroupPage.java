@@ -100,6 +100,7 @@ public class CostAndExpensesGroupPage extends BasePage {
         waitAndClick(getDeleteButtonForCostExpenseGroups());
         scrollToElement(confirmButtonDelete);
         clickWithJavaScript(confirmButtonDelete);
+        implicitWait();
     }
 
 }

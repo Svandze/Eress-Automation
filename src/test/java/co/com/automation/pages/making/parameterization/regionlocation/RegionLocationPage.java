@@ -118,5 +118,6 @@ public class RegionLocationPage extends BasePage {
         findMachine(locationByRegionsCode);
         waitAndClick(getDeleteButtonForMachine());
         waitAndClick(confirmButtonDelete);
+        implicitWait();
     }
 }

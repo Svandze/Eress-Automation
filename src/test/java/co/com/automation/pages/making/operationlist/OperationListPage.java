@@ -134,9 +134,6 @@ public class OperationListPage extends BasePage {
         Assert.assertTrue("El valor actual de la referencia coincide con el esperado", currentOperationsReference.contains(operationsListReference));
         Assert.assertTrue("El valor actual del elaborado coincide con el esperado", currentOperationsElaborate.contains(operationsListElaborate));
         Assert.assertTrue("El valor actual del aprobado coincide con el esperado", currentOperationsAprobate.contains(operationsListAprobate));
-        System.out.println(currentOperationsOperation);
-        System.out.println(operationsListOperation);
-        System.out.println("hi");
         Assert.assertTrue("El valor actual de la operación coincide con el esperado", currentOperationsOperation.contains(operationsListOperation));
 
     }

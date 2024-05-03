@@ -146,6 +146,7 @@ public class GarmentsMasterPage extends BasePage {
         scrollToElement(getDeleteButtonForMasterClothing());
         waitAndClick(getDeleteButtonForMasterClothing());
         waitAndClick(confirmButtonDelete);
+        implicitWait();
     }
     public void customDropdown(WebElement masterClothingDocumentType, WebElement masterClothingDocumentTypeInputForm, WebElement masterClothingDocumentTypeSelect, String data) {
         scrollToElement(masterClothingDocumentType);

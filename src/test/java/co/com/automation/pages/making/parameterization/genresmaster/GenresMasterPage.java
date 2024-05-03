@@ -99,7 +99,7 @@ public class GenresMasterPage extends BasePage {
         scrollToElement(getDeleteButtonForMasterGenres());
         waitAndClick(getDeleteButtonForMasterGenres());
         waitAndClick(confirmButtonDelete);
-
+        implicitWait();
     }
 
 

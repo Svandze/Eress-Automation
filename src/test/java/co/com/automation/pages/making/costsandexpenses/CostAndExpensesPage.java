@@ -158,7 +158,7 @@ public class CostAndExpensesPage extends BasePage {
         scrollToElement(getDeleteButtonForCostExpenses());
         waitAndClick(getDeleteButtonForCostExpenses());
         waitAndClick(confirmButtonDelete);
-
+        implicitWait();
     }
 
     public void customDropdown(WebElement dropDown, WebElement inputForm, WebElement select, String data) {
@@ -181,5 +181,6 @@ public class CostAndExpensesPage extends BasePage {
         getSpecifiedYear(year).click();
         monthButton.click();
         dayButton.click();
+
     }
 }

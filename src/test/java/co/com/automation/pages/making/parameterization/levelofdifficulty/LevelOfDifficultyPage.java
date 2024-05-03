@@ -108,5 +108,6 @@ public class LevelOfDifficultyPage extends BasePage {
         scrollToElement(getDeleteButtonForLevelDifficulty());
         waitAndClick(getDeleteButtonForLevelDifficulty());
         waitAndClick(confirmButtonDelete);
+        implicitWait();
     }
 }

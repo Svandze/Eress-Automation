@@ -157,6 +157,7 @@ public class OperatorMachinePage extends BasePage {
         waitAndClick(machinesOperatorUpArrow);
         waitAndSendKeys(machinesOperatorInputForm, data);
         waitAndClick(machinesOperatorSelect);
+        implicitWait();
     }
 
 

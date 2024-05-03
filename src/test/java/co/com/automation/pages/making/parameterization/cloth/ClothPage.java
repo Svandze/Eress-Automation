@@ -101,5 +101,6 @@ public class ClothPage extends BasePage {
         scrollToElement(getDeleteButtonForWeave());
         waitAndClick(getDeleteButtonForWeave());
         waitAndClick(confirmButtonDelete);
+        implicitWait();
     }
 }

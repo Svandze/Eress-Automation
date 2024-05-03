@@ -101,5 +101,6 @@ public class StylesMasterPage extends BasePage {
         scrollToElement(getDeleteButtonForMasterStyles());
         waitAndClick(getDeleteButtonForMasterStyles());
         waitAndClick(confirmButtonDelete);
+        implicitWait();
     }
 }

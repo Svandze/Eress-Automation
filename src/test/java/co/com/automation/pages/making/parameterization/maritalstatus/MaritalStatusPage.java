@@ -99,6 +99,6 @@ public class MaritalStatusPage extends BasePage {
         scrollToElement(getDeleteButtonForMaritalStatus());
         waitAndClick(getDeleteButtonForMaritalStatus());
         waitAndClick(confirmButtonDelete);
-
+        implicitWait();
     }
 }

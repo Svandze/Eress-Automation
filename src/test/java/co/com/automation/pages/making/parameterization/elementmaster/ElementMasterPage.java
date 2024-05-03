@@ -172,6 +172,7 @@ public class ElementMasterPage extends BasePage {
         scrollToElement(getDeleteButtonForMasterElements());
         waitAndClick(getDeleteButtonForMasterElements());
         waitAndClick(confirmButtonDelete);
+        implicitWait();
     }
     public void customDropdown(WebElement masterCustomeDocumentType, WebElement masterCustomerDocumentTypeInputForm, WebElement masterCustomerDocumentTypeSelect, String data) {
         scrollToElement(masterCustomeDocumentType);

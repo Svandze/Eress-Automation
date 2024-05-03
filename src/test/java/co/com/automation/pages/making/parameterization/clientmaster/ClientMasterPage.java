@@ -194,5 +194,6 @@ public class ClientMasterPage extends BasePage {
         implicitWait();
         clickWithJavaScript(getDeleteButtonForMasterCustomer());
         clickWithJavaScript(confirmButtonDelete);
+        implicitWait();
     }
 }

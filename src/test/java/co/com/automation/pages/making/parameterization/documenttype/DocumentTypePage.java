@@ -99,6 +99,6 @@ public class DocumentTypePage extends BasePage {
         scrollToElement(getDeleteButtonForDocumentType());
         waitAndClick(getDeleteButtonForDocumentType());
         waitAndClick(confirmButtonDelete);
-
+        implicitWait();
     }
 }

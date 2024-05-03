@@ -28,7 +28,7 @@ public class CostAndExpensesTest extends BaseTestEress {
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.costExpensesIcon);
     }
-    @Ignore
+
     @Test
     public void costExpensesManagementTest()  {
         String costExpensesWorkShop = "Taller para Test E2E";

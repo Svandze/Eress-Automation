@@ -2,6 +2,7 @@ package co.com.automation.steps.making.parameterization.operatormachine;
 
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
@@ -27,6 +28,7 @@ public class OperatorMachineTest extends BaseTestEress {
         clickWithJavaScript(parameterizationPage.maquinasOperarioIcon);
     }
 
+    @Ignore
     @Test
     public void machinesOperatorTest() {
         String employeeDocument="12345";

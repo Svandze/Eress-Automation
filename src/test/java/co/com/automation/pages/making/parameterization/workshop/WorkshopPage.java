@@ -172,5 +172,6 @@ public class WorkshopPage extends BasePage {
         implicitWait();
         clickWithJavaScript(getDeleteButtonForWorkshop());
         clickWithJavaScript(confirmButtonDelete);
+        implicitWait();
     }
 }

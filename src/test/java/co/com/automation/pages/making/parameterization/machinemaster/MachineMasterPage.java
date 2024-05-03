@@ -11,10 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static utils.ElementUtils.scrollToElement;
-import static utils.ElementUtils.clickWithJavaScript;
-import static utils.ElementUtils.waitAndClick;
-import static utils.ElementUtils.waitAndSendKeys;
+import static utils.ElementUtils.*;
 
 public class MachineMasterPage extends BasePage {
     @FindBy(xpath = "//button[@type='submit']")
@@ -113,6 +110,7 @@ public class MachineMasterPage extends BasePage {
         findMachine(machineCode);
         waitAndClick(getDeleteButtonForMachine());
         waitAndClick(confirmButtonDelete);
+        implicitWait();
     }
 
 }

@@ -186,6 +186,7 @@ public class EmployeesPage extends BasePage {
         implicitWait();
         waitAndClick(getDeleteButtonForEmployee(id));
         waitAndClick(okDeleteButton);
+        implicitWait();
     }
 
 }
