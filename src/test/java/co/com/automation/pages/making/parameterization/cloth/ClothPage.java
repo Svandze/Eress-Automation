@@ -72,8 +72,8 @@ public class ClothPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(weaveCodeInputForm, "value", weaveCode));
         String currentMovementGroupCode = weaveCodeInputForm.getAttribute("value");
         String currentDescriptionMovementGroup = weaveDescriptionInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current code value of the movement group does not match the expected value", weaveCode, currentMovementGroupCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", weaveDescription, currentDescriptionMovementGroup);
+        Assert.assertEquals("The current code value of the movement group  matches the expected value", weaveCode, currentMovementGroupCode);
+        Assert.assertEquals("The current description value  matches the expected value", weaveDescription, currentDescriptionMovementGroup);
     }
 
     public void addWeave(String weaveCode, String weaveDescription) {

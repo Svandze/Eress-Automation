@@ -71,8 +71,8 @@ public class JobPositionsPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(jobRolesCodeInputForm, "value", jobRolesCode));
         String currentMasterGenresCode = jobRolesCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = jobRolesDescriptionInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current code value does not match the expected value", jobRolesCode, currentMasterGenresCode);
-        Assert.assertNotEquals("The current description does not match the expected value", jobRolesDescription, currentMasterGenresDescription);
+        Assert.assertEquals("The current code value  matches the expected value", jobRolesCode, currentMasterGenresCode);
+        Assert.assertEquals("The current description  matches the expected value", jobRolesDescription, currentMasterGenresDescription);
     }
 
     public void addJobRoles(String jobRolesCode, String jobRolesDescription) {

@@ -93,9 +93,9 @@ public class ConceptOfCostsAndExpensesPage extends BasePage {
         String currentConceptCostsExpensesGroup = conceptCostsExpensesDropDownGroupDataInputForm.getText();
         System.out.println(currentConceptCostsExpensesGroup);
         System.out.println(conceptCostsExpensesDropDownGroup);
-        Assert.assertEquals("The current value of the movement group code not matches the expected value", conceptCostsExpensesCod, currentConceptCostsExpensesCode);
-        Assert.assertEquals("The current value of the description not matches the expected value", conceptCostsExpensesConcept, currentConceptCostsExpensesConcept);
-        Assert.assertTrue("The current style value not matches the expected value", currentConceptCostsExpensesGroup.contains(conceptCostsExpensesDropDownGroup));
+        Assert.assertEquals("The current value of the movement group code not matcheses the expected value", conceptCostsExpensesCod, currentConceptCostsExpensesCode);
+        Assert.assertEquals("The current value of the description not matcheses the expected value", conceptCostsExpensesConcept, currentConceptCostsExpensesConcept);
+        Assert.assertTrue("The current style value not matcheses the expected value", currentConceptCostsExpensesGroup.contains(conceptCostsExpensesDropDownGroup));
 
     }
 

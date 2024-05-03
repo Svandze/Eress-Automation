@@ -71,8 +71,8 @@ public class DocumentTypePage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(documentTypeCodeInputForm, "value", documentTypeCode));
         String currentMasterGenresCode = documentTypeCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = documentTypeDescriptionInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current code value does not match the expected value", documentTypeCode, currentMasterGenresCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", documentTypeDescription, currentMasterGenresDescription);
+        Assert.assertEquals("The current code value  matches the expected value", documentTypeCode, currentMasterGenresCode);
+        Assert.assertEquals("The current description value  matches the expected value", documentTypeDescription, currentMasterGenresDescription);
     }
 
     public void addDocumentType(String documentTypeCode, String documentTypeDescription) {

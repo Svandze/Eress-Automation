@@ -84,10 +84,10 @@ public class MachineMasterPage extends BasePage {
         String currentdistance0To5Cms = distance0To5InputForm.getAttribute("value");
         String currentDistance6To10Cms = distance6To10InputForm.getAttribute("value");
         String currentdistanceGratherThan11Cms = distanceGreatherThan11InputForm.getAttribute("value");
-        Assert.assertNotEquals("The current machine code value does not match the expected value", machineCode, currentMachineCode);
-        Assert.assertNotEquals("The current distance value for 0-5 cms does not match the expected value", distance0To5Cms, currentdistance0To5Cms);
-        Assert.assertNotEquals("The current distance value for 6-10 cms does not match the expected value", distance6To10Cms, currentDistance6To10Cms);
-        Assert.assertNotEquals("The current distance value for > 11 cms does not match the expected value", distanceGratherThan11Cms, currentdistanceGratherThan11Cms);
+        Assert.assertEquals("The current machine code value  matches the expected value", machineCode, currentMachineCode);
+        Assert.assertEquals("The current distance value for 0-5 cms  matches the expected value", distance0To5Cms, currentdistance0To5Cms);
+        Assert.assertEquals("The current distance value for 6-10 cms  matches the expected value", distance6To10Cms, currentDistance6To10Cms);
+        Assert.assertEquals("The current distance value for > 11 cms  matches the expected value", distanceGratherThan11Cms, currentdistanceGratherThan11Cms);
     }
 
     public void addMachine(String machineCode, String description, String distance0To5cm, String distance6To10cm, String distanceGreatherThan11Cm) {

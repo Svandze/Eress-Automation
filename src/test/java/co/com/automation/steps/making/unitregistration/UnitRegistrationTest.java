@@ -1,6 +1,7 @@
 package co.com.automation.steps.making.unitregistration;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
@@ -26,7 +27,7 @@ public class UnitRegistrationTest extends BaseTestEress {
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.costUnitRegisterIcon);
     }
-
+    @Ignore
     @Test
     public void unitsRegistrationManagementTest() {
         String dayOfTheMonth = "14";

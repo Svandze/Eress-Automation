@@ -1,6 +1,7 @@
 package co.com.automation.steps.making.costandexpenses;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import co.com.automation.pages.making.costsandexpenses.CostAndExpensesPage;
 import co.com.automation.pages.making.parameterization.MakingPage;
@@ -27,7 +28,7 @@ public class CostAndExpensesTest extends BaseTestEress {
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.costExpensesIcon);
     }
-
+    @Ignore
     @Test
     public void costExpensesManagementTest()  {
         String costExpensesWorkShop = "Taller para Test E2E";

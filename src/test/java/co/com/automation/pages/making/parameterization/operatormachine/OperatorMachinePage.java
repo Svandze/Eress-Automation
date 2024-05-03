@@ -117,9 +117,9 @@ public class OperatorMachinePage extends BasePage {
         String currentWorkshopCustomer = dropDownEmployeeMachinesOperatorData.getText();
         String currentWorkshopMachine = dropDownAssignmentDataMachineOperator.getText();
         String currentWorkshopMachines = dropDownMachinesDataMachinesOperator.getText();
-        Assert.assertFalse("The current employee value does not contain the expected value", currentWorkshopCustomer.contains(machinesOperatorEmployee));
-        Assert.assertFalse("The current workshop assignment value does not contain the expected value", currentWorkshopMachine.contains(machinesOperatorAssignment));
-        Assert.assertFalse("The current workshop machines value does not contain the expected value", currentWorkshopMachines.contains(machinesOperatorMachines));
+        Assert.assertTrue("The current employee value  contain the expected value", currentWorkshopCustomer.contains(machinesOperatorEmployee));
+        Assert.assertTrue("The current workshop assignment value  contain the expected value", currentWorkshopMachine.contains(machinesOperatorAssignment));
+        Assert.assertTrue("The current workshop machines value  contain the expected value", currentWorkshopMachines.contains(machinesOperatorMachines));
 
     }
 

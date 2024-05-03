@@ -71,8 +71,8 @@ public class GenresMasterPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(masterGenresCodeInputForm, "value", masterGenresCode));
         String currentMasterGenresCode = masterGenresCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = masterGenresDescriptionInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current code value does not match the expected value", masterGenresCode, currentMasterGenresCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", masterGenresDescription, currentMasterGenresDescription);
+        Assert.assertEquals("The current code value  matches the expected value", masterGenresCode, currentMasterGenresCode);
+        Assert.assertEquals("The current description value  matches the expected value", masterGenresDescription, currentMasterGenresDescription);
     }
 
     public void addMasterGenresCode(String masterGenresCode, String masterGenresDescription) {

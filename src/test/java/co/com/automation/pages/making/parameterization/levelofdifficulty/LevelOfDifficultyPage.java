@@ -77,9 +77,9 @@ public class LevelOfDifficultyPage extends BasePage {
         String currentMovementGroupCode = levelDifficultyCodeInputForm.getAttribute("value");
         String currentDescriptionMovementGroup = levelDifficultyDescriptionInputForm.getAttribute("value");
         String currentLevelDifficultyValue = levelDifficultyCheckInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current code value of the movement group does not match the expected value", levelDifficultyCode, currentMovementGroupCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", levelDifficultyDescription, currentDescriptionMovementGroup);
-        Assert.assertNotEquals("The current value does not match the expected value", levelDifficultyValue, currentLevelDifficultyValue);
+        Assert.assertEquals("The current code value of the movement group  matches the expected value", levelDifficultyCode, currentMovementGroupCode);
+        Assert.assertEquals("The current description value  matches the expected value", levelDifficultyDescription, currentDescriptionMovementGroup);
+        Assert.assertEquals("The current value  matches the expected value", levelDifficultyValue, currentLevelDifficultyValue);
     }
 
     public void addLevelDifficulty(String levelDifficultyCode, String levelDifficultyDescription, String levelDifficultyValue) {

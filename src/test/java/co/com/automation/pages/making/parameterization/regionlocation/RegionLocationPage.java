@@ -87,12 +87,12 @@ public class RegionLocationPage extends BasePage {
         String currentLocationByRegionsRegion = locationByRegionsRegionInputForm.getAttribute("value");
         String currentLocationByRegionsCodCity = locationByRegionsCodeCityInputForm.getAttribute("value");
         String currentLocationByRegionsCity = locationByRegionsCityInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current country code value does not match the expected value", expectLocationByRegionsCodCountry, currentLocationByRegionsCodeCountry);
-        Assert.assertNotEquals("The current country value does not match the expected value", expectLocationByRegionsCountry, currentLocationByRegionsCountry);
-        Assert.assertNotEquals("The current region code value does not match the expected value", expectLocationByRegionCodRegion, currentLocationByRegionsCodRegion);
-        Assert.assertNotEquals("The current region value does not match the expected value", expectLocationByRegionRegion, currentLocationByRegionsRegion);
-        Assert.assertNotEquals("The current city code value does not match the expected value", expectLocationByRegionsCodCity, currentLocationByRegionsCodCity);
-        Assert.assertNotEquals("The current city value does not match the expected value", expectLocationByRegionsCity, currentLocationByRegionsCity);
+        Assert.assertEquals("The current country code value  matches the expected value", expectLocationByRegionsCodCountry, currentLocationByRegionsCodeCountry);
+        Assert.assertEquals("The current country value  matches the expected value", expectLocationByRegionsCountry, currentLocationByRegionsCountry);
+        Assert.assertEquals("The current region code value  matches the expected value", expectLocationByRegionCodRegion, currentLocationByRegionsCodRegion);
+        Assert.assertEquals("The current region value  matches the expected value", expectLocationByRegionRegion, currentLocationByRegionsRegion);
+        Assert.assertEquals("The current city code value  matches the expected value", expectLocationByRegionsCodCity, currentLocationByRegionsCodCity);
+        Assert.assertEquals("The current city value  matches the expected value", expectLocationByRegionsCity, currentLocationByRegionsCity);
 
     }
 

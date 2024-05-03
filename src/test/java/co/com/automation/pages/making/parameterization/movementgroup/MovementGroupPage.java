@@ -70,8 +70,8 @@ import static utils.ElementUtils.waitAndClick;
             wait.until(ExpectedConditions.attributeToBe(movementGroupCodeInputForm, "value", movementGroupCode));
             String currentMovementGroupCode = movementGroupCodeInputForm.getAttribute("value");
             String currentDescriptionMovementGroup = movementGroupDescriptionInputForm.getAttribute("value");
-            Assert.assertNotEquals("The current code value of the movement group does not match the expected value", movementGroupCode, currentMovementGroupCode);
-            Assert.assertNotEquals("The current description value does not match the expected value", descriptionMovementGroup, currentDescriptionMovementGroup);
+            Assert.assertEquals("The current code value of the movement group  matches the expected value", movementGroupCode, currentMovementGroupCode);
+            Assert.assertEquals("The current description value  matches the expected value", descriptionMovementGroup, currentDescriptionMovementGroup);
         }
 
         public void addMovementGroup(String movementGroupCode, String descriptionMovementGroup) {

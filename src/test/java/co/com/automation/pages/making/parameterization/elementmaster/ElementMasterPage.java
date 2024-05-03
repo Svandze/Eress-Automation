@@ -136,14 +136,14 @@ public class ElementMasterPage extends BasePage {
         String currentnMasterElementsCheck = checkBooleanMasterElements.getAttribute("aria-checked");
         String currentnMasterElementsDistance = dropDownDistanceDataInputFormMasterElements.getText();
         String currentnMasterElementsTime = masterElementsTimeInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current code value of the movement group does not match the expected value", masterElementsCode, currentMasterElementsCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", masterElementsDescription, currentnMasterElementsDescription);
-        Assert.assertFalse("The current group movements value does not contain the expected value", currentnMasterElementsGroupMovements.contains(masterElementsGroupMovements));
-        Assert.assertFalse("The current type movements value does not contain the expected value", currentnMasterElementsTypeMovement.contains(masterElementsTypeMovements));
-        Assert.assertNotEquals("The current check value does not match the expected value", currentnMasterElementsCheck, (masterElementsCheck).toString());
-        Assert.assertNotEquals("The current code value of the movement group does not match the expected value", (masterElementsCheck).toString(), currentnMasterElementsCheck );
-        Assert.assertFalse("The current distance value does not contain the expected value", currentnMasterElementsDistance.contains(masterElementsDistance));
-        Assert.assertNotEquals("The current time movements value does not match the expected value", masterElementsTime, currentnMasterElementsTime);
+        Assert.assertEquals("The current code value of the movement group  matches the expected value", masterElementsCode, currentMasterElementsCode);
+        Assert.assertEquals("The current description value  matches the expected value", masterElementsDescription, currentnMasterElementsDescription);
+        Assert.assertTrue("The current group movements value  contain the expected value", currentnMasterElementsGroupMovements.contains(masterElementsGroupMovements));
+        Assert.assertTrue("The current type movements value  contain the expected value", currentnMasterElementsTypeMovement.contains(masterElementsTypeMovements));
+        Assert.assertEquals("The current check value  matches the expected value", currentnMasterElementsCheck, (masterElementsCheck).toString());
+        Assert.assertEquals("The current code value of the movement group  matches the expected value", (masterElementsCheck).toString(), currentnMasterElementsCheck );
+        Assert.assertTrue("The current distance value  contain the expected value", currentnMasterElementsDistance.contains(masterElementsDistance));
+        Assert.assertEquals("The current time movements value  matches the expected value", masterElementsTime, currentnMasterElementsTime);
 
     }
 

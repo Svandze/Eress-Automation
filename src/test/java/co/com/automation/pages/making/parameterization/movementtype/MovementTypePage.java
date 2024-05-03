@@ -82,9 +82,9 @@ public class MovementTypePage extends BasePage {
         String currentMovementGroupCode = typesMovementsCodeInputForm.getAttribute("value");
         String currentDescriptionMovementGroup = typesMovementsDescriptionInputForm.getAttribute("value");
         String currentnMasterElementsCheck = typesMovementsBooleanElementsCheckSewing.getAttribute("aria-checked");;
-        Assert.assertNotEquals("The current code value does not match the expected value", typesMovementsCode, currentMovementGroupCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", typesMovementsDescription, currentDescriptionMovementGroup);
-        Assert.assertNotEquals("The current check value does not match the expected value", typesMovementsCheck, Boolean.parseBoolean(currentnMasterElementsCheck));
+        Assert.assertEquals("The current code value  matches the expected value", typesMovementsCode, currentMovementGroupCode);
+        Assert.assertEquals("The current description value  matches the expected value", typesMovementsDescription, currentDescriptionMovementGroup);
+        Assert.assertEquals("The current check value  matches the expected value", typesMovementsCheck, Boolean.parseBoolean(currentnMasterElementsCheck));
 
     }
 

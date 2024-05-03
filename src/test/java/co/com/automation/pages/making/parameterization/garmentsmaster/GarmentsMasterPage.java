@@ -113,11 +113,11 @@ public class GarmentsMasterPage extends BasePage {
         String currentnMasterClothingGroupMovements = masterClothingDropDownStyleDataInputForm.getText();
         String currentnMasterClothingTypeGender = masterClothingDropDownGenderDataInputForm.getText();
         String currentnMasterClothingWeave = masterClothingDropDownWeaveDataInputForm.getText();
-        Assert.assertNotEquals("The current code value does not match the expected value", masterClothingCode, currentMasterClothingCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", masterClothingDescription, currentnMasterClothingDescription);
-        Assert.assertFalse("The current style value does not contain the expected value", currentnMasterClothingGroupMovements.contains(masterClothingStyle));
-        Assert.assertFalse("The current gender value does not contain the expected value", currentnMasterClothingTypeGender.contains(masterClothingGender));
-        Assert.assertFalse("The current weave value does not contain the expected value", currentnMasterClothingWeave.contains(masterClothingWeave));
+        Assert.assertEquals("The current code value  matches the expected value", masterClothingCode, currentMasterClothingCode);
+        Assert.assertEquals("The current description value  matches the expected value", masterClothingDescription, currentnMasterClothingDescription);
+        Assert.assertTrue("The current style value  contain the expected value", currentnMasterClothingGroupMovements.contains(masterClothingStyle));
+        Assert.assertTrue("The current gender value  contain the expected value", currentnMasterClothingTypeGender.contains(masterClothingGender));
+        Assert.assertTrue("The current weave value  contain the expected value", currentnMasterClothingWeave.contains(masterClothingWeave));
 
     }
 

@@ -107,9 +107,9 @@ public class WorkShiftsPage extends BasePage {
         int horas = (int) numeroHoras;
         double minutos = (numeroHoras - horas) * 60;
         String totalHoras= (horas+"."+(int) minutos);
-            Assert.assertNotEquals("The current code value does not match the expected value", workShiftsCode, currentWorkShiftsCode);
-            Assert.assertNotEquals("The current description value does not match the expected value", workShiftsDescription, currentWorkShiftsDescription);
-            Assert.assertNotEquals("The current value does not match the expected value", totalHoras, currenthoursWorkShifts);
+            Assert.assertEquals("The current code value  matches the expected value", workShiftsCode, currentWorkShiftsCode);
+            Assert.assertEquals("The current description value  matches the expected value", workShiftsDescription, currentWorkShiftsDescription);
+            Assert.assertEquals("The current value  matches the expected value", totalHoras, currenthoursWorkShifts);
 
         }
 

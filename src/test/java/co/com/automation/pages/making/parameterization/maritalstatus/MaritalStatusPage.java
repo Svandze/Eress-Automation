@@ -71,8 +71,8 @@ public class MaritalStatusPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(maritalStatusCodeInputForm, "value", maritalStatusCode));
         String currentMasterGenresCode = maritalStatusCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = maritalStatusDescriptionInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current code value does not match the expected value", maritalStatusCode, currentMasterGenresCode);
-        Assert.assertNotEquals("The current description does not match the expected value", maritalStatusDescription, currentMasterGenresDescription);
+        Assert.assertEquals("The current code value  matches the expected value", maritalStatusCode, currentMasterGenresCode);
+        Assert.assertEquals("The current description  matches the expected value", maritalStatusDescription, currentMasterGenresDescription);
     }
 
     public void addMaritalStatus(String maritalStatusCode, String maritalStatusDescription) {

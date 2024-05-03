@@ -72,8 +72,8 @@ public class StylesMasterPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(masterStylesCodeInputForm, "value", masterStylesCode));
         String currentMovementGroupCode = masterStylesCodeInputForm.getAttribute("value");
         String currentDescriptionMovementGroup = masterStylesDescriptionInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current code value of the movement group does not match the expected value", masterStylesCode, currentMovementGroupCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", masterStylesDescription, currentDescriptionMovementGroup);
+        Assert.assertEquals("The current code value of the movement group  matches the expected value", masterStylesCode, currentMovementGroupCode);
+        Assert.assertEquals("The current description value  matches the expected value", masterStylesDescription, currentDescriptionMovementGroup);
     }
 
     public void addMasterStyles(String masterStylesCode, String masterStylesDescription) {

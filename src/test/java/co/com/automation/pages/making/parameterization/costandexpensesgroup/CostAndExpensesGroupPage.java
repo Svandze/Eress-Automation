@@ -71,8 +71,8 @@ public class CostAndExpensesGroupPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(costExpenseGroupsCodeInputForm, "value", costExpenseGroupsCode));
         String currentCostExpenseGroupsCode = costExpenseGroupsCodeInputForm.getAttribute("value");
         String currentCostExpenseGroupsDescription = costExpenseGroupsDescriptionInputForm.getAttribute("value");
-        Assert.assertNotEquals("The current code value does not match the expected value", costExpenseGroupsCode, currentCostExpenseGroupsCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", CostExpenseGroupsDescription, currentCostExpenseGroupsDescription);
+        Assert.assertEquals("The current code value  matches the expected value", costExpenseGroupsCode, currentCostExpenseGroupsCode);
+        Assert.assertEquals("The current description value  matches the expected value", CostExpenseGroupsDescription, currentCostExpenseGroupsDescription);
     }
 
     public void addCostExpenseGroups(String costExpenseGroupsCode, String costExpenseGroupsDescription) {

@@ -46,7 +46,7 @@ public class CalendarTest extends BaseTestEress {
         Thread.sleep(6000);
         calendarPage.modifyCalendar(year, true, true);
         assertTrue(Boolean.parseBoolean(calendarPage.sundayCheckbox.getAttribute("aria-checked")));
-        assertFalse(Boolean.parseBoolean(calendarPage.saturdayCheckbox.getAttribute("aria-checked")));
+        assertTrue(Boolean.parseBoolean(calendarPage.saturdayCheckbox.getAttribute("aria-checked")));
         assertTrue("Holiday list should be visible", calendarPage.holydayList.isDisplayed());
         waitAndClick(calendarPage.cancelEditionButton);
         calendarPage.viewAndDeleteCalendar(year);

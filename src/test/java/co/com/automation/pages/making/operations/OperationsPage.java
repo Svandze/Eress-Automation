@@ -148,16 +148,16 @@ public class OperationsPage extends BasePage {
         String currentMasterMasterOperationAprobate = operationsAprobateDropDownData.getText();
         String currentMasterMasterOperationElement = operationsElementDropDownData.getText();
         String currentMasterMasterOperationDistance = operationsDistanceDropDownData.getText();
-        Assert.assertNotEquals("The current code value does not match the expected value", operationsCode, currentMasterOperationsCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", operationsDescription, currentMasterOperationsDescription);
-        Assert.assertFalse("The current machine value does not contain the expected value", currentMasterMasterOperationsMachines.contains(operationsMachine));
-        Assert.assertNotEquals("The current stitches per inch value does not match the expected value", operationsStitchesInch, currentMasterMasterOperationStitchesInch);
-        Assert.assertNotEquals("The current supplement value does not match the expected value", operationsSupplement, currentMasterMasterOperationSupplement);
-        Assert.assertFalse("The current difficulty level value does not contain the expected value", currentMasterMasterOperationDifficult.contains(operationsDifficult));
-        Assert.assertFalse("The current elaboration value does not contain the expected value", currentMasterMasterOperationElaborate.contains(operationsElaborate));
-        Assert.assertFalse("The current approval value does not contain the expected value", currentMasterMasterOperationAprobate.contains(operationsAprobate));
-        Assert.assertFalse("The current element value does not contain the expected value", currentMasterMasterOperationElement.contains(operationsElement));
-        Assert.assertFalse("The current distance value does not contain the expected value", currentMasterMasterOperationDistance.contains(operationsDistance));
+        Assert.assertEquals("The current code value  matches the expected value", operationsCode, currentMasterOperationsCode);
+        Assert.assertEquals("The current description value  matches the expected value", operationsDescription, currentMasterOperationsDescription);
+        Assert.assertTrue("The current machine value  contain the expected value", currentMasterMasterOperationsMachines.contains(operationsMachine));
+        Assert.assertEquals("The current stitches per inch value  matches the expected value", operationsStitchesInch, currentMasterMasterOperationStitchesInch);
+        Assert.assertEquals("The current supplement value  matches the expected value", operationsSupplement, currentMasterMasterOperationSupplement);
+        Assert.assertTrue("The current difficulty level value  contain the expected value", currentMasterMasterOperationDifficult.contains(operationsDifficult));
+        Assert.assertTrue("The current elaboration value  contain the expected value", currentMasterMasterOperationElaborate.contains(operationsElaborate));
+        Assert.assertTrue("The current approval value  contain the expected value", currentMasterMasterOperationAprobate.contains(operationsAprobate));
+        Assert.assertTrue("The current element value  contain the expected value", currentMasterMasterOperationElement.contains(operationsElement));
+        Assert.assertTrue("The current distance value  contain the expected value", currentMasterMasterOperationDistance.contains(operationsDistance));
     }
 
     public void addOperations(String operationsCode, String operationsDescription, String operationsMachine, String operationsStitchesInch, String operationsSuplement, String operationsDifficult, String operationsElaborate, String operationsAprobate, String operationsElement, String operationsDistance, String operationsSewing) {

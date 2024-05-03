@@ -126,12 +126,12 @@ public class CostAndExpensesPage extends BasePage {
         String currentCostExpensesConcept = costExpensesConceptDropDownData.getText();
         String currentCostExpensesCalendar = expensesCostCalendar.getAttribute("value");
         String currentCostValue = costExpensesValueInputForm.getAttribute("value");
-        Assert.assertFalse("The current workshop value does not contain the expected value", currentCostExpensesWorkShop.contains(costExpensesWorkShop));
-        Assert.assertFalse("The current period value does not contain the expected value", currentCostExpensesBasicCalendar.contains(Integer.toString(costExpensesBasicCalendarYear)));
-        Assert.assertFalse("The current cost group value does not contain the expected value", currentCostExpensesGroupCost.contains(costExpensesGroupCost));
-        Assert.assertFalse("The current concept value does not contain the expected value", currentCostExpensesConcept.contains(costExpensesConcept.toUpperCase()));
-        Assert.assertFalse("The current date value does not contain the expected value", currentCostExpensesCalendar.contains(Integer.toString(costExpensesCalendarYear)));
-        Assert.assertNotEquals("The current value does not match the expected value", costExpensesValue, currentCostValue);
+        Assert.assertTrue("The current workshop value  contain the expected value", currentCostExpensesWorkShop.contains(costExpensesWorkShop));
+        Assert.assertTrue("The current period value  contain the expected value", currentCostExpensesBasicCalendar.contains(Integer.toString(costExpensesBasicCalendarYear)));
+        Assert.assertTrue("The current cost group value  contain the expected value", currentCostExpensesGroupCost.contains(costExpensesGroupCost));
+        Assert.assertTrue("The current concept value  contain the expected value", currentCostExpensesConcept.contains(costExpensesConcept.toUpperCase()));
+        Assert.assertTrue("The current date value  contain the expected value", currentCostExpensesCalendar.contains(Integer.toString(costExpensesCalendarYear)));
+        Assert.assertEquals("The current value  matches the expected value", costExpensesValue, currentCostValue);
 
     }
 

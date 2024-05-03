@@ -75,9 +75,9 @@ public class CompetenceTypePage extends BasePage {
         String currentMasterGenresCode = competitionTypeCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = competitionTypeDescriptionInputForm.getAttribute("value");
         String currentnMasterElementsCheck = competitionTypeCheckSewing.getAttribute("aria-checked");
-        Assert.assertNotEquals("The current code value does not match the expected value", competitionTypeCode, currentMasterGenresCode);
-        Assert.assertNotEquals("The current description value does not match the expected value", competitionTypeDescription, currentMasterGenresDescription);
-        Assert.assertNotEquals("The current check value does not match the expected value", competitionTypeCheck, Boolean.parseBoolean(currentnMasterElementsCheck));
+        Assert.assertEquals("The current code value  matches the expected value", competitionTypeCode, currentMasterGenresCode);
+        Assert.assertEquals("The current description value  matches the expected value", competitionTypeDescription, currentMasterGenresDescription);
+        Assert.assertEquals("The current check value  matches the expected value", competitionTypeCheck, Boolean.parseBoolean(currentnMasterElementsCheck));
 
     }
 

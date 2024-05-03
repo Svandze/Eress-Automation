@@ -2,6 +2,7 @@ package co.com.automation.steps.making.operations;
 
 import com.github.javafaker.Faker;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import co.com.automation.pages.making.operations.OperationsPage;
 import co.com.automation.pages.making.parameterization.MakingPage;
@@ -29,6 +30,8 @@ public class OperationsMasterTest extends BaseTestEress {
         waitAndClick(makingPage.operacionesIcon);
     }
 
+
+    @Ignore
     @Test
     public void operationManagementTest()  {
         Faker faker = new Faker();

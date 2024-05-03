@@ -132,14 +132,14 @@ public class WorkshopPage extends BasePage {
         String currentWorkshopStyle = dropDownStyleDataWorkshop.getText();
         String currentWorkshopMachine = dropDownMachineDataWorkshop.getText();
         String currentWorkshopMachineAmount = workshopAmountInputForm.getAttribute("value");
-        Assert.assertFalse("The current workshop customer value does not contain the expected value", currentWorkshopCustomer.contains(workshopCustomer));
-        Assert.assertNotEquals("The current workshop code value does not match the expected value", workshopCod, currentWorkshopCustomerCod);
-        Assert.assertNotEquals("The current workshop description value does not match the expected value", workshopDescription, currentWorkshopDataDescription);
-        Assert.assertNotEquals("The current workshop OTIF value does not match the expected value", workshopOTIF, currentWorkshopDataOTIF);
-        Assert.assertNotEquals("The current workshop persons value does not match the expected value", workshopPersons, currentWorkshopDataPersons);
-        Assert.assertFalse("The current workshop style value does not contain the expected value", currentWorkshopStyle.contains(workshopStyle));
-        Assert.assertFalse("The current workshop machine value does not contain the expected value", currentWorkshopMachine.contains(workshopMachine));
-        Assert.assertNotEquals("The current workshop amount value does not match the expected value", workshopAmount, currentWorkshopMachineAmount);
+        Assert.assertTrue("The current workshop customer value  contain the expected value", currentWorkshopCustomer.contains(workshopCustomer));
+        Assert.assertEquals("The current workshop code value  matches the expected value", workshopCod, currentWorkshopCustomerCod);
+        Assert.assertEquals("The current workshop description value  matches the expected value", workshopDescription, currentWorkshopDataDescription);
+        Assert.assertEquals("The current workshop OTIF value  matches the expected value", workshopOTIF, currentWorkshopDataOTIF);
+        Assert.assertEquals("The current workshop persons value  matches the expected value", workshopPersons, currentWorkshopDataPersons);
+        Assert.assertTrue("The current workshop style value  contain the expected value", currentWorkshopStyle.contains(workshopStyle));
+        Assert.assertTrue("The current workshop machine value  contain the expected value", currentWorkshopMachine.contains(workshopMachine));
+        Assert.assertEquals("The current workshop amount value  matches the expected value", workshopAmount, currentWorkshopMachineAmount);
     }
 
     public void addWorkshop(String workshopCustomer, String workshopCod, String workshopDescription, String workshopOTIF, String workshopPersons, String workshopStyle, String workshopMachine, String workshopAmount) {
