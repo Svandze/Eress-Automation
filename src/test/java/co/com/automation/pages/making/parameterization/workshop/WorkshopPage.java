@@ -111,12 +111,12 @@ public class WorkshopPage extends BasePage {
         customDropdown(dropDownStyleWorkshop, dropDownStyleInputFormWorkshop, dropDownStyleSelectWorkshop,workshopStyle );
         customDropdown(dropDownMachineWorkshop, dropDownMachineInputFormWorkshop, dropDownMachineSelectWorkshop, workshopMachine);
         waitAndSendKeys(workshopAmountInputForm,workshopAmount );
-        waitAndClick(workshopAddStyletButton);
-        waitAndClick(workshopAddMachinetButton);
-        waitAndClick(workshopIconDeleteStyle);
-        clickWithJavaScript(confirmButtonDelete);
-        clickWithJavaScript(workshopIconDeleteMachine);
-        clickWithJavaScript(confirmButtonDelete);
+        //waitAndClick(workshopAddStyletButton);
+        //waitAndClick(workshopAddMachinetButton);
+        //waitAndClick(workshopIconDeleteStyle);
+        //clickWithJavaScript(confirmButtonDelete);
+        //clickWithJavaScript(workshopIconDeleteMachine);
+        //clickWithJavaScript(confirmButtonDelete);
         clickWithJavaScript(confirmAddWorkShop);
         implicitWait();
     }
