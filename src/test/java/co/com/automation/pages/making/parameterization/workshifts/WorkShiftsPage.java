@@ -60,7 +60,7 @@ public class WorkShiftsPage extends BasePage {
     @FindBy(xpath = "//button[@aria-label='Si']")
     public WebElement confirmButtonDelete;
 
-    @FindBy(xpath = "//div[@class='search__input']//input[@placeholder='Buscar']")
+    @FindBy(xpath = "(//input[@placeholder='Buscar'])[2]")
     public WebElement searchInputField;
     public WebElement getEditButtonForWorkShifts(String workShiftsCode) {
         return driver.findElement(By.xpath("(//td[contains(text(),'" + workShiftsCode + "')]/following-sibling::td/div/seress-ui-button)[1]"));
@@ -120,10 +120,10 @@ public class WorkShiftsPage extends BasePage {
         waitAndClick(add);
         waitAndSendKeys(workShiftsCodeInputForm, workShiftsCode);
         setWorkShiftsData(workShiftsCode, workShiftsDescription, initialHour, initialMinute, finalHour, finalMinute);
-        implicitWait();
     }
 
     public void editWorkShifts(String workShiftsCode, String newWorkShiftsCode, String newWorkShiftsDescription, int newWorkShiftInitialHour, int newWorkShiftInitialMinute, int newWorkShiftFinalHour, int newWorkShiftFinalMinute) {
+        implicitWait();
         findWorkShifts(workShiftsCode);
         waitAndClick(getEditButtonForWorkShifts(workShiftsCode));
         setWorkShiftsData(newWorkShiftsCode, newWorkShiftsDescription, newWorkShiftInitialHour, newWorkShiftInitialMinute , newWorkShiftFinalHour, newWorkShiftFinalMinute);

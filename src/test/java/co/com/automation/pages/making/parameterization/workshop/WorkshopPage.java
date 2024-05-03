@@ -76,7 +76,7 @@ public class WorkshopPage extends BasePage {
     @FindBy(xpath = "//button[normalize-space()='Cancelar']")
     public WebElement cancelButton;
 
-    @FindBy(xpath = "//div[@class='search__input']//input[@placeholder='Buscar']")
+    @FindBy(xpath = "(//input[@placeholder='Buscar'])[2]")
     public WebElement searchInputField;
     @FindBy(xpath = "//button[@aria-label='Si']")
     public WebElement confirmButtonDelete;
