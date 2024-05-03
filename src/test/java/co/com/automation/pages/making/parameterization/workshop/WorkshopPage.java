@@ -117,7 +117,7 @@ public class WorkshopPage extends BasePage {
         clickWithJavaScript(confirmButtonDelete);
         clickWithJavaScript(workshopIconDeleteMachine);
         clickWithJavaScript(confirmButtonDelete);
-        waitAndClick(confirmAddWorkShop);
+        clickWithJavaScript(confirmAddWorkShop);
         implicitWait();
     }
 

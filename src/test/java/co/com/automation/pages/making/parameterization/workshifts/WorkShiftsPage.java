@@ -95,7 +95,7 @@ public class WorkShiftsPage extends BasePage {
         minute(workShiftsInitialIncreaseMM,workShiftsInitialMMNumber, numberFinalMinute);
         waitAndClick(workShiftsCodeInputForm);
         implicitWait();
-        waitAndClick(addButton);
+        clickWithJavaScript(addButton);
         implicitWait();
     }
 
