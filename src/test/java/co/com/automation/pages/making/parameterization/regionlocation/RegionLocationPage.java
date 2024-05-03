@@ -75,6 +75,7 @@ public class RegionLocationPage extends BasePage {
         waitAndSendKeys(locationByRegionsCityInputForm, locationByRegionsCity);
         scrollToElement(confirmAddMachineButton);
         clickWithJavaScript(confirmAddMachineButton);
+        implicitWait();
     }
 
     public void validateLocationByRegionsInfo(String locationByRegionsCodeCountry, String expectLocationByRegionsCodCountry, String expectLocationByRegionsCountry, String expectLocationByRegionCodRegion, String expectLocationByRegionRegion, String expectLocationByRegionsCodCity, String expectLocationByRegionsCity) {

@@ -120,6 +120,7 @@ public class WorkShiftsPage extends BasePage {
         waitAndClick(add);
         waitAndSendKeys(workShiftsCodeInputForm, workShiftsCode);
         setWorkShiftsData(workShiftsCode, workShiftsDescription, initialHour, initialMinute, finalHour, finalMinute);
+        implicitWait();
     }
 
     public void editWorkShifts(String workShiftsCode, String newWorkShiftsCode, String newWorkShiftsDescription, int newWorkShiftInitialHour, int newWorkShiftInitialMinute, int newWorkShiftFinalHour, int newWorkShiftFinalMinute) {
