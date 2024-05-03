@@ -75,6 +75,8 @@ public class WorkShiftsPage extends BasePage {
     }
 
     public void findWorkShifts(String workShiftsCode) {
+        implicitWait();
+        scrollToElement(searchInputField);
         waitAndSendKeys(searchInputField, workShiftsCode);
         searchInputField.sendKeys(Keys.ENTER);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -123,7 +125,6 @@ public class WorkShiftsPage extends BasePage {
     }
 
     public void editWorkShifts(String workShiftsCode, String newWorkShiftsCode, String newWorkShiftsDescription, int newWorkShiftInitialHour, int newWorkShiftInitialMinute, int newWorkShiftFinalHour, int newWorkShiftFinalMinute) {
-        implicitWait();
         findWorkShifts(workShiftsCode);
         waitAndClick(getEditButtonForWorkShifts(workShiftsCode));
         setWorkShiftsData(newWorkShiftsCode, newWorkShiftsDescription, newWorkShiftInitialHour, newWorkShiftInitialMinute , newWorkShiftFinalHour, newWorkShiftFinalMinute);
