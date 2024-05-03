@@ -96,6 +96,7 @@ public class WorkShiftsPage extends BasePage {
         waitAndClick(workShiftsCodeInputForm);
         implicitWait();
         waitAndClick(addButton);
+        implicitWait();
     }
 
 

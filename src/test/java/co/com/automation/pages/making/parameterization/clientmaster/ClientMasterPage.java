@@ -127,7 +127,7 @@ public class ClientMasterPage extends BasePage {
         customDropdown(dropDownRegionTypeMasterCustomer, dropDownRegionTypeInputFormMasterCustomer, dropDownRegionSelectMasterCustomer, masterCustomerRegion);
         scrollToElement(confirmAddMasterCustomer);
         clickWithJavaScript(confirmAddMasterCustomer);
-
+        implicitWait();
     }
 
     public void validateMovementGroupInfo(String masterCustomerCod, String masterCustomerDocumentType, String masterCustomerDocument, String masterCustomerBusinessName, String masterCustomerFirstName, String masterCustomerSecondName, String masterCustomerLastName, String masterCustomerSecondLastName, String masterCustomerAddressnOne, String masterCustomerAddressnTwo, String masterCustomerPhoneOne, String masterCustomerPhoneTwo, String masterCustomerEmail, String masterCustomerRegion) {
