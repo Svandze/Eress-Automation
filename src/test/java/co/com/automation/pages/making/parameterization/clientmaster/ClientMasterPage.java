@@ -100,9 +100,12 @@ public class ClientMasterPage extends BasePage {
     }
 
     public void findMasterCustomer(String masterCustomerCode) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(searchInputField));
+        waitAndClick(searchInputField);
         waitAndSendKeys(searchInputField, masterCustomerCode);
         searchInputField.sendKeys(Keys.ENTER);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOfElementLocated((By.cssSelector(".toast-title"))));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + masterCustomerCode + "']")));
     }

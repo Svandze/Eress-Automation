@@ -95,9 +95,9 @@ public class WorkshopPage extends BasePage {
     }
 
     public void findWorkshop(String workshopCode) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         waitAndSendKeys(searchInputField, workshopCode);
         searchInputField.sendKeys(Keys.ENTER);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOfElementLocated((By.cssSelector(".toast-title"))));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + workshopCode + "']")));
     }

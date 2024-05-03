@@ -75,11 +75,11 @@ public class WorkShiftsPage extends BasePage {
     }
 
     public void findWorkShifts(String workShiftsCode) {
-        implicitWait();
-        scrollToElement(searchInputField);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(searchInputField));
+        waitAndClick(searchInputField);
         waitAndSendKeys(searchInputField, workShiftsCode);
         searchInputField.sendKeys(Keys.ENTER);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOfElementLocated((By.cssSelector(".toast-title"))));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + workShiftsCode + "']")));
     }
