@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.costsandexpenses;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -126,12 +128,12 @@ public class CostAndExpensesPage extends BasePage {
         String currentCostExpensesConcept = costExpensesConceptDropDownData.getText();
         String currentCostExpensesCalendar = expensesCostCalendar.getAttribute("value");
         String currentCostValue = costExpensesValueInputForm.getAttribute("value");
-        Assert.assertTrue("The current workshop value  contain the expected value", currentCostExpensesWorkShop.contains(costExpensesWorkShop));
-        Assert.assertTrue("The current period value  contain the expected value", currentCostExpensesBasicCalendar.contains(Integer.toString(costExpensesBasicCalendarYear)));
-        Assert.assertTrue("The current cost group value  contain the expected value", currentCostExpensesGroupCost.contains(costExpensesGroupCost));
-        Assert.assertTrue("The current concept value  contain the expected value", currentCostExpensesConcept.contains(costExpensesConcept.toUpperCase()));
-        Assert.assertTrue("The current date value  contain the expected value", currentCostExpensesCalendar.contains(Integer.toString(costExpensesCalendarYear)));
-        Assert.assertEquals("The current value  matches the expected value", costExpensesValue, currentCostValue);
+        assertTrue(currentCostExpensesWorkShop.contains(costExpensesWorkShop), "The current workshop value  contain the expected value");
+        assertTrue(currentCostExpensesBasicCalendar.contains(Integer.toString(costExpensesBasicCalendarYear)), "The current period value  contain the expected value");
+        assertTrue(currentCostExpensesGroupCost.contains(costExpensesGroupCost), "The current cost group value  contain the expected value");
+        assertTrue(currentCostExpensesConcept.contains(costExpensesConcept.toUpperCase()), "The current concept value  contain the expected value");
+        assertTrue(currentCostExpensesCalendar.contains(Integer.toString(costExpensesCalendarYear)), "The current date value  contain the expected value");
+        assertEquals( costExpensesValue, currentCostValue, "The current value  matches the expected value");
 
     }
 

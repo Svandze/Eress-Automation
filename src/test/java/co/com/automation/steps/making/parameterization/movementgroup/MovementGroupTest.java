@@ -1,7 +1,7 @@
 package co.com.automation.steps.making.parameterization.movementgroup;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 import co.com.automation.pages.making.parameterization.movementgroup.MovementGroupPage;
@@ -20,7 +20,7 @@ public class MovementGroupTest extends BaseTestEress {
     private ParameterizationPage parameterizationPage;
     private MovementGroupPage grupoMovimientos;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();

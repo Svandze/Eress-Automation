@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.competencetype;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.clickWithJavaScript;
 
@@ -75,9 +76,9 @@ public class CompetenceTypePage extends BasePage {
         String currentMasterGenresCode = competitionTypeCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = competitionTypeDescriptionInputForm.getAttribute("value");
         String currentnMasterElementsCheck = competitionTypeCheckSewing.getAttribute("aria-checked");
-        Assert.assertEquals("The current code value  matches the expected value", competitionTypeCode, currentMasterGenresCode);
-        Assert.assertEquals("The current description value  matches the expected value", competitionTypeDescription, currentMasterGenresDescription);
-        Assert.assertEquals("The current check value  matches the expected value", competitionTypeCheck, Boolean.parseBoolean(currentnMasterElementsCheck));
+        assertEquals(competitionTypeCode, currentMasterGenresCode, "The current code value  matches the expected value");
+        assertEquals(competitionTypeDescription, currentMasterGenresDescription, "The current description value  matches the expected value");
+        assertEquals(competitionTypeCheck, Boolean.parseBoolean(currentnMasterElementsCheck), "The current check value  matches the expected value");
 
     }
 

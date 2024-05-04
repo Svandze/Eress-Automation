@@ -1,24 +1,30 @@
 package co.com.automation.steps.making.parameterization.machinemaster;
 
-import org.junit.Before;
-import org.junit.Test;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.BeforeEach;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 import co.com.automation.pages.making.parameterization.machinemaster.MachineMasterPage;
 import co.com.automation.steps.BaseTestEress;
+import org.junit.jupiter.api.Test;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
 import static co.com.eress.automation.utils.randomCodeBuilder.randomCode;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.windowHandler;
 
+@Epic("Eeress")
+@Feature("Machine Master Functionality")
 public class MachineMasterTest extends BaseTestEress {
 
     private MakingPage makingPage;
     private ParameterizationPage parameterizationPage;
     private MachineMasterPage machineMasterPage;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();
@@ -29,8 +35,10 @@ public class MachineMasterTest extends BaseTestEress {
         waitAndClick(parameterizationPage.maestroDeMaquinasIcon);
     }
 
+    @Description("E2E flow")
+    @Story("Valid User Login")
     @Test
-    public void MachineManagementTest() {
+    public void machineManagementTest() {
         String machineCode = randomCode();
         String initialType = "PLANA 1 AGU";
         String initialDistance0To5 = "5";

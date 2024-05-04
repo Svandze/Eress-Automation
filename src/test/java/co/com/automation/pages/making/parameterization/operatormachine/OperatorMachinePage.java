@@ -1,6 +1,7 @@
 package co.com.automation.pages.making.parameterization.operatormachine;
+
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -103,23 +106,23 @@ public class OperatorMachinePage extends BasePage {
 
     public void setMachinesOperator(String machinesOperatorEmployee, String machinesOperatorMachine, String machinesOperatorAssignment, String machinesOperatorMachines) {
         customDropdown(dropDownEmployeeMachinesOperator, dropDownEmployeeInputFormMachinesOperator, dropDownEmployeeMachinesOperatorSelect, machinesOperatorEmployee);
-        customDropdown(dropDownMachineMachinesOperator, dropDownMachineInputFormMachinesOperator, dropDownMachineSelectMachinesOperator,machinesOperatorMachine );
+        customDropdown(dropDownMachineMachinesOperator, dropDownMachineInputFormMachinesOperator, dropDownMachineSelectMachinesOperator, machinesOperatorMachine);
         waitAndClick(buttonAddMachineMachinesOperator);
         customDropdown(dropDownAssignmentMachinesOperator, dropDownAssignmentInputFormMachinesOperator, dropDownAssignmentSelectMachinesOperator, machinesOperatorAssignment);
-        customDropdown(dropDownMachinesMachinesOperator, dropDownMachinesInputFormMachinesOperator, dropDownMachinesSelectMachinesOperator,machinesOperatorMachines);
+        customDropdown(dropDownMachinesMachinesOperator, dropDownMachinesInputFormMachinesOperator, dropDownMachinesSelectMachinesOperator, machinesOperatorMachines);
 
         waitAndClick(confirmAddMachinesOperator);
     }
 
-    public void validateMachinesOperatorInfo(String  machinesOperatorEmployee, String  machinesOperatorMachine, String  machinesOperatorAssignment, String  machinesOperatorMachines) {
+    public void validateMachinesOperatorInfo(String machinesOperatorEmployee, String machinesOperatorMachine, String machinesOperatorAssignment, String machinesOperatorMachines) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         String currentWorkshopCustomer = dropDownEmployeeMachinesOperatorData.getText();
         String currentWorkshopMachine = dropDownAssignmentDataMachineOperator.getText();
         String currentWorkshopMachines = dropDownMachinesDataMachinesOperator.getText();
-        Assert.assertTrue("The current employee value  contain the expected value", currentWorkshopCustomer.contains(machinesOperatorEmployee));
-        Assert.assertTrue("The current workshop assignment value  contain the expected value", currentWorkshopMachine.contains(machinesOperatorAssignment));
-        Assert.assertTrue("The current workshop machines value  contain the expected value", currentWorkshopMachines.contains(machinesOperatorMachines));
+        assertTrue(currentWorkshopCustomer.contains(machinesOperatorEmployee), "The current employee value  contain the expected value");
+        assertTrue(currentWorkshopMachine.contains(machinesOperatorAssignment), "The current workshop assignment value  contain the expected value");
+        assertTrue(currentWorkshopMachines.contains(machinesOperatorMachines), "The current workshop machines value  contain the expected value");
 
     }
 
@@ -128,13 +131,13 @@ public class OperatorMachinePage extends BasePage {
         setMachinesOperator(machinesOperatorEmployee, machinesOperatorMachine, machinesOperatorAssignment, machinesOperatorMachines);
     }
 
-    public void editMachinesOperator(String employeeDocument, String newMachinesOperatorEmployee , String newMachinesOperatorMachine, String newMachinesOperatorAssignment, String newMachinesOperatorMachines) {
+    public void editMachinesOperator(String employeeDocument, String newMachinesOperatorEmployee, String newMachinesOperatorMachine, String newMachinesOperatorAssignment, String newMachinesOperatorMachines) {
         findMachinesOperator(employeeDocument);
         waitAndClick(getEditButtonForMachinesOperator(employeeDocument));
         waitAndClick(iconDelete);
         implicitWait();
         waitAndClick(confirmButtonDelete);
-        setMachinesOperator(newMachinesOperatorEmployee, newMachinesOperatorMachine,newMachinesOperatorAssignment, newMachinesOperatorMachines);
+        setMachinesOperator(newMachinesOperatorEmployee, newMachinesOperatorMachine, newMachinesOperatorAssignment, newMachinesOperatorMachines);
     }
 
     public void validateMachinesOperator(String employeeDocument, String machinesOperatorEmployee, String machinesOperatorMachine, String machinesOperatorAssignment, String machinesOperatorMachines) {

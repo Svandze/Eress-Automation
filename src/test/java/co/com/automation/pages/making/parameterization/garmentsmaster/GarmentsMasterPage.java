@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.garmentsmaster;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -113,11 +115,11 @@ public class GarmentsMasterPage extends BasePage {
         String currentnMasterClothingGroupMovements = masterClothingDropDownStyleDataInputForm.getText();
         String currentnMasterClothingTypeGender = masterClothingDropDownGenderDataInputForm.getText();
         String currentnMasterClothingWeave = masterClothingDropDownWeaveDataInputForm.getText();
-        Assert.assertEquals("The current code value  matches the expected value", masterClothingCode, currentMasterClothingCode);
-        Assert.assertEquals("The current description value  matches the expected value", masterClothingDescription, currentnMasterClothingDescription);
-        Assert.assertTrue("The current style value  contain the expected value", currentnMasterClothingGroupMovements.contains(masterClothingStyle));
-        Assert.assertTrue("The current gender value  contain the expected value", currentnMasterClothingTypeGender.contains(masterClothingGender));
-        Assert.assertTrue("The current weave value  contain the expected value", currentnMasterClothingWeave.contains(masterClothingWeave));
+        assertEquals(masterClothingCode, currentMasterClothingCode, "The current code value  matches the expected value");
+        assertEquals(masterClothingDescription, currentnMasterClothingDescription, "The current description value  matches the expected value");
+        assertTrue(currentnMasterClothingGroupMovements.contains(masterClothingStyle), "The current style value  contain the expected value");
+        assertTrue(currentnMasterClothingTypeGender.contains(masterClothingGender), "The current gender value  contain the expected value");
+        assertTrue(currentnMasterClothingWeave.contains(masterClothingWeave), "The current weave value  contain the expected value");
 
     }
 
@@ -148,6 +150,7 @@ public class GarmentsMasterPage extends BasePage {
         waitAndClick(confirmButtonDelete);
         implicitWait();
     }
+
     public void customDropdown(WebElement masterClothingDocumentType, WebElement masterClothingDocumentTypeInputForm, WebElement masterClothingDocumentTypeSelect, String data) {
         scrollToElement(masterClothingDocumentType);
         waitAndClick(masterClothingDocumentType);

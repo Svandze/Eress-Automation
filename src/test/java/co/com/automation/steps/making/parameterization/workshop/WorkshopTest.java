@@ -1,7 +1,7 @@
 package co.com.automation.steps.making.parameterization.workshop;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 import co.com.automation.pages.making.parameterization.workshop.WorkshopPage;
@@ -18,7 +18,7 @@ public class WorkshopTest extends BaseTestEress {
     private ParameterizationPage parameterizationPage;
     private WorkshopPage workshopPage;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();

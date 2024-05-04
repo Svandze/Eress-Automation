@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.jobpositions;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -71,8 +72,8 @@ public class JobPositionsPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(jobRolesCodeInputForm, "value", jobRolesCode));
         String currentMasterGenresCode = jobRolesCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = jobRolesDescriptionInputForm.getAttribute("value");
-        Assert.assertEquals("The current code value  matches the expected value", jobRolesCode, currentMasterGenresCode);
-        Assert.assertEquals("The current description  matches the expected value", jobRolesDescription, currentMasterGenresDescription);
+        assertEquals(jobRolesCode, currentMasterGenresCode, "The current code value  matches the expected value");
+        assertEquals(jobRolesDescription, currentMasterGenresDescription, "The current description  matches the expected value");
     }
 
     public void addJobRoles(String jobRolesCode, String jobRolesDescription) {
@@ -81,7 +82,7 @@ public class JobPositionsPage extends BasePage {
         setJobRolesData(jobRolesCode, jobRolesDescription);
     }
 
-    public void editJobRoles(String jobRolesCode, String newJobRolesCode, String newJobRolesDescriptionString ) {
+    public void editJobRoles(String jobRolesCode, String newJobRolesCode, String newJobRolesDescriptionString) {
         findJobRoles(jobRolesCode);
         waitAndClick(getEditButtonForJobRoles(jobRolesCode));
         setJobRolesData(newJobRolesCode, newJobRolesDescriptionString);

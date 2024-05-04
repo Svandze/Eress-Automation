@@ -1,12 +1,13 @@
 package co.com.automation.pages.making.unitregistration;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -107,10 +108,10 @@ public class UnitRegistrationPage extends BasePage {
         searchForUnit();
         waitAndClick(getDetailsButtonForUnitRegistration("Taller para Test E2E"));
         implicitWait();
-        Assert.assertEquals(unitRegistrationUnitsProducedInputForm.getAttribute("value"), producedUnits);
-        Assert.assertEquals(unitRegistrationTurnMinuteInputForm.getAttribute("value"), turnMin);
-        Assert.assertEquals(unitRegistrationExtraMinuteInputForm.getAttribute("value"), extraMin);
-        Assert.assertEquals(unitRegistrationNPersonsMODInputForm.getAttribute("value"), nPersons);
+        assertEquals(unitRegistrationUnitsProducedInputForm.getAttribute("value"), producedUnits);
+        assertEquals(unitRegistrationTurnMinuteInputForm.getAttribute("value"), turnMin);
+        assertEquals(unitRegistrationExtraMinuteInputForm.getAttribute("value"), extraMin);
+        assertEquals(unitRegistrationNPersonsMODInputForm.getAttribute("value"), nPersons);
         waitAndClick(cancelButton);
         implicitWait();
     }

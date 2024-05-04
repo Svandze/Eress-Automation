@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.documenttype;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -71,8 +72,8 @@ public class DocumentTypePage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(documentTypeCodeInputForm, "value", documentTypeCode));
         String currentMasterGenresCode = documentTypeCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = documentTypeDescriptionInputForm.getAttribute("value");
-        Assert.assertEquals("The current code value  matches the expected value", documentTypeCode, currentMasterGenresCode);
-        Assert.assertEquals("The current description value  matches the expected value", documentTypeDescription, currentMasterGenresDescription);
+        assertEquals(documentTypeCode, currentMasterGenresCode, "The current code value  matches the expected value");
+        assertEquals(documentTypeDescription, currentMasterGenresDescription, "The current description value  matches the expected value");
     }
 
     public void addDocumentType(String documentTypeCode, String documentTypeDescription) {
@@ -81,7 +82,7 @@ public class DocumentTypePage extends BasePage {
         setDocumentTypeData(documentTypeCode, documentTypeDescription);
     }
 
-    public void editDocumentType(String documentTypeCode, String newDocumentTypeCode, String newDocumentTypeDescription ) {
+    public void editDocumentType(String documentTypeCode, String newDocumentTypeCode, String newDocumentTypeDescription) {
         findDocumentType(documentTypeCode);
         waitAndClick(getEditButtonForDocumentType(documentTypeCode));
         setDocumentTypeData(newDocumentTypeCode, newDocumentTypeDescription);

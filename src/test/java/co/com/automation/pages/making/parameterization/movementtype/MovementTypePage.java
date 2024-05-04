@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.movementtype;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -45,7 +46,6 @@ public class MovementTypePage extends BasePage {
     public WebElement typesMovementsBooleanElementsCheckSewing;
 
 
-
     public WebElement getEditButtonForTypesMovements(String typesMovementsCode) {
         return driver.findElement(By.xpath("(//td[contains(text(),'" + typesMovementsCode + "')]/following-sibling::td/div/seress-ui-button)[1]"));
     }
@@ -70,7 +70,7 @@ public class MovementTypePage extends BasePage {
         scrollToElement(typesMovementsCodeInputForm);
         waitAndSendKeys(typesMovementsCodeInputForm, typesMovementsCode);
         waitAndSendKeys(typesMovementsDescriptionInputForm, typesMovementsDescription);
-        verifyAndClickCheck(typesMovementsBooleanElementsCheckSewing ,typesMovementsCheck);
+        verifyAndClickCheck(typesMovementsBooleanElementsCheckSewing, typesMovementsCheck);
         scrollToElement(confirmAddTypesMovements);
         clickWithJavaScript(confirmAddTypesMovements);
     }
@@ -81,10 +81,10 @@ public class MovementTypePage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(typesMovementsCodeInputForm, "value", typesMovementsCode));
         String currentMovementGroupCode = typesMovementsCodeInputForm.getAttribute("value");
         String currentDescriptionMovementGroup = typesMovementsDescriptionInputForm.getAttribute("value");
-        String currentnMasterElementsCheck = typesMovementsBooleanElementsCheckSewing.getAttribute("aria-checked");;
-        Assert.assertEquals("The current code value  matches the expected value", typesMovementsCode, currentMovementGroupCode);
-        Assert.assertEquals("The current description value  matches the expected value", typesMovementsDescription, currentDescriptionMovementGroup);
-        Assert.assertEquals("The current check value  matches the expected value", typesMovementsCheck, Boolean.parseBoolean(currentnMasterElementsCheck));
+        String currentnMasterElementsCheck = typesMovementsBooleanElementsCheckSewing.getAttribute("aria-checked");
+        assertEquals(typesMovementsCode, currentMovementGroupCode, "The current code value  matches the expected value");
+        assertEquals(typesMovementsDescription, currentDescriptionMovementGroup, "The current description value  matches the expected value");
+        assertEquals(typesMovementsCheck, Boolean.parseBoolean(currentnMasterElementsCheck), "The current check value  matches the expected value");
 
     }
 

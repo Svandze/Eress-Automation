@@ -1,9 +1,9 @@
 package co.com.automation.steps.making.parameterization.operatormachine;
 
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 import co.com.automation.pages.making.parameterization.operatormachine.OperatorMachinePage;
@@ -17,7 +17,7 @@ public class OperatorMachineTest extends BaseTestEress {
     private ParameterizationPage parameterizationPage;
     private OperatorMachinePage operatorMachinePage;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();
@@ -28,7 +28,7 @@ public class OperatorMachineTest extends BaseTestEress {
         clickWithJavaScript(parameterizationPage.maquinasOperarioIcon);
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void machinesOperatorTest() {
         String employeeDocument="12345";

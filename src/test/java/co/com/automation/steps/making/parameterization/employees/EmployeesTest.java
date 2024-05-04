@@ -1,8 +1,8 @@
 package co.com.automation.steps.making.parameterization.employees;
 
 import com.github.javafaker.Faker;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 import co.com.automation.pages.making.parameterization.employees.EmployeesPage;
@@ -19,7 +19,7 @@ public class EmployeesTest extends BaseTestEress {
     private ParameterizationPage parameterizationPage;
     private EmployeesPage employeesPage;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();

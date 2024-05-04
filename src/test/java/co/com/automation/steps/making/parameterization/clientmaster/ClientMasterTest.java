@@ -1,8 +1,8 @@
 package co.com.automation.steps.making.parameterization.clientmaster;
 
 import com.github.javafaker.Faker;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 import co.com.automation.pages.making.parameterization.clientmaster.ClientMasterPage;
@@ -22,7 +22,7 @@ public class ClientMasterTest extends BaseTestEress {
 
     private Faker faker;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         faker = new Faker();

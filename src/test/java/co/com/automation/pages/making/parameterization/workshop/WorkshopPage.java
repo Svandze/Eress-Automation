@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.workshop;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.clickWithJavaScript;
 
@@ -108,9 +110,9 @@ public class WorkshopPage extends BasePage {
         waitAndSendKeys(workshopDescriptionInputForm, workshopDescription);
         waitAndSendKeys(workshopOTIF0to100InputForm, workshopOTIF);
         waitAndSendKeys(workshopPersonsInputForm, workshopPersons);
-        customDropdown(dropDownStyleWorkshop, dropDownStyleInputFormWorkshop, dropDownStyleSelectWorkshop,workshopStyle );
+        customDropdown(dropDownStyleWorkshop, dropDownStyleInputFormWorkshop, dropDownStyleSelectWorkshop, workshopStyle);
         customDropdown(dropDownMachineWorkshop, dropDownMachineInputFormWorkshop, dropDownMachineSelectWorkshop, workshopMachine);
-        waitAndSendKeys(workshopAmountInputForm,workshopAmount );
+        waitAndSendKeys(workshopAmountInputForm, workshopAmount);
         //waitAndClick(workshopAddStyletButton);
         //waitAndClick(workshopAddMachinetButton);
         //waitAndClick(workshopIconDeleteStyle);
@@ -133,19 +135,19 @@ public class WorkshopPage extends BasePage {
         String currentWorkshopStyle = dropDownStyleDataWorkshop.getText();
         String currentWorkshopMachine = dropDownMachineDataWorkshop.getText();
         String currentWorkshopMachineAmount = workshopAmountInputForm.getAttribute("value");
-        Assert.assertTrue("The current workshop customer value  contain the expected value", currentWorkshopCustomer.contains(workshopCustomer));
-        Assert.assertEquals("The current workshop code value  matches the expected value", workshopCod, currentWorkshopCustomerCod);
-        Assert.assertEquals("The current workshop description value  matches the expected value", workshopDescription, currentWorkshopDataDescription);
-        Assert.assertEquals("The current workshop OTIF value  matches the expected value", workshopOTIF, currentWorkshopDataOTIF);
-        Assert.assertEquals("The current workshop persons value  matches the expected value", workshopPersons, currentWorkshopDataPersons);
-        Assert.assertTrue("The current workshop style value  contain the expected value", currentWorkshopStyle.contains(workshopStyle));
-        Assert.assertTrue("The current workshop machine value  contain the expected value", currentWorkshopMachine.contains(workshopMachine));
-        Assert.assertEquals("The current workshop amount value  matches the expected value", workshopAmount, currentWorkshopMachineAmount);
+        assertTrue(currentWorkshopCustomer.contains(workshopCustomer), "The current workshop customer value  contain the expected value");
+        assertEquals(workshopCod, currentWorkshopCustomerCod, "The current workshop code value  matches the expected value");
+        assertEquals(workshopDescription, currentWorkshopDataDescription, "The current workshop description value  matches the expected value");
+        assertEquals(workshopOTIF, currentWorkshopDataOTIF, "The current workshop OTIF value  matches the expected value");
+        assertEquals(workshopPersons, currentWorkshopDataPersons, "The current workshop persons value  matches the expected value");
+        assertTrue(currentWorkshopStyle.contains(workshopStyle), "The current workshop style value  contain the expected value");
+        assertTrue(currentWorkshopMachine.contains(workshopMachine), "The current workshop machine value  contain the expected value");
+        assertEquals(workshopAmount, currentWorkshopMachineAmount, "The current workshop amount value  matches the expected value");
     }
 
     public void addWorkshop(String workshopCustomer, String workshopCod, String workshopDescription, String workshopOTIF, String workshopPersons, String workshopStyle, String workshopMachine, String workshopAmount) {
         clickWithJavaScript(addButton);
-        setWorkshop(workshopCustomer, workshopCod, workshopDescription, workshopOTIF, workshopPersons, workshopStyle,  workshopMachine,workshopAmount);
+        setWorkshop(workshopCustomer, workshopCod, workshopDescription, workshopOTIF, workshopPersons, workshopStyle, workshopMachine, workshopAmount);
     }
 
     public void customDropdown(WebElement masterCustomeDocumentType, WebElement masterCustomerDocumentTypeInputForm, WebElement masterCustomerDocumentTypeSelect, String data) {
@@ -155,10 +157,10 @@ public class WorkshopPage extends BasePage {
         waitAndClick(masterCustomerDocumentTypeSelect);
     }
 
-    public void editWorkshop(String workshopCod, String newWorkshpCustomer ,String newWorkshopCod, String newWorkshopDescription, String newWorkshopOTIF, String newWorkshopPersons, String newWorkshopStyle, String newWorkshopMachine, String newWorkshopAmountMachine) {
+    public void editWorkshop(String workshopCod, String newWorkshpCustomer, String newWorkshopCod, String newWorkshopDescription, String newWorkshopOTIF, String newWorkshopPersons, String newWorkshopStyle, String newWorkshopMachine, String newWorkshopAmountMachine) {
         findWorkshop(workshopCod);
         waitAndClick(getEditButtonForWorkshop(workshopCod));
-        setWorkshop(newWorkshpCustomer, newWorkshopCod,newWorkshopDescription, newWorkshopOTIF, newWorkshopPersons, newWorkshopStyle, newWorkshopMachine, newWorkshopAmountMachine);
+        setWorkshop(newWorkshpCustomer, newWorkshopCod, newWorkshopDescription, newWorkshopOTIF, newWorkshopPersons, newWorkshopStyle, newWorkshopMachine, newWorkshopAmountMachine);
     }
 
     public void validateWorkshop(String workshopCustomer, String workshopCod, String workshopDescription, String workshopOTIF, String workshopPersons, String workshopStyle, String workshopMachine, String workshopAmount) {

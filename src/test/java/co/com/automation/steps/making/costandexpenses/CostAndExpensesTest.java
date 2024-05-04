@@ -1,8 +1,8 @@
 package co.com.automation.steps.making.costandexpenses;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.costsandexpenses.CostAndExpensesPage;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
@@ -19,7 +19,7 @@ public class CostAndExpensesTest extends BaseTestEress {
     private CostAndExpensesPage costAndExpensesPage;
 
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();

@@ -1,7 +1,6 @@
 package co.com.automation.pages.making.operationlist;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -104,7 +105,7 @@ public class OperationListPage extends BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + operationsListCode + "']")));
     }
 
-    public void setOperationsListData(String operationsListCode, String operationsListName, String operationsListCustomer,  String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation) {
+    public void setOperationsListData(String operationsListCode, String operationsListName, String operationsListCustomer, String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation) {
         scrollToElement(operationsListListCodeInputForm);
         waitAndSendKeys(operationsListListCodeInputForm, operationsListCode);
         waitAndSendKeys(operationsListListNameInputForm, operationsListName);
@@ -117,7 +118,7 @@ public class OperationListPage extends BasePage {
         clickWithJavaScript(confirmAddOperationsListList);
     }
 
-    public void validateOperationsListInfo(String operationsListCode, String operationsListName, String operationsListCustomer,  String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation) {
+    public void validateOperationsListInfo(String operationsListCode, String operationsListName, String operationsListCustomer, String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.attributeToBe(operationsListListCodeInputForm, "value", operationsListCode));
@@ -127,32 +128,32 @@ public class OperationListPage extends BasePage {
         String currentOperationsReference = operationsListListReferenceDropDownData.getText();
         String currentOperationsElaborate = operationsListListElaborateDropDownData.getText();
         String currentOperationsAprobate = operationsListListAprobateDropDownData.getText();
-        String currentOperationsOperation= operationsListOperationElementDropDownData.getText();
-        Assert.assertEquals("El valor actual del código coincide con el esperado", operationsListCode, currentOperationsListCode);
-        Assert.assertEquals("El nombre actual coincide con el esperado", operationsListName, currentOperationsLisName);
-        Assert.assertTrue("El valor actual del cliente coincide con el esperado", currentOperationsCustomer.contains(operationsListCustomer));
-        Assert.assertTrue("El valor actual de la referencia coincide con el esperado", currentOperationsReference.contains(operationsListReference));
-        Assert.assertTrue("El valor actual del elaborado coincide con el esperado", currentOperationsElaborate.contains(operationsListElaborate));
-        Assert.assertTrue("El valor actual del aprobado coincide con el esperado", currentOperationsAprobate.contains(operationsListAprobate));
-        Assert.assertTrue("El valor actual de la operación coincide con el esperado", currentOperationsOperation.contains(operationsListOperation));
+        String currentOperationsOperation = operationsListOperationElementDropDownData.getText();
+        assertEquals(operationsListCode, currentOperationsListCode, "El valor actual del código coincide con el esperado");
+        assertEquals(operationsListName, currentOperationsLisName, "El nombre actual coincide con el esperado");
+        assertTrue(currentOperationsCustomer.contains(operationsListCustomer), "El valor actual del cliente coincide con el esperado");
+        assertTrue(currentOperationsReference.contains(operationsListReference), "El valor actual de la referencia coincide con el esperado");
+        assertTrue(currentOperationsElaborate.contains(operationsListElaborate), "El valor actual del elaborado coincide con el esperado");
+        assertTrue(currentOperationsAprobate.contains(operationsListAprobate), "El valor actual del aprobado coincide con el esperado");
+        assertTrue(currentOperationsOperation.contains(operationsListOperation), "El valor actual de la operación coincide con el esperado");
 
     }
 
-    public void addOperationsList(String operationsListCode, String operationsListName, String operationsListCustomer,  String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation) {
+    public void addOperationsList(String operationsListCode, String operationsListName, String operationsListCustomer, String operationsListReference, String operationsListElaborate, String operationsListAprobate, String operationsListOperation) {
         waitAndClick(addButton);
-        setOperationsListData(operationsListCode,  operationsListName,  operationsListCustomer,   operationsListReference,  operationsListElaborate,  operationsListAprobate,  operationsListOperation);
+        setOperationsListData(operationsListCode, operationsListName, operationsListCustomer, operationsListReference, operationsListElaborate, operationsListAprobate, operationsListOperation);
     }
 
-    public void editOperationsList(String operationListCode, String newOperationsListCode, String newOperationsListName, String newOperationsListCustomer,  String newOperationsListReference, String newOperationsListElaborate, String newOperationsListAprobate, String newOperationsListnewOperation) {
+    public void editOperationsList(String operationListCode, String newOperationsListCode, String newOperationsListName, String newOperationsListCustomer, String newOperationsListReference, String newOperationsListElaborate, String newOperationsListAprobate, String newOperationsListnewOperation) {
         findOperationsList(operationListCode);
         waitAndClick(getEditButtonForOperationsList(operationListCode));
-        setOperationsListData(newOperationsListCode,  newOperationsListName,  newOperationsListCustomer,   newOperationsListReference,  newOperationsListElaborate,  newOperationsListAprobate,  newOperationsListnewOperation);
+        setOperationsListData(newOperationsListCode, newOperationsListName, newOperationsListCustomer, newOperationsListReference, newOperationsListElaborate, newOperationsListAprobate, newOperationsListnewOperation);
     }
 
-    public void validateOperationsList(String expectOperationsListCode, String expectOperationsListName, String expectOperationsListCustomer,  String expectOperationsListReference, String expectOperationsListElaborate, String expectOperationsListAprobate, String expectOperationsListexpectOperation) {
+    public void validateOperationsList(String expectOperationsListCode, String expectOperationsListName, String expectOperationsListCustomer, String expectOperationsListReference, String expectOperationsListElaborate, String expectOperationsListAprobate, String expectOperationsListexpectOperation) {
         findOperationsList(expectOperationsListCode);
         waitAndClick(getDetailsButtonForOperationsList(expectOperationsListCode));
-        validateOperationsListInfo(expectOperationsListCode,  expectOperationsListName,  expectOperationsListCustomer,   expectOperationsListReference,  expectOperationsListElaborate,  expectOperationsListAprobate,  expectOperationsListexpectOperation);
+        validateOperationsListInfo(expectOperationsListCode, expectOperationsListName, expectOperationsListCustomer, expectOperationsListReference, expectOperationsListElaborate, expectOperationsListAprobate, expectOperationsListexpectOperation);
         clickWithJavaScript(cancelButton);
     }
 

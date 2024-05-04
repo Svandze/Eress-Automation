@@ -1,7 +1,7 @@
 package co.com.automation.steps;
 
 import base.BaseTest;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import co.com.automation.pages.HomePage;
 import co.com.automation.pages.LoginPage;
 
@@ -11,7 +11,7 @@ public class BaseTestEress extends BaseTest {
     private LoginPage loginPage;
     private HomePage homePage;
 
-    @Before
+    @BeforeEach
     public void setup() {
         loginPage = new LoginPage();
         homePage = new HomePage();

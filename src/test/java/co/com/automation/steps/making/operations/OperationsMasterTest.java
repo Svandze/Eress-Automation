@@ -1,9 +1,9 @@
 package co.com.automation.steps.making.operations;
 
 import com.github.javafaker.Faker;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.operations.OperationsPage;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
@@ -20,7 +20,7 @@ public class OperationsMasterTest extends BaseTestEress {
     private OperationsPage operationsPage;
 
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();
@@ -31,7 +31,7 @@ public class OperationsMasterTest extends BaseTestEress {
     }
 
 
-    @Ignore
+    @Disabled
     @Test
     public void operationManagementTest()  {
         Faker faker = new Faker();

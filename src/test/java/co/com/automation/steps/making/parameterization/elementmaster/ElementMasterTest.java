@@ -1,8 +1,8 @@
 package co.com.automation.steps.making.parameterization.elementmaster;
 
 import com.github.javafaker.Faker;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 
@@ -21,7 +21,7 @@ public class ElementMasterTest extends BaseTestEress {
     private ParameterizationPage parameterizationPage;
     private ElementMasterPage elementMasterPage;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
 

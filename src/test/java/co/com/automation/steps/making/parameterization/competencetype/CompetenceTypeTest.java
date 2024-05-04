@@ -1,7 +1,7 @@
 package co.com.automation.steps.making.parameterization.competencetype;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 import co.com.automation.pages.making.parameterization.competencetype.CompetenceTypePage;
@@ -18,7 +18,7 @@ public class CompetenceTypeTest extends BaseTestEress {
     private ParameterizationPage parameterizationPage;
     private CompetenceTypePage competenceTypePage;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();

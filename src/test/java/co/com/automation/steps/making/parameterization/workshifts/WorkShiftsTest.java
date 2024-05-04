@@ -1,9 +1,9 @@
 package co.com.automation.steps.making.parameterization.workshifts;
 
 import com.github.javafaker.Faker;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 import co.com.automation.pages.making.parameterization.workshifts.WorkShiftsPage;
@@ -23,7 +23,7 @@ public class WorkShiftsTest extends BaseTestEress {
     private ParameterizationPage parameterizationPage;
     private WorkShiftsPage workShiftsPage;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();
@@ -35,7 +35,7 @@ public class WorkShiftsTest extends BaseTestEress {
         clickWithJavaScript(parameterizationPage.turnosLaboralesIcon);
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void workShiftManagementsTest() {
 

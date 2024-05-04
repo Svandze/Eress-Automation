@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.stylesmaster;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -72,8 +73,8 @@ public class StylesMasterPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(masterStylesCodeInputForm, "value", masterStylesCode));
         String currentMovementGroupCode = masterStylesCodeInputForm.getAttribute("value");
         String currentDescriptionMovementGroup = masterStylesDescriptionInputForm.getAttribute("value");
-        Assert.assertEquals("The current code value of the movement group  matches the expected value", masterStylesCode, currentMovementGroupCode);
-        Assert.assertEquals("The current description value  matches the expected value", masterStylesDescription, currentDescriptionMovementGroup);
+        assertEquals(masterStylesCode, currentMovementGroupCode, "The current code value of the movement group  matches the expected value");
+        assertEquals(masterStylesDescription, currentDescriptionMovementGroup, "The current description value  matches the expected value");
     }
 
     public void addMasterStyles(String masterStylesCode, String masterStylesDescription) {

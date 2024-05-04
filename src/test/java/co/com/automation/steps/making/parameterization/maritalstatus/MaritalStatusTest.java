@@ -1,7 +1,7 @@
 package co.com.automation.steps.making.parameterization.maritalstatus;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
 import co.com.automation.pages.making.parameterization.ParameterizationPage;
 import co.com.automation.pages.making.parameterization.maritalstatus.MaritalStatusPage;
@@ -18,7 +18,7 @@ public class MaritalStatusTest extends BaseTestEress {
     private ParameterizationPage parameterizationPage;
     private MaritalStatusPage maritalStatusPage;
 
-    @Before
+    @BeforeEach
     public void setup() {
         super.setup();
         makingPage = new MakingPage();

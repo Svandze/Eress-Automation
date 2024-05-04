@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.elementmaster;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -35,7 +37,6 @@ public class ElementMasterPage extends BasePage {
     public WebElement dropDownGroupMovementsSelectMasterElements;
     @FindBy(xpath = "(//div[@class='group-input flex justify-content-center'])[3]/seress-ui-dropdown-field")
     public WebElement dropDownGroupMovementsDataInputFormMasterElement;
-
 
 
     @FindBy(xpath = "(//div[@class='p-dropdown-trigger'])[2]")
@@ -115,10 +116,10 @@ public class ElementMasterPage extends BasePage {
         scrollToElement(masterElementsCodeInputForm);
         waitAndSendKeys(masterElementsCodeInputForm, masterElementsCode);
         waitAndSendKeys(masterElementsDescriptionInputForm, masterElementsDescription);
-        customDropdown(dropDownGruopMovementsMasterElements,dropDownGroupMovementsInputFormMasterElements, dropDownGroupMovementsSelectMasterElements, masterElementsDropDownDataGroupMovements);
+        customDropdown(dropDownGruopMovementsMasterElements, dropDownGroupMovementsInputFormMasterElements, dropDownGroupMovementsSelectMasterElements, masterElementsDropDownDataGroupMovements);
         customDropdown(dropDownTypeMovementsMasterElements, dropDownTypeMovementsInputFormMasterElements, dropDownTypeMovementsSelectMasterElements, masterElementsDropDownDataTypeMovements);
         verifyCheck(masterElementscheckSewing, checkSewingMasterElements);
-        customDropdown(dropDownDistanceMasterElements, dropDownDistanceInputFormMasterElements,dropDownDistanceSelectMasterElements, masterElementsDataDropDownDistance);
+        customDropdown(dropDownDistanceMasterElements, dropDownDistanceInputFormMasterElements, dropDownDistanceSelectMasterElements, masterElementsDataDropDownDistance);
         waitAndSendKeys(masterElementsTimeInputForm, masterElementsTimeData);
         scrollToElement(masterElementsAdd);
         clickWithJavaScript(masterElementsAdd);
@@ -136,14 +137,14 @@ public class ElementMasterPage extends BasePage {
         String currentnMasterElementsCheck = checkBooleanMasterElements.getAttribute("aria-checked");
         String currentnMasterElementsDistance = dropDownDistanceDataInputFormMasterElements.getText();
         String currentnMasterElementsTime = masterElementsTimeInputForm.getAttribute("value");
-        Assert.assertEquals("The current code value of the movement group  matches the expected value", masterElementsCode, currentMasterElementsCode);
-        Assert.assertEquals("The current description value  matches the expected value", masterElementsDescription, currentnMasterElementsDescription);
-        Assert.assertTrue("The current group movements value  contain the expected value", currentnMasterElementsGroupMovements.contains(masterElementsGroupMovements));
-        Assert.assertTrue("The current type movements value  contain the expected value", currentnMasterElementsTypeMovement.contains(masterElementsTypeMovements));
-        Assert.assertEquals("The current check value  matches the expected value", currentnMasterElementsCheck, (masterElementsCheck).toString());
-        Assert.assertEquals("The current code value of the movement group  matches the expected value", (masterElementsCheck).toString(), currentnMasterElementsCheck );
-        Assert.assertTrue("The current distance value  contain the expected value", currentnMasterElementsDistance.contains(masterElementsDistance));
-        Assert.assertEquals("The current time movements value  matches the expected value", masterElementsTime, currentnMasterElementsTime);
+        assertEquals(masterElementsCode, currentMasterElementsCode, "The current code value of the movement group  matches the expected value");
+        assertEquals(masterElementsDescription, currentnMasterElementsDescription, "The current description value  matches the expected value");
+        assertTrue(currentnMasterElementsGroupMovements.contains(masterElementsGroupMovements), "The current group movements value  contain the expected value" );
+        assertTrue(currentnMasterElementsTypeMovement.contains(masterElementsTypeMovements), "The current type movements value  contain the expected value");
+        assertEquals(currentnMasterElementsCheck, (masterElementsCheck).toString(), "The current check value  matches the expected value");
+        assertEquals((masterElementsCheck).toString(), currentnMasterElementsCheck, "The current code value of the movement group  matches the expected value");
+        assertTrue(currentnMasterElementsDistance.contains(masterElementsDistance), "The current distance value  contain the expected value");
+        assertEquals(masterElementsTime, currentnMasterElementsTime, "The current time movements value  matches the expected value");
 
     }
 
@@ -151,10 +152,10 @@ public class ElementMasterPage extends BasePage {
         implicitWait();
         scrollToElement(addButton);
         waitAndClick(addButton);
-        setMasterElementsData(masterElementsCode, masterElementsDescription, masterElementsDropDownGroupMovements, masterElementsDropDownTypeMovements, masterElementsDropDownDistance, masterElementsTime,masterElementsCheck);
+        setMasterElementsData(masterElementsCode, masterElementsDescription, masterElementsDropDownGroupMovements, masterElementsDropDownTypeMovements, masterElementsDropDownDistance, masterElementsTime, masterElementsCheck);
     }
 
-    public void editMasterElements(String masterElementsCode, String newMasterElementsCode, String newMasterElementsDescription, String newMasterElementsMovementsGroup, String newMasterElementsTypeMovement, String newMasterElementsDistance,String newMasterElementsTime,Boolean masterElementsCheck) {
+    public void editMasterElements(String masterElementsCode, String newMasterElementsCode, String newMasterElementsDescription, String newMasterElementsMovementsGroup, String newMasterElementsTypeMovement, String newMasterElementsDistance, String newMasterElementsTime, Boolean masterElementsCheck) {
         findMasterElements(masterElementsCode);
         waitAndClick(getEditButtonForMasterElements(masterElementsCode));
         setMasterElementsData(newMasterElementsCode, newMasterElementsDescription, newMasterElementsMovementsGroup, newMasterElementsTypeMovement, newMasterElementsDistance, newMasterElementsTime, masterElementsCheck);
@@ -174,6 +175,7 @@ public class ElementMasterPage extends BasePage {
         waitAndClick(confirmButtonDelete);
         implicitWait();
     }
+
     public void customDropdown(WebElement masterCustomeDocumentType, WebElement masterCustomerDocumentTypeInputForm, WebElement masterCustomerDocumentTypeSelect, String data) {
         scrollToElement(masterCustomeDocumentType);
         waitAndClick(masterCustomeDocumentType);
@@ -181,7 +183,7 @@ public class ElementMasterPage extends BasePage {
         waitAndClick(masterCustomerDocumentTypeSelect);
     }
 
-    public void verifyCheck(WebElement Check, Boolean checkSewing){
+    public void verifyCheck(WebElement Check, Boolean checkSewing) {
         try {
             if (checkSewing && masterElementscheckSewing.isDisplayed()) {
                 scrollToElement(masterElementscheckSewing);
@@ -190,7 +192,7 @@ public class ElementMasterPage extends BasePage {
         } catch (Exception e) {
             System.err.println("Ocurrió un error específico durante la espera o el clic: " + e.getMessage());
         }
-        }
-
     }
+
+}
 

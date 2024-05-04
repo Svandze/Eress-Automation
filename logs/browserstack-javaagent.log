@@ -1,0 +1,185 @@
+16:22:26.035 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+16:22:26.038 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+16:22:26.197 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:22:26.198 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:22:26.261 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:22:26.901 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+16:22:33.791 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:22:37.790 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+16:22:39.852 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/88kltnayiplghht0el1lg4jsns4ipd0r5yzzzzsx to view build report, insights, and many more debugging information all at one place!
+
+16:22:43.035 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+16:22:43.038 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+16:22:43.203 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:22:43.204 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:22:43.266 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:22:43.915 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+16:22:47.185 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:22:47.971 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+16:22:52.338 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/yfup5zvwlgoicfdy1rtp7g6sxihnaks3qd9d4yml to view build report, insights, and many more debugging information all at one place!
+
+16:22:52.524 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+16:22:53.487 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:22:53.491 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:22:53.494 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:22:53.497 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:22:53.498 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:22:53.501 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:22:53.569 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:22:53.580 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:22:53.585 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:22:56.524 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:22:56.544 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:22:56.593 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:25:17.005 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+16:25:17.008 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+16:25:17.183 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:25:17.184 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:25:17.255 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:25:17.955 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+16:25:23.005 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:25:23.983 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+16:25:28.247 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+16:25:29.294 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:25:29.294 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:25:29.297 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:25:29.298 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:25:29.296 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:25:29.302 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:25:29.388 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:25:29.389 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:25:29.393 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:25:32.412 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:25:32.412 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:25:32.427 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:32:08.222 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/nv36spyubzsy2xpquvuhhfhjb0pt1mvqe9z8nnyz to view build report, insights, and many more debugging information all at one place!
+
+16:34:34.594 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+16:34:34.597 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+16:34:34.783 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:34:34.784 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:34:34.849 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:34:35.528 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+16:34:41.831 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:34:42.712 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+16:34:47.187 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+16:34:48.055 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:34:48.058 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:34:48.122 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:34:51.253 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:44:45.381 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/odngavbjqq7i1oi7vh3fk0ylkpgpyityq8xu0aeh to view build report, insights, and many more debugging information all at one place!
+
+16:46:46.967 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+16:46:46.969 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+16:46:47.135 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:46:47.136 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:46:47.198 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:46:47.846 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+16:46:51.808 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:46:52.717 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+16:46:57.177 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+16:46:57.925 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:46:57.928 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:46:57.995 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:47:00.996 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:47:12.119 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/7jcbaamobp3dxhoqogwk03m5scg0adqugrlrhimw to view build report, insights, and many more debugging information all at one place!
+
+16:47:17.602 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+16:47:17.605 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+16:47:17.764 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:47:17.765 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:47:17.828 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:47:18.458 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+16:47:21.596 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:47:22.476 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+16:47:26.610 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+16:47:27.336 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:47:27.338 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:47:27.398 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:47:30.445 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:47:35.691 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/oitkzn8fegyuys9zsjn6ih5xv6a4ywubqdeujbxb to view build report, insights, and many more debugging information all at one place!
+
+16:50:29.286 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+16:50:29.289 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+16:50:29.444 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:50:29.445 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:50:29.497 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:50:29.661 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+16:50:33.206 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:50:34.085 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+16:50:38.297 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+16:50:38.795 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+16:50:38.798 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+16:50:38.847 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+16:50:41.841 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+16:58:00.116 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/dayc012dkcnbnhhyuqxrq9okqunc3ph6zn4sgbes to view build report, insights, and many more debugging information all at one place!
+
+16:58:04.131 [Thread-0] INFO  c.browserstack.utils.UtilityMethods - View build on BrowserStack dashboard: https://automate.browserstack.com/dashboard/v2/builds/f83e7fedef97e12af5bf17696438baeb2e82f5d6
+16:58:04.132 [Thread-0] INFO  c.b.config.BrowserStackConfig - INFO
+17:06:48.334 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+17:06:48.337 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+17:06:48.504 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+17:06:48.505 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+17:06:48.556 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+17:06:48.724 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+17:06:52.610 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+17:06:53.640 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+17:06:58.175 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+17:06:58.714 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+17:06:58.717 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+17:06:58.767 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+17:07:01.731 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+17:13:37.178 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/vmuveo7pgq5ugyka7jjf17iap59vtycdst4tfnyc to view build report, insights, and many more debugging information all at one place!
+
+17:13:41.264 [Thread-0] INFO  c.browserstack.utils.UtilityMethods - View build on BrowserStack dashboard: https://automate.browserstack.com/dashboard/v2/builds/a5b7ad541825bd2767daf28487eb09a31d5c335e
+17:13:41.264 [Thread-0] INFO  c.b.config.BrowserStackConfig - INFO
+17:31:33.103 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+17:31:33.106 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+17:31:33.307 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+17:31:33.308 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+17:31:33.362 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+17:31:33.542 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+17:31:38.170 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+17:31:39.345 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+17:31:43.862 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+17:31:44.551 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+17:31:44.554 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+17:31:44.557 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+17:31:44.557 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+17:31:44.560 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+17:31:44.560 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+17:31:44.608 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+17:31:44.615 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+17:31:44.616 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+17:31:47.635 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+17:31:47.640 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+17:31:47.695 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+17:37:41.679 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/mgmlugyzhsgzif8uhxnglc7blquabmaxnl6snsi9 to view build report, insights, and many more debugging information all at one place!
+
+17:37:46.927 [Thread-0] INFO  c.browserstack.utils.UtilityMethods - View build on BrowserStack dashboard: https://automate.browserstack.com/dashboard/v2/builds/2a82084ec545810de50925f7a1ec4f527c64fb2c
+17:37:46.928 [Thread-0] INFO  c.b.config.BrowserStackConfig - INFO
+18:20:14.256 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.16.1
+18:20:14.259 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+18:20:14.423 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+18:20:14.424 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+18:20:14.480 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+18:20:14.648 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+18:20:19.876 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+18:20:20.902 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+18:20:25.263 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+18:20:25.962 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+18:20:25.964 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+18:20:25.981 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+18:20:25.981 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+18:20:25.984 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+18:20:25.984 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\Mateo\Desktop\TDG\Seress\browserstack.yml
+18:20:26.021 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+18:20:26.038 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+18:20:26.038 [main] INFO  c.b.config.BrowserStackConfig - Setting value of testObservability as specified in your browserstack.yml to true
+18:20:28.944 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+18:20:28.944 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+18:20:28.954 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+18:27:24.922 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/bpyigpxyj9gcsqkn70nc6sbpp7nzieqlppctkyha to view build report, insights, and many more debugging information all at one place!
+
+18:27:30.637 [Thread-0] INFO  c.browserstack.utils.UtilityMethods - View build on BrowserStack dashboard: https://automate.browserstack.com/dashboard/v2/builds/2f2e7f6c78fb283b6020384b481d98f2c35aeac0
+18:27:30.637 [Thread-0] INFO  c.b.config.BrowserStackConfig - INFO

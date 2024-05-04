@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.regionlocation;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 
 public class RegionLocationPage extends BasePage {
@@ -88,12 +89,12 @@ public class RegionLocationPage extends BasePage {
         String currentLocationByRegionsRegion = locationByRegionsRegionInputForm.getAttribute("value");
         String currentLocationByRegionsCodCity = locationByRegionsCodeCityInputForm.getAttribute("value");
         String currentLocationByRegionsCity = locationByRegionsCityInputForm.getAttribute("value");
-        Assert.assertEquals("The current country code value  matches the expected value", expectLocationByRegionsCodCountry, currentLocationByRegionsCodeCountry);
-        Assert.assertEquals("The current country value  matches the expected value", expectLocationByRegionsCountry, currentLocationByRegionsCountry);
-        Assert.assertEquals("The current region code value  matches the expected value", expectLocationByRegionCodRegion, currentLocationByRegionsCodRegion);
-        Assert.assertEquals("The current region value  matches the expected value", expectLocationByRegionRegion, currentLocationByRegionsRegion);
-        Assert.assertEquals("The current city code value  matches the expected value", expectLocationByRegionsCodCity, currentLocationByRegionsCodCity);
-        Assert.assertEquals("The current city value  matches the expected value", expectLocationByRegionsCity, currentLocationByRegionsCity);
+        assertEquals(expectLocationByRegionsCodCountry, currentLocationByRegionsCodeCountry, "The current country code value  matches the expected value");
+        assertEquals(expectLocationByRegionsCountry, currentLocationByRegionsCountry, "The current country value  matches the expected value");
+        assertEquals(expectLocationByRegionCodRegion, currentLocationByRegionsCodRegion, "The current region code value  matches the expected value");
+        assertEquals(expectLocationByRegionRegion, currentLocationByRegionsRegion, "The current region value  matches the expected value");
+        assertEquals(expectLocationByRegionsCodCity, currentLocationByRegionsCodCity, "The current city code value  matches the expected value");
+        assertEquals(expectLocationByRegionsCity, currentLocationByRegionsCity, "The current city value  matches the expected value");
 
     }
 
@@ -102,7 +103,7 @@ public class RegionLocationPage extends BasePage {
         setMachineData(locationByRegionsCodCountry, locationByRegionsCountry, locationByRegionCodRegion, locationByRegionRegion, locationByRegionsCodCity, locationByRegionsCity);
     }
 
-    public void editLocationByRegions(String locationByRegionsCode,String newLocationByRegionsCodCountry, String newLocationByRegionsCountry, String newLocationByRegionCodRegion, String newLocationByRegionRegion, String newLocationByRegionsCodCity, String newLocationByRegionsCity) {
+    public void editLocationByRegions(String locationByRegionsCode, String newLocationByRegionsCodCountry, String newLocationByRegionsCountry, String newLocationByRegionCodRegion, String newLocationByRegionRegion, String newLocationByRegionsCodCity, String newLocationByRegionsCity) {
         findMachine(locationByRegionsCode);
         waitAndClick(getEditButtonForMachine(locationByRegionsCode));
         setMachineData(newLocationByRegionsCodCountry, newLocationByRegionsCountry, newLocationByRegionCodRegion, newLocationByRegionRegion, newLocationByRegionsCodCity, newLocationByRegionsCity);

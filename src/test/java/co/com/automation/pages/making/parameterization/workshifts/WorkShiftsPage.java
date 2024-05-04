@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.workshifts;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -14,6 +14,8 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -62,6 +64,7 @@ public class WorkShiftsPage extends BasePage {
 
     @FindBy(xpath = "(//input[@placeholder='Buscar'])[2]")
     public WebElement searchInputField;
+
     public WebElement getEditButtonForWorkShifts(String workShiftsCode) {
         return driver.findElement(By.xpath("(//td[contains(text(),'" + workShiftsCode + "')]/following-sibling::td/div/seress-ui-button)[1]"));
     }
@@ -84,15 +87,15 @@ public class WorkShiftsPage extends BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[normalize-space()='" + workShiftsCode + "']")));
     }
 
-    public void setWorkShiftsData(String workShiftsCode, String workShiftsDescription, int numberInitialHour, int numberInitialMinute,int numberFinalHour, int numberFinalMinute) {
+    public void setWorkShiftsData(String workShiftsCode, String workShiftsDescription, int numberInitialHour, int numberInitialMinute, int numberFinalHour, int numberFinalMinute) {
         scrollToElement(workShiftsCodeInputForm);
         waitAndSendKeys(workShiftsCodeInputForm, workShiftsCode);
         waitAndSendKeys(workShiftsDescriptionInputForm, workShiftsDescription);
-        hour(workShiftsInitialHourInputForm,workShiftsInitialIncreaseHH, workShiftsIntialHHNumber,numberInitialHour);
-        minute(workShiftsInitialIncreaseMM,workShiftsInitialMMNumber, numberInitialMinute);
+        hour(workShiftsInitialHourInputForm, workShiftsInitialIncreaseHH, workShiftsIntialHHNumber, numberInitialHour);
+        minute(workShiftsInitialIncreaseMM, workShiftsInitialMMNumber, numberInitialMinute);
         waitAndClick(workShiftsCodeInputForm);
-        hour(workShiftsFinalHourInputForm,workShiftsInitialIncreaseHH, workShiftsIntialHHNumber,numberFinalHour);
-        minute(workShiftsInitialIncreaseMM,workShiftsInitialMMNumber, numberFinalMinute);
+        hour(workShiftsFinalHourInputForm, workShiftsInitialIncreaseHH, workShiftsIntialHHNumber, numberFinalHour);
+        minute(workShiftsInitialIncreaseMM, workShiftsInitialMMNumber, numberFinalMinute);
         waitAndClick(workShiftsCodeInputForm);
         implicitWait();
         clickWithJavaScript(addButton);
@@ -100,22 +103,22 @@ public class WorkShiftsPage extends BasePage {
     }
 
 
-        public void validateWorkShiftsInfo(String workShiftsCode, String workShiftsDescription, int expectWorkShiftInitialHour, int expectWorkShiftInitialMinute, int expectWorkShiftFinalHour, int expectWorkShiftFinalMinute) {
+    public void validateWorkShiftsInfo(String workShiftsCode, String workShiftsDescription, int expectWorkShiftInitialHour, int expectWorkShiftInitialMinute, int expectWorkShiftFinalHour, int expectWorkShiftFinalMinute) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.attributeToBe(workShiftsCodeInputForm, "value", workShiftsCode));
         String currentWorkShiftsCode = workShiftsCodeInputForm.getAttribute("value");
         String currentWorkShiftsDescription = workShiftsDescriptionInputForm.getAttribute("value");
         String currenthoursWorkShifts = workShiftsHoursInputForm.getAttribute("value");
-        double numeroHoras=  calcularHoras(expectWorkShiftInitialHour, expectWorkShiftInitialMinute, expectWorkShiftFinalHour, expectWorkShiftFinalMinute);
+        double numeroHoras = calcularHoras(expectWorkShiftInitialHour, expectWorkShiftInitialMinute, expectWorkShiftFinalHour, expectWorkShiftFinalMinute);
         int horas = (int) numeroHoras;
         double minutos = (numeroHoras - horas) * 60;
-        Float totalHoras= Float.valueOf((horas+"."+(int) minutos));
-        boolean resultado = validarHoras(currenthoursWorkShifts,totalHoras);
-        Assert.assertEquals("The current code value  matches the expected value", workShiftsCode, currentWorkShiftsCode);
-        Assert.assertEquals("The current description value  matches the expected value", workShiftsDescription, currentWorkShiftsDescription);
-        Assert.assertTrue("La validación ha fallado", resultado);
-        }
+        Float totalHoras = Float.valueOf((horas + "." + (int) minutos));
+        boolean resultado = validarHoras(currenthoursWorkShifts, totalHoras);
+        assertEquals(workShiftsCode, currentWorkShiftsCode, "The current code value  matches the expected value");
+        assertEquals(workShiftsDescription, currentWorkShiftsDescription, "The current description value  matches the expected value");
+        assertTrue(resultado, "La validación ha fallado");
+    }
 
     public void addWorkShifts(String workShiftsCode, String workShiftsDescription, int initialHour, int initialMinute, int finalHour, int finalMinute) {
         implicitWait();
@@ -128,13 +131,13 @@ public class WorkShiftsPage extends BasePage {
     public void editWorkShifts(String workShiftsCode, String newWorkShiftsCode, String newWorkShiftsDescription, int newWorkShiftInitialHour, int newWorkShiftInitialMinute, int newWorkShiftFinalHour, int newWorkShiftFinalMinute) {
         findWorkShifts(workShiftsCode);
         waitAndClick(getEditButtonForWorkShifts(workShiftsCode));
-        setWorkShiftsData(newWorkShiftsCode, newWorkShiftsDescription, newWorkShiftInitialHour, newWorkShiftInitialMinute , newWorkShiftFinalHour, newWorkShiftFinalMinute);
+        setWorkShiftsData(newWorkShiftsCode, newWorkShiftsDescription, newWorkShiftInitialHour, newWorkShiftInitialMinute, newWorkShiftFinalHour, newWorkShiftFinalMinute);
     }
 
-    public void validateWorkShifts(String workShiftsCode, String expectWorkShiftsCode, String expectWorkShiftsDescription,  int expectWorkShiftInitialHour, int expectWorkShiftInitialMinute, int expectWorkShiftFinalHour, int expectWorkShiftFinalMinute) {
+    public void validateWorkShifts(String workShiftsCode, String expectWorkShiftsCode, String expectWorkShiftsDescription, int expectWorkShiftInitialHour, int expectWorkShiftInitialMinute, int expectWorkShiftFinalHour, int expectWorkShiftFinalMinute) {
         findWorkShifts(workShiftsCode);
         waitAndClick(getDetailsButtonForWorkShifts(workShiftsCode));
-        validateWorkShiftsInfo(expectWorkShiftsCode, expectWorkShiftsDescription,expectWorkShiftInitialHour, expectWorkShiftInitialMinute, expectWorkShiftFinalHour, expectWorkShiftFinalMinute );
+        validateWorkShiftsInfo(expectWorkShiftsCode, expectWorkShiftsDescription, expectWorkShiftInitialHour, expectWorkShiftInitialMinute, expectWorkShiftFinalHour, expectWorkShiftFinalMinute);
         clickWithJavaScript(cancelButton);
     }
 
@@ -188,7 +191,7 @@ public class WorkShiftsPage extends BasePage {
         }
     }
 
-    public double calcularHoras( int numberInitialHour, int numberInitialMinute,int numberFinalHour, int numberFinalMinute) {
+    public double calcularHoras(int numberInitialHour, int numberInitialMinute, int numberFinalHour, int numberFinalMinute) {
 
         String horaInicial = String.format("%02d:%02d", numberInitialHour, numberInitialMinute);
         String horaFinal = String.format("%02d:%02d", numberFinalHour, numberFinalMinute);
@@ -209,6 +212,7 @@ public class WorkShiftsPage extends BasePage {
             return -1;
         }
     }
+
     public boolean validarHoras(String currentHoursWorkShifts, float totalHoras) {
         float currentHours = Float.parseFloat(currentHoursWorkShifts);
 

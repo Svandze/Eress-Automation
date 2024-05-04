@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.machinemaster;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 
 public class MachineMasterPage extends BasePage {
@@ -81,10 +82,10 @@ public class MachineMasterPage extends BasePage {
         String currentdistance0To5Cms = distance0To5InputForm.getAttribute("value");
         String currentDistance6To10Cms = distance6To10InputForm.getAttribute("value");
         String currentdistanceGratherThan11Cms = distanceGreatherThan11InputForm.getAttribute("value");
-        Assert.assertEquals("The current machine code value  matches the expected value", machineCode, currentMachineCode);
-        Assert.assertEquals("The current distance value for 0-5 cms  matches the expected value", distance0To5Cms, currentdistance0To5Cms);
-        Assert.assertEquals("The current distance value for 6-10 cms  matches the expected value", distance6To10Cms, currentDistance6To10Cms);
-        Assert.assertEquals("The current distance value for > 11 cms  matches the expected value", distanceGratherThan11Cms, currentdistanceGratherThan11Cms);
+        assertEquals(machineCode, currentMachineCode, "The current machine code value  matches the expected value");
+        assertEquals(distance0To5Cms, currentdistance0To5Cms, "The current distance value for 0-5 cms  matches the expected value");
+        assertEquals(distance6To10Cms, currentDistance6To10Cms, "The current distance value for 6-10 cms  matches the expected value");
+        assertEquals(distanceGratherThan11Cms, currentdistanceGratherThan11Cms, "The current distance value for > 11 cms  matches the expected value");
     }
 
     public void addMachine(String machineCode, String description, String distance0To5cm, String distance6To10cm, String distanceGreatherThan11Cm) {

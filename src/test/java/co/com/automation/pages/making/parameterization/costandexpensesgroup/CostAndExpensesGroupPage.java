@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.costandexpensesgroup;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -71,8 +72,8 @@ public class CostAndExpensesGroupPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(costExpenseGroupsCodeInputForm, "value", costExpenseGroupsCode));
         String currentCostExpenseGroupsCode = costExpenseGroupsCodeInputForm.getAttribute("value");
         String currentCostExpenseGroupsDescription = costExpenseGroupsDescriptionInputForm.getAttribute("value");
-        Assert.assertEquals("The current code value  matches the expected value", costExpenseGroupsCode, currentCostExpenseGroupsCode);
-        Assert.assertEquals("The current description value  matches the expected value", CostExpenseGroupsDescription, currentCostExpenseGroupsDescription);
+        assertEquals(costExpenseGroupsCode, currentCostExpenseGroupsCode, "The current code value  matches the expected value");
+        assertEquals(CostExpenseGroupsDescription, currentCostExpenseGroupsDescription,"The current description value  matches the expected value");
     }
 
     public void addCostExpenseGroups(String costExpenseGroupsCode, String costExpenseGroupsDescription) {

@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.levelofdifficulty;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -77,9 +78,9 @@ public class LevelOfDifficultyPage extends BasePage {
         String currentMovementGroupCode = levelDifficultyCodeInputForm.getAttribute("value");
         String currentDescriptionMovementGroup = levelDifficultyDescriptionInputForm.getAttribute("value");
         String currentLevelDifficultyValue = levelDifficultyCheckInputForm.getAttribute("value");
-        Assert.assertEquals("The current code value of the movement group  matches the expected value", levelDifficultyCode, currentMovementGroupCode);
-        Assert.assertEquals("The current description value  matches the expected value", levelDifficultyDescription, currentDescriptionMovementGroup);
-        Assert.assertEquals("The current value  matches the expected value", levelDifficultyValue, currentLevelDifficultyValue);
+        assertEquals(levelDifficultyCode, currentMovementGroupCode, "The current code value of the movement group  matches the expected value");
+        assertEquals(levelDifficultyDescription, currentDescriptionMovementGroup, "The current description value  matches the expected value");
+        assertEquals(levelDifficultyValue, currentLevelDifficultyValue, "The current value  matches the expected value");
     }
 
     public void addLevelDifficulty(String levelDifficultyCode, String levelDifficultyDescription, String levelDifficultyValue) {

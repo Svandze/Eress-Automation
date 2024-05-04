@@ -1,7 +1,6 @@
 package co.com.automation.pages.making.parameterization.clientmaster;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -149,20 +150,20 @@ public class ClientMasterPage extends BasePage {
         String currentMasterCustomerEmail = masterCustomerEmailInputForm.getAttribute("value");
         String currentMasterCustomerDataRegion = dropDownRegionTypeDataInputFormMasterCustomer.getText();
 
-        Assert.assertEquals("The current code value of the master customer group  matches the expected value", masterCustomerCod, currentMasterCustomerCod);
-        Assert.assertTrue("The current document type value of the master customer  contain the expected value", currentMasterCustomerDataDocumentType.contains(masterCustomerDocumentType));
-        Assert.assertEquals("The current document value of the master customer  matches the expected value", masterCustomerDocument, currentMasterCustomerDocument);
-        Assert.assertEquals("The current business name value of the master customer  matches the expected value", masterCustomerBusinessName, currentMasterCustomerBussinessName);
-        Assert.assertEquals("The current first name value of the master customer  matches the expected value", masterCustomerFirstName, currentMasterCustomerFirstName);
-        Assert.assertEquals("The current second name value of the master customer  matches the expected value", masterCustomerSecondName, currentMasterCustomerSecondName);
-        Assert.assertEquals("The current first last name value of the master customer  matches the expected value", masterCustomerLastName, currentMasterCustomerLastName);
-        Assert.assertEquals("The current second last name value of the master customer  matches the expected value", masterCustomerSecondLastName, currentMasterCustomerSecondLastName);
-        Assert.assertEquals("The current address 1 value of the master customer  matches the expected value", masterCustomerAddressnOne, currentMasterCustomerAddressnOne);
-        Assert.assertEquals("The current address 2 value of the master customer  matches the expected value", masterCustomerAddressnTwo, currentMasterCustomerAddressnTwo);
-        Assert.assertEquals("The current phone 1 value of the master customer  matches the expected value", masterCustomerPhoneOne, currentMasterCustomerPhoneOne);
-        Assert.assertEquals("The current phone 2 value of the master customer  matches the expected value", masterCustomerPhoneTwo, currentMasterCustomerPhoneTwo);
-        Assert.assertEquals("The current email value of the master customer  matches the expected value", masterCustomerEmail, currentMasterCustomerEmail);
-        Assert.assertTrue("The current region value of the master customer  contain the expected value", currentMasterCustomerDataRegion.contains(masterCustomerRegion));
+        assertEquals("The current code value of the master customer group  matches the expected value", masterCustomerCod, currentMasterCustomerCod);
+        assertTrue(currentMasterCustomerDataDocumentType.contains(masterCustomerDocumentType), "The current document type value of the master customer  contain the expected value");
+        assertEquals("The current document value of the master customer  matches the expected value", masterCustomerDocument, currentMasterCustomerDocument);
+        assertEquals("The current business name value of the master customer  matches the expected value", masterCustomerBusinessName, currentMasterCustomerBussinessName);
+        assertEquals("The current first name value of the master customer  matches the expected value", masterCustomerFirstName, currentMasterCustomerFirstName);
+        assertEquals("The current second name value of the master customer  matches the expected value", masterCustomerSecondName, currentMasterCustomerSecondName);
+        assertEquals("The current first last name value of the master customer  matches the expected value", masterCustomerLastName, currentMasterCustomerLastName);
+        assertEquals("The current second last name value of the master customer  matches the expected value", masterCustomerSecondLastName, currentMasterCustomerSecondLastName);
+        assertEquals("The current address 1 value of the master customer  matches the expected value", masterCustomerAddressnOne, currentMasterCustomerAddressnOne);
+        assertEquals("The current address 2 value of the master customer  matches the expected value", masterCustomerAddressnTwo, currentMasterCustomerAddressnTwo);
+        assertEquals("The current phone 1 value of the master customer  matches the expected value", masterCustomerPhoneOne, currentMasterCustomerPhoneOne);
+        assertEquals("The current phone 2 value of the master customer  matches the expected value", masterCustomerPhoneTwo, currentMasterCustomerPhoneTwo);
+        assertEquals("The current email value of the master customer  matches the expected value", masterCustomerEmail, currentMasterCustomerEmail);
+        assertTrue(currentMasterCustomerDataRegion.contains(masterCustomerRegion), "The current region value of the master customer  contain the expected value");
     }
 
     public void addMasterCustomer(String masterCustomerCod, String masterCustomerDocumentType, String masterCustomerDocument, String masterCustomerBusinessName, String masterCustomerFirstName, String masterCustomerSecondName, String masterCustomerLastName, String masterCustomerSecondLastName, String masterCustomerAddressnOne, String masterCustomerAddressnTwo, String masterCustomerPhoneOne, String masterCustomerPhoneTwo, String masterCustomerEmail, String masterCustomerRegion) {

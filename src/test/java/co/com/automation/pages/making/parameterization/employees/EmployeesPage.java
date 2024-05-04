@@ -1,12 +1,13 @@
 package co.com.automation.pages.making.parameterization.employees;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.implicitWait;
 import static utils.ElementUtils.scrollToElement;
 import static utils.ElementUtils.waitAndClick;
@@ -176,8 +177,8 @@ public class EmployeesPage extends BasePage {
         implicitWait();
         String currentDocument = documentInput.getAttribute("value");
         String currentName = namesInput.getAttribute("value");
-        Assert.assertEquals(currentDocument, expectedId);
-        Assert.assertEquals(currentName, expectedName);
+        assertEquals(currentDocument, expectedId);
+        assertEquals(currentName, expectedName);
         scrollToElement(cancelButton);
         waitAndClick(cancelButton);
     }

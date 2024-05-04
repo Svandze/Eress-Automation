@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.genresmaster;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -65,14 +66,14 @@ public class GenresMasterPage extends BasePage {
         clickWithJavaScript(confirmAddMasterGenres);
     }
 
-    public void validateMasterGenresInfo(String masterGenresCode,  String masterGenresDescription) {
+    public void validateMasterGenresInfo(String masterGenresCode, String masterGenresDescription) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.attributeToBe(masterGenresCodeInputForm, "value", masterGenresCode));
         String currentMasterGenresCode = masterGenresCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = masterGenresDescriptionInputForm.getAttribute("value");
-        Assert.assertEquals("The current code value  matches the expected value", masterGenresCode, currentMasterGenresCode);
-        Assert.assertEquals("The current description value  matches the expected value", masterGenresDescription, currentMasterGenresDescription);
+        assertEquals(masterGenresCode, currentMasterGenresCode, "The current code value  matches the expected value");
+        assertEquals(masterGenresDescription, currentMasterGenresDescription, "The current description value  matches the expected value");
     }
 
     public void addMasterGenresCode(String masterGenresCode, String masterGenresDescription) {
@@ -81,13 +82,13 @@ public class GenresMasterPage extends BasePage {
         setMasterGenresData(masterGenresCode, masterGenresDescription);
     }
 
-    public void editMasterGenres(String masterGenresCode, String newMasterGenresCode,String newMasterGenresDescriptionString ) {
+    public void editMasterGenres(String masterGenresCode, String newMasterGenresCode, String newMasterGenresDescriptionString) {
         findMasterGenres(masterGenresCode);
         waitAndClick(getEditButtonForMasterGenres(masterGenresCode));
         setMasterGenresData(newMasterGenresCode, newMasterGenresDescriptionString);
     }
 
-    public void validateMasterGenres(String masterGenresCode, String expectMasterGenresCode,String expectMasterGenresDescription) {
+    public void validateMasterGenres(String masterGenresCode, String expectMasterGenresCode, String expectMasterGenresDescription) {
         findMasterGenres(masterGenresCode);
         waitAndClick(getDetailsButtonForMasterGenres(masterGenresCode));
         validateMasterGenresInfo(expectMasterGenresCode, expectMasterGenresDescription);

@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.operations;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -148,16 +150,16 @@ public class OperationsPage extends BasePage {
         String currentMasterMasterOperationAprobate = operationsAprobateDropDownData.getText();
         String currentMasterMasterOperationElement = operationsElementDropDownData.getText();
         String currentMasterMasterOperationDistance = operationsDistanceDropDownData.getText();
-        Assert.assertEquals("The current code value  matches the expected value", operationsCode, currentMasterOperationsCode);
-        Assert.assertEquals("The current description value  matches the expected value", operationsDescription, currentMasterOperationsDescription);
-        Assert.assertTrue("The current machine value  contain the expected value", currentMasterMasterOperationsMachines.contains(operationsMachine));
-        Assert.assertEquals("The current stitches per inch value  matches the expected value", operationsStitchesInch, currentMasterMasterOperationStitchesInch);
-        Assert.assertEquals("The current supplement value  matches the expected value", operationsSupplement, currentMasterMasterOperationSupplement);
-        Assert.assertTrue("The current difficulty level value  contain the expected value", currentMasterMasterOperationDifficult.contains(operationsDifficult));
-        Assert.assertTrue("The current elaboration value  contain the expected value", currentMasterMasterOperationElaborate.contains(operationsElaborate));
-        Assert.assertTrue("The current approval value  contain the expected value", currentMasterMasterOperationAprobate.contains(operationsAprobate));
-        Assert.assertTrue("The current element value  contain the expected value", currentMasterMasterOperationElement.contains(operationsElement));
-        Assert.assertTrue("The current distance value  contain the expected value", currentMasterMasterOperationDistance.contains(operationsDistance));
+        assertEquals( operationsCode, currentMasterOperationsCode, "The current code value  matches the expected value");
+        assertEquals( operationsDescription, currentMasterOperationsDescription, "The current description value  matches the expected value");
+        assertTrue(currentMasterMasterOperationsMachines.contains(operationsMachine), "The current machine value  contain the expected value");
+        assertEquals( operationsStitchesInch, currentMasterMasterOperationStitchesInch, "The current stitches per inch value  matches the expected value");
+        assertEquals( operationsSupplement, currentMasterMasterOperationSupplement, "The current supplement value  matches the expected value");
+        assertTrue(currentMasterMasterOperationDifficult.contains(operationsDifficult), "The current difficulty level value  contain the expected value");
+        assertTrue(currentMasterMasterOperationElaborate.contains(operationsElaborate), "The current elaboration value  contain the expected value");
+        assertTrue(currentMasterMasterOperationAprobate.contains(operationsAprobate), "The current approval value  contain the expected value");
+        assertTrue(currentMasterMasterOperationElement.contains(operationsElement), "The current element value  contain the expected value");
+        assertTrue(currentMasterMasterOperationDistance.contains(operationsDistance), "The current distance value  contain the expected value");
     }
 
     public void addOperations(String operationsCode, String operationsDescription, String operationsMachine, String operationsStitchesInch, String operationsSuplement, String operationsDifficult, String operationsElaborate, String operationsAprobate, String operationsElement, String operationsDistance, String operationsSewing) {

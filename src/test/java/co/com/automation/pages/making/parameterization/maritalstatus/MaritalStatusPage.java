@@ -1,7 +1,7 @@
 package co.com.automation.pages.making.parameterization.maritalstatus;
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -71,8 +72,8 @@ public class MaritalStatusPage extends BasePage {
         wait.until(ExpectedConditions.attributeToBe(maritalStatusCodeInputForm, "value", maritalStatusCode));
         String currentMasterGenresCode = maritalStatusCodeInputForm.getAttribute("value");
         String currentMasterGenresDescription = maritalStatusDescriptionInputForm.getAttribute("value");
-        Assert.assertEquals("The current code value  matches the expected value", maritalStatusCode, currentMasterGenresCode);
-        Assert.assertEquals("The current description  matches the expected value", maritalStatusDescription, currentMasterGenresDescription);
+        assertEquals(maritalStatusCode, currentMasterGenresCode, "The current code value  matches the expected value");
+        assertEquals(maritalStatusDescription, currentMasterGenresDescription, "The current description  matches the expected value");
     }
 
     public void addMaritalStatus(String maritalStatusCode, String maritalStatusDescription) {
@@ -81,7 +82,7 @@ public class MaritalStatusPage extends BasePage {
         setMaritalStatusData(maritalStatusCode, maritalStatusDescription);
     }
 
-    public void editMaritalStatus(String maritalStatusCode, String newJMaritalStatusCode, String newMaritalStatusDescription ) {
+    public void editMaritalStatus(String maritalStatusCode, String newJMaritalStatusCode, String newMaritalStatusDescription) {
         findMaritalStatus(maritalStatusCode);
         waitAndClick(getEditButtonForMaritalStatus(maritalStatusCode));
         setMaritalStatusData(newJMaritalStatusCode, newMaritalStatusDescription);

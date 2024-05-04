@@ -2,7 +2,7 @@ package co.com.automation.pages.making.parameterization.conceptcostsandexpenses;
 
 
 import co.com.automation.pages.BasePage;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
@@ -93,9 +95,9 @@ public class ConceptOfCostsAndExpensesPage extends BasePage {
         String currentConceptCostsExpensesGroup = conceptCostsExpensesDropDownGroupDataInputForm.getText();
         System.out.println(currentConceptCostsExpensesGroup);
         System.out.println(conceptCostsExpensesDropDownGroup);
-        Assert.assertEquals("The current value of the movement group code not matcheses the expected value", conceptCostsExpensesCod, currentConceptCostsExpensesCode);
-        Assert.assertEquals("The current value of the description not matcheses the expected value", conceptCostsExpensesConcept, currentConceptCostsExpensesConcept);
-        Assert.assertTrue("The current style value not matcheses the expected value", currentConceptCostsExpensesGroup.contains(conceptCostsExpensesDropDownGroup));
+        assertEquals(conceptCostsExpensesCod, currentConceptCostsExpensesCode, "The current value of the movement group code not matcheses the expected value");
+        assertEquals(conceptCostsExpensesConcept, currentConceptCostsExpensesConcept, "The current value of the description not matcheses the expected value");
+        assertTrue(currentConceptCostsExpensesGroup.contains(conceptCostsExpensesDropDownGroup), "The current style value not matcheses the expected value");
 
     }
 
@@ -128,6 +130,7 @@ public class ConceptOfCostsAndExpensesPage extends BasePage {
         waitAndClick(getDeleteButtonForConceptCostsExpenses());
         waitAndClick(confirmButtonDelete);
     }
+
     public void customDropdown(WebElement dropDown, WebElement inputForm, WebElement select, String data) {
         scrollToElement(dropDown);
         waitAndClick(dropDown);
