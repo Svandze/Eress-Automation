@@ -1,5 +1,6 @@
 package co.com.automation.steps.making.parameterization.competencetype;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import co.com.automation.pages.making.parameterization.MakingPage;
