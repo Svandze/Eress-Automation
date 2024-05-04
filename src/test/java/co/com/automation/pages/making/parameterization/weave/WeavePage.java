@@ -1,4 +1,4 @@
-package co.com.automation.pages.making.parameterization.cloth;
+package co.com.automation.pages.making.parameterization.weave;
 
 import co.com.automation.pages.BasePage;
 import org.junit.Assert;
@@ -14,7 +14,7 @@ import java.time.Duration;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
-public class ClothPage extends BasePage {
+public class WeavePage extends BasePage {
 
 
     @FindBy(xpath = "//button[@type='submit']")
