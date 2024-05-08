@@ -42,7 +42,5 @@ public class LevelOfDifficultyTest extends BaseTestEress {
         levelOfDifficultyPage.editLevelDifficulty(levelDifficultyCode, updateLevelDifficultyCode, updatedLevelDifficultyDescription, updatedLevelDifficultyValue);
         levelOfDifficultyPage.validateLevelDifficulty(updateLevelDifficultyCode, updateLevelDifficultyCode, updatedLevelDifficultyDescription, updatedLevelDifficultyValue);
         levelOfDifficultyPage.deleteLevelDifficulty(updateLevelDifficultyCode);
-
-
     }
 }

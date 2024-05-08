@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>framework</artifactId>
-            <version>1.3.6+Aggregator</version>
+            <version>1.3.6+locatorList</version>
         </dependency>
 
         <dependency>

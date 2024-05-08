@@ -16,7 +16,6 @@ import static co.com.eress.automation.utils.randomCodeBuilder.randomCode;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.windowHandler;
 
-@Epic("Eeress")
 @Feature("Machine Master Functionality")
 public class MachineMasterTest extends BaseTestEress {
 
