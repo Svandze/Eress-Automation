@@ -1,8 +1,5 @@
 package co.com.automation.steps.making.parameterization.machinemaster;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import co.com.automation.pages.making.parameterization.MakingPageEress;
 import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
