@@ -3,9 +3,9 @@ package co.com.automation.steps.making.parameterization.employees;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.employees.EmployeesPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.employees.EmployeesPageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -15,16 +15,16 @@ import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.windowHandler;
 
 public class EmployeesTest extends BaseTestEress {
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private EmployeesPage employeesPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private EmployeesPageEress employeesPage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        employeesPage = new EmployeesPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        employeesPage = new EmployeesPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         implicitWait();

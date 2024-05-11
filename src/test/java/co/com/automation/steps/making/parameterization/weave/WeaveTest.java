@@ -2,9 +2,9 @@ package co.com.automation.steps.making.parameterization.weave;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.weave.WeavePage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.weave.WeavePageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -16,17 +16,17 @@ public class WeaveTest extends BaseTestEress {
 
 
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private WeavePage weavePage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private WeavePageEress weavePage;
 
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        weavePage = new WeavePage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        weavePage = new WeavePageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         scrollToElement(parameterizationPage.maestroTejidosIcon);

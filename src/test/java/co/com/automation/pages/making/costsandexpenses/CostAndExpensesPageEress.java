@@ -1,7 +1,6 @@
 package co.com.automation.pages.making.costsandexpenses;
 
-import co.com.automation.pages.BasePage;
-import org.junit.jupiter.api.Assertions.*;
+import co.com.automation.pages.BasePageEress;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -16,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
-public class CostAndExpensesPage extends BasePage {
+public class CostAndExpensesPageEress extends BasePageEress {
 
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement confirmAddCostExpenses;
@@ -32,8 +31,6 @@ public class CostAndExpensesPage extends BasePage {
     public WebElement monthButton;
     @FindBy(xpath = "//tbody/tr[3]/td[4]")
     public WebElement dayButton;
-
-    //Dropdown taller
     @FindBy(xpath = "(//div[@aria-label='dropdown trigger'])[1]")
     public WebElement costExpensesWorkShopDropDown;
 

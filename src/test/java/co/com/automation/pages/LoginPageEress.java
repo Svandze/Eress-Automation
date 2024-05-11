@@ -8,7 +8,7 @@ import static co.com.eress.automation.constants.EressConstants.PASSWORD;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.waitAndSendKeys;
 
-public class LoginPage extends BasePage {
+public class LoginPageEress extends BasePageEress {
     @FindBy(xpath = "//input[@placeholder='Correo de Acceso']")
     public WebElement emailInput;
 

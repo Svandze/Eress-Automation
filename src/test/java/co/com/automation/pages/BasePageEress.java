@@ -1,5 +1,6 @@
 package co.com.automation.pages;
 
+import base.BasePage;
 import core.CustomPageFactory;
 import core.DriverManager;
 import lombok.extern.slf4j.Slf4j;
@@ -11,12 +12,12 @@ import static utils.ElementUtils.clickWithJavaScript;
 import static utils.ElementUtils.scrollToElement;
 
 @Slf4j
-public class BasePage {
+public class BasePageEress extends BasePage {
+
     protected WebDriver driver;
 
-    public BasePage() {
-        this.driver = DriverManager.getDriver();
-        CustomPageFactory.initElements(driver, this);
+    public BasePageEress() {
+        this.driver = super.driver;
     }
 
 

@@ -1,11 +1,10 @@
 package co.com.automation.steps.making.parameterization.competencetype;
 
-import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.competencetype.CompetenceTypePage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.competencetype.CompetenceTypePageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -15,16 +14,16 @@ import static utils.ElementUtils.waitAndClick;
 
 public class CompetenceTypeTest extends BaseTestEress {
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private CompetenceTypePage competenceTypePage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private CompetenceTypePageEress competenceTypePage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        competenceTypePage = new CompetenceTypePage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        competenceTypePage = new CompetenceTypePageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         scrollToElement(parameterizationPage.tipoMovimientoIcon);

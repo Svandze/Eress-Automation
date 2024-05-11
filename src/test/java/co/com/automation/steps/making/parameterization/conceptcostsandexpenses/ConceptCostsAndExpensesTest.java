@@ -4,9 +4,9 @@ package co.com.automation.steps.making.parameterization.conceptcostsandexpenses;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.conceptcostsandexpenses.ConceptOfCostsAndExpensesPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.conceptcostsandexpenses.ConceptOfCostsAndExpensesPageEress;
 
 import co.com.automation.steps.BaseTestEress;
 
@@ -16,16 +16,16 @@ import static utils.ElementUtils.*;
 import static utils.ElementUtils.clickWithJavaScript;
 
 public class ConceptCostsAndExpensesTest extends BaseTestEress {
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private ConceptOfCostsAndExpensesPage conceptOfCostsAndExpensesPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private ConceptOfCostsAndExpensesPageEress conceptOfCostsAndExpensesPage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        conceptOfCostsAndExpensesPage = new ConceptOfCostsAndExpensesPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        conceptOfCostsAndExpensesPage = new ConceptOfCostsAndExpensesPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         implicitWait();

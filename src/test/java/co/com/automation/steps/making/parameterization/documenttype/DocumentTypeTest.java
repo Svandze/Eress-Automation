@@ -2,9 +2,9 @@ package co.com.automation.steps.making.parameterization.documenttype;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.documenttype.DocumentTypePage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.documenttype.DocumentTypePageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -13,16 +13,16 @@ import static utils.ElementUtils.*;
 import static utils.ElementUtils.clickWithJavaScript;
 
 public class DocumentTypeTest extends BaseTestEress {
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private DocumentTypePage documentTypePage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private DocumentTypePageEress documentTypePage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        documentTypePage = new DocumentTypePage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        documentTypePage = new DocumentTypePageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         implicitWait();

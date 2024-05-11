@@ -1,7 +1,6 @@
 package co.com.automation.pages.making.parameterization.movementgroup;
 
-import co.com.automation.pages.BasePage;
-import org.junit.jupiter.api.Assertions.*;
+import co.com.automation.pages.BasePageEress;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -15,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.waitAndClick;
 
-public class MovementGroupPage extends BasePage {
+public class MovementGroupPageEress extends BasePageEress {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement confirmAddMovementGroup;
 

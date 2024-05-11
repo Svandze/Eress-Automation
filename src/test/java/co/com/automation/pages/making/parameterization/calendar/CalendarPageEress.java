@@ -1,6 +1,6 @@
 package co.com.automation.pages.making.parameterization.calendar;
 
-import co.com.automation.pages.BasePage;
+import co.com.automation.pages.BasePageEress;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -18,7 +18,7 @@ import static co.com.eress.automation.utils.CalendarHelper.findDayInMonth;
 import static co.com.eress.automation.utils.CalendarHelper.stringToMonth;
 import static utils.ElementUtils.*;
 
-public class CalendarPage extends BasePage {
+public class CalendarPageEress extends BasePageEress {
 
     @FindBy(xpath = "//button[normalize-space()='Adicionar']")
     private WebElement addButton;

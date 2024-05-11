@@ -4,25 +4,25 @@ package co.com.automation.steps.making.parameterization.operatormachine;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.operatormachine.OperatorMachinePage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.operatormachine.OperatorMachinePageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
 import static utils.ElementUtils.*;
 
 public class OperatorMachineTest extends BaseTestEress {
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private OperatorMachinePage operatorMachinePage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private OperatorMachinePageEress operatorMachinePage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        operatorMachinePage = new OperatorMachinePage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        operatorMachinePage = new OperatorMachinePageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         clickWithJavaScript(parameterizationPage.maquinasOperarioIcon);

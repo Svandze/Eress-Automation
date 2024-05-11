@@ -3,9 +3,9 @@ package co.com.automation.steps.making.unitregistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.unitregistration.UnitRegistrationPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.unitregistration.UnitRegistrationPageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -14,16 +14,16 @@ import static utils.ElementUtils.windowHandler;
 
 public class UnitRegistrationTest extends BaseTestEress {
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private UnitRegistrationPage unitRegistrationPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private UnitRegistrationPageEress unitRegistrationPage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        unitRegistrationPage = new UnitRegistrationPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        unitRegistrationPage = new UnitRegistrationPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.costUnitRegisterIcon);
     }

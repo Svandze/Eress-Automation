@@ -1,12 +1,12 @@
 package co.com.automation.steps.making.parameterization.regionlocation;
 
-import co.com.automation.pages.making.parameterization.MakingPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
 import co.com.automation.steps.BaseTestEress;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.regionlocation.RegionLocationPage;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.regionlocation.RegionLocationPageEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
 import static co.com.eress.automation.utils.randomCodeBuilder.randomCode;
@@ -14,16 +14,16 @@ import static utils.ElementUtils.*;
 public class RegionLocationTest extends BaseTestEress {
 
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private RegionLocationPage regionLocationPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private RegionLocationPageEress regionLocationPage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        regionLocationPage = new RegionLocationPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        regionLocationPage = new RegionLocationPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         clickWithJavaScript(parameterizationPage.localizacionRegionesIcon);

@@ -3,9 +3,9 @@ package co.com.automation.steps.making.parameterization.garmentsmaster;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.garmentsmaster.GarmentsMasterPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.garmentsmaster.GarmentsMasterPageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -16,16 +16,16 @@ import static utils.ElementUtils.waitAndClick;
 
 public class GarmentsMasterTest extends BaseTestEress {
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private GarmentsMasterPage garmentsMasterPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private GarmentsMasterPageEress garmentsMasterPage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        garmentsMasterPage = new GarmentsMasterPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        garmentsMasterPage = new GarmentsMasterPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         scrollToElement(parameterizationPage.maestroElementosoIcon);

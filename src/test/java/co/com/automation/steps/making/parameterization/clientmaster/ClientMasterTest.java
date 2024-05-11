@@ -3,9 +3,9 @@ package co.com.automation.steps.making.parameterization.clientmaster;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.clientmaster.ClientMasterPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.clientmaster.ClientMasterPageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -16,9 +16,9 @@ import static utils.ElementUtils.windowHandler;
 public class ClientMasterTest extends BaseTestEress {
 
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private ClientMasterPage clientMasterPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private ClientMasterPageEress clientMasterPage;
 
     private Faker faker;
 
@@ -26,9 +26,9 @@ public class ClientMasterTest extends BaseTestEress {
     public void setup() {
         super.setup();
         faker = new Faker();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        clientMasterPage = new ClientMasterPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        clientMasterPage = new ClientMasterPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         waitAndClick(parameterizationPage.maestroClientesIcon);

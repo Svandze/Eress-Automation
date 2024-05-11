@@ -1,10 +1,10 @@
 package co.com.automation.pages.making.parameterization;
 
-import co.com.automation.pages.BasePage;
+import co.com.automation.pages.BasePageEress;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ParameterizationPage extends BasePage {
+public class ParameterizationPageEress extends BasePageEress {
     @FindBy(xpath = "//a[@href='/parametrizacion/maquinas']")
     public WebElement maestroDeMaquinasIcon;//article[@class='mt-4 grid__modules__nav']/seress-ui-link-card[5]/a/div
 

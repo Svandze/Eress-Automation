@@ -2,9 +2,9 @@ package co.com.automation.steps.making.parameterization.movementgroup;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.movementgroup.MovementGroupPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.movementgroup.MovementGroupPageEress;
 import co.com.automation.steps.BaseTestEress;
 
 
@@ -16,16 +16,16 @@ import static utils.ElementUtils.windowHandler;
 public class MovementGroupTest extends BaseTestEress {
 
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private MovementGroupPage grupoMovimientos;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private MovementGroupPageEress grupoMovimientos;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        grupoMovimientos = new MovementGroupPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        grupoMovimientos = new MovementGroupPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         waitAndClick(parameterizationPage.grupoMovimientosIcon);

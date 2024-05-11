@@ -2,9 +2,9 @@ package co.com.automation.steps.making.parameterization.maritalstatus;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.maritalstatus.MaritalStatusPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.maritalstatus.MaritalStatusPageEress;
 
 import co.com.automation.steps.BaseTestEress;
 
@@ -14,16 +14,16 @@ import static utils.ElementUtils.*;
 
 public class MaritalStatusTest extends BaseTestEress {
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private MaritalStatusPage maritalStatusPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private MaritalStatusPageEress maritalStatusPage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        maritalStatusPage = new MaritalStatusPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        maritalStatusPage = new MaritalStatusPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         implicitWait();

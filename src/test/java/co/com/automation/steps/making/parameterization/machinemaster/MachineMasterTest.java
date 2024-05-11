@@ -1,13 +1,12 @@
 package co.com.automation.steps.making.parameterization.machinemaster;
 
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.machinemaster.MachineMasterPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.machinemaster.MachineMasterPageEress;
 import co.com.automation.steps.BaseTestEress;
 import org.junit.jupiter.api.Test;
 
@@ -16,26 +15,23 @@ import static co.com.eress.automation.utils.randomCodeBuilder.randomCode;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.windowHandler;
 
-@Feature("Machine Master Functionality")
 public class MachineMasterTest extends BaseTestEress {
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private MachineMasterPage machineMasterPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private MachineMasterPageEress machineMasterPage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        machineMasterPage = new MachineMasterPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        machineMasterPage = new MachineMasterPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         waitAndClick(parameterizationPage.maestroDeMaquinasIcon);
     }
 
-    @Description("E2E flow")
-    @Story("Valid User Login")
     @Test
     public void machineManagementTest() {
         String machineCode = randomCode();

@@ -3,10 +3,10 @@ package co.com.automation.steps.making.parameterization.elementmaster;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
 
-import co.com.automation.pages.making.parameterization.elementmaster.ElementMasterPage;
+import co.com.automation.pages.making.parameterization.elementmaster.ElementMasterPageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -17,17 +17,17 @@ public class ElementMasterTest extends BaseTestEress {
 
 
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private ElementMasterPage elementMasterPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private ElementMasterPageEress elementMasterPage;
 
     @BeforeEach
     public void setup() {
         super.setup();
 
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        elementMasterPage = new ElementMasterPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        elementMasterPage = new ElementMasterPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         scrollToElement(parameterizationPage.maestroElementosoIcon);

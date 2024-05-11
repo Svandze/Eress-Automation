@@ -1,11 +1,10 @@
 package co.com.automation.steps.making.costandexpenses;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.costsandexpenses.CostAndExpensesPage;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
+import co.com.automation.pages.making.costsandexpenses.CostAndExpensesPageEress;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -14,17 +13,17 @@ import static utils.ElementUtils.windowHandler;
 
 public class CostAndExpensesTest extends BaseTestEress {
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private CostAndExpensesPage costAndExpensesPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private CostAndExpensesPageEress costAndExpensesPage;
 
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        costAndExpensesPage = new CostAndExpensesPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        costAndExpensesPage = new CostAndExpensesPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.costExpensesIcon);
     }

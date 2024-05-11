@@ -4,9 +4,9 @@ import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.operations.OperationsPage;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
+import co.com.automation.pages.making.operations.OperationsPageEress;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
 import co.com.automation.steps.BaseTestEress;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
@@ -15,17 +15,17 @@ import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.windowHandler;
 
 public class OperationsMasterTest extends BaseTestEress {
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private OperationsPage operationsPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private OperationsPageEress operationsPage;
 
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        operationsPage = new OperationsPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        operationsPage = new OperationsPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.operacionesIcon);
     }

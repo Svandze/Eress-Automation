@@ -1,7 +1,6 @@
 package co.com.automation.pages.making.parameterization.employees;
 
-import co.com.automation.pages.BasePage;
-import org.junit.jupiter.api.Assertions.*;
+import co.com.automation.pages.BasePageEress;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -13,7 +12,7 @@ import static utils.ElementUtils.scrollToElement;
 import static utils.ElementUtils.waitAndClick;
 import static utils.ElementUtils.waitAndSendKeys;
 
-public class EmployeesPage extends BasePage {
+public class EmployeesPageEress extends BasePageEress {
 
     @FindBy(xpath = "//button[normalize-space()='Adicionar']")
     public WebElement addNewEmployee;

@@ -4,12 +4,10 @@ import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import co.com.automation.pages.making.parameterization.MakingPage;
-import co.com.automation.pages.making.parameterization.ParameterizationPage;
-import co.com.automation.pages.making.parameterization.workshifts.WorkShiftsPage;
+import co.com.automation.pages.making.parameterization.MakingPageEress;
+import co.com.automation.pages.making.parameterization.ParameterizationPageEress;
+import co.com.automation.pages.making.parameterization.workshifts.WorkShiftsPageEress;
 import co.com.automation.steps.BaseTestEress;
-
-import java.util.Locale;
 
 import static co.com.eress.automation.constants.EressConstants.CONFECCIONES_WINDOW;
 import static co.com.eress.automation.utils.randomCodeBuilder.randomCode;
@@ -19,16 +17,16 @@ import static utils.ElementUtils.waitAndClick;
 public class WorkShiftsTest extends BaseTestEress {
 
 
-    private MakingPage makingPage;
-    private ParameterizationPage parameterizationPage;
-    private WorkShiftsPage workShiftsPage;
+    private MakingPageEress makingPage;
+    private ParameterizationPageEress parameterizationPage;
+    private WorkShiftsPageEress workShiftsPage;
 
     @BeforeEach
     public void setup() {
         super.setup();
-        makingPage = new MakingPage();
-        parameterizationPage = new ParameterizationPage();
-        workShiftsPage = new WorkShiftsPage();
+        makingPage = new MakingPageEress();
+        parameterizationPage = new ParameterizationPageEress();
+        workShiftsPage = new WorkShiftsPageEress();
         windowHandler(CONFECCIONES_WINDOW);
         waitAndClick(makingPage.parameterizationIcon);
         scrollToElement(parameterizationPage.tipoMovimientoIcon);

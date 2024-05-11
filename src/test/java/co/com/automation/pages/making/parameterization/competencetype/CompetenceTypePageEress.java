@@ -1,7 +1,6 @@
 package co.com.automation.pages.making.parameterization.competencetype;
 
-import co.com.automation.pages.BasePage;
-import org.junit.jupiter.api.Assertions.*;
+import co.com.automation.pages.BasePageEress;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -15,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ElementUtils.*;
 import static utils.ElementUtils.clickWithJavaScript;
 
-public class CompetenceTypePage extends BasePage {
+public class CompetenceTypePageEress extends BasePageEress {
     @FindBy(css = "p-checkbox div div input")
     public WebElement competitionTypeCheckSewing;
 
