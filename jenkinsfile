@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk 'jdk17'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/Svandze/Eress-Automation.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'mvn clean test surefire-report:report'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Successful build!'
+        }
+        failure {
+            echo 'Failure. Please review the build logs for details'
+        }
+    }
+}
