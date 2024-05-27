@@ -33,6 +33,9 @@ headless.mode=false
 maximize.mode=false
 ```
 
+Para correr las pruebas, es necesario tener una cuenta con los roles necesarios para ingresar a la plataforma. 
+Esta cuenta debe ser enviada como variable de entorno reemplazando los siguientes valores:
+email=correo;pass=password.
 
 ## Ejecución de las pruebas
 
